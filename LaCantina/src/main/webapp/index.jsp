@@ -88,28 +88,28 @@
         <div class="panel">
           <div class="card-grid">
             <a class="card" href="./shop.jsp?categoria=Amplificatori">
-              <div class="card__background" style="background-image: url(./IMG/Amplificatore.jpeg)"></div>
+              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Olio Extravergine d'oliva</h3>
               </div>
             </a> 
             <a class="card" href="./shop.jsp?categoria=Chitarre Elettriche">
-              <div class="card__background" style="background-image: url(./IMG/Chitarra.jpg)"></div>
+              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Vino Rosso</h3>
               </div>
             </a>
             <a class="card" href="./shop.jsp?categoria=Tastiere">
-              <div class="card__background" style="background-image: url(./IMG/Tastiera.jpg)"></div>
+              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Vino Bianco</h3>
               </div>
             </li>
             <a class="card" href="./shop.jsp?categoria=Mixer">
-              <div class="card__background" style="background-image: url(./IMG/Mixer.jfif)"></div>
+              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Limoncello</h3>
@@ -133,7 +133,7 @@
       <div class="panel">
       <div class="container">
         <div class="watch fade-in imgBx">
-          <img src="./IMG/43.png" alt="Cuffie">
+          <img src="./IMG/immagine_prova2.png" alt="Cuffie">
         </div>
         <div class="watch fade-in details">
             <div class="watch fade-in content">
@@ -145,8 +145,7 @@
                  	attualmente non fornisce altri prodotti lavorati dal territorio campano, ma si riserva di portarne in futuro, continuate a seguirci e presto
                  	ci saranno novità in arrivo
                  </p>
-                <a href="./shop.jsp?categoria=Cuffie"><button class="button1">Scopri di pi&ugrave;</button></a>
-            </div>
+          </div>
         </div>
     </div>
   </div>
