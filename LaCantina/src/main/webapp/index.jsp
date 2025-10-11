@@ -9,7 +9,7 @@
             Home Page
         </title>
         <link href="./CSS/index.css" rel="stylesheet" type="text/css">
-        <link rel="icon" type="image/png" href="IMG/Finale.png">
+        <link rel="icon" type="image/png" href="IMG/logo_lacantina.png">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     </head>
