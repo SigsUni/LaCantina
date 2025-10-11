@@ -1,0 +1,116 @@
+/* Stili di base per il footer */
+
+
+.footer {
+  height: auto;
+    width: 100%;
+    background: #1f1f1f;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Allinea al centro verticalmente */
+} 
+
+.footer-container {
+  
+  	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+	max-width: 150px;
+}
+
+.footer-section {
+	flex: 1;
+	padding: 10px;
+	min-width: 150px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.footer-section ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+}
+
+/* Stili aggiuntivi per evitare sovrapposizioni */
+.container {
+    min-height: calc(100vh - 100px); /* Altezza minima: 100% altezza viewport meno l'altezza del footer */
+    padding-bottom: 50px; /* Aggiungi spazio per evitare che il footer copra il contenuto */
+    position: relative;
+}
+
+#testimonials {
+    margin-bottom: 100px; /* Aggiungi margine inferiore sufficiente */
+}
+
+/* Media query per dispositivi con larghezza massima di 768px (modalità smartphone) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        margin-bottom: 20px;
+    }
+
+    .footer-section {
+        flex: 1 1 auto; /* Forza una colonna singola su dispositivi mobili */
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        padding: 20px 0;
+    }
+}
