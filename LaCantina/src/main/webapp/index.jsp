@@ -44,8 +44,8 @@
 		<div class="panel">
         <img src="./IMG/aboutus_lacantina.png" alt="Descrizione immagine" class="panel-image">
         <div class="panel-description">
-            <p>Fabrizio, Gabriele, Alessandro tre ragazzi con la passione per il proprio territorio e stanchi dei soliti prodotti con provenienza ambigua e di qualit&agrave; discutibile decidono con la collaborazione delle migliori aziende agricole del territorio campano di rimodernare il mercato&agrave;.
-                  L'obiettivo &egrave; sempplice, distribuire prodotti bio a Km0 con l'uso delle materie prime provenienti dai principali produttori del territorio campano, valorizzando il territorio e promuovendo la tradizione italiana.
+            <p>Fabrizio, Gabriele, Alessandro tre ragazzi con la passione per il proprio territorio e stanchi dei soliti prodotti con provenienza ambigua e di qualit&agrave; discutibile decidono con la collaborazione delle migliori aziende agricole del territorio campano di rimodernare il mercato.
+                  L'obiettivo &egrave; semplice, distribuire prodotti bio a Km0 con l'uso delle materie prime provenienti dai principali produttori del territorio campano, valorizzando il territorio e promuovendo la tradizione italiana.
                 </p>
                 <a href="#" class="btn">Scopri di pi&ugrave;</a>
                 
