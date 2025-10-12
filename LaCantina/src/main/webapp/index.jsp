@@ -1,3 +1,5 @@
+
+<%@page import = "it.unisa.lacantina.connection.DbCon"%>
 <!DOCTYPE html>
 <html >
     <head>
@@ -15,7 +17,6 @@
     </head>
 
     <body>  
-        
         <jsp:include page="/fragments/header.jsp"></jsp:include>
             <!--SCROLL CON VIDEO2-->
                 <video class="video-bg" src="presentazione.mp4" autoplay muted loop></video>      
