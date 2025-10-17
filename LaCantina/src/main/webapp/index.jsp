@@ -1,5 +1,3 @@
-
-<%@page import = "it.unisa.lacantina.connection.DbCon"%>
 <!DOCTYPE html>
 <html >
     <head>
