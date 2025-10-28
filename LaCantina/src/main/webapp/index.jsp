@@ -20,13 +20,13 @@
                 <video class="video-bg" src="presentazione.mp4" autoplay muted loop></video>      
                 <div class="section watch"> 
                   <video class="video-bg" src="./IMG/presentazione.mp4" autoplay muted loop></video>      
-                  <h1 class="title">UNA NUOVA ERA DI<br>PRODOTTI GENUINI</h1>
+                  <h1 class="title" style= "margin-left: 38%;">UNA NUOVA ERA DI<br>PRODOTTI GENUINI</h1>
               </div>
               <div class="section watch">
-                  <h1 class="title" style="margin-left: 25%;">FATTI TRASPORTARE  DALLA TRADIZIONE</h1>
+                  <h1 class="title" style="margin-left: 26%;">FATTI TRASPORTARE  DALLA TRADIZIONE</h1>
               </div>
               <div class="section watch">
-                  <h1 class="title" style="margin-left: 33%;">Scopri La Cantina</h1>
+                  <h1 class="title" style="margin-left: 38%;">Scopri La Cantina</h1>
               </div>
         
         <!--separatore-->
