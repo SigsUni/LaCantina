@@ -106,7 +106,6 @@
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Vino Bianco</h3>
               </div>
-            </li>
             <a class="card" href="./shop.jsp?categoria=Mixer">
               <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
               <div class="card__content">
