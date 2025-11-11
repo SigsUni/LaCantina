@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="form-container sign-in">
-			<form action="./user-login" method="post">
+			<form action="loginservlet" method="post">
 				<h1>Accedi al tuo account</h1>
 				<input type="text" name="email" placeholder="Email"> <input
 					type="password" name="password" placeholder="Password"> <a

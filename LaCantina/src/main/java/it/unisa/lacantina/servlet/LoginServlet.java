@@ -11,16 +11,24 @@ import java.io.PrintWriter;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/user-login")
+@WebServlet("/loginservlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public LoginServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.sendRedirect("LoginAndRegistration.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
@@ -28,11 +36,12 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html;charset=UTF-8");
 		try(PrintWriter out = response.getWriter()){
 			
 			out.print("this is servlet");
 		}
+		
+		doGet(request, response);
 	}
 
 }
