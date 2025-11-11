@@ -1,0 +1,171 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="28.2.9">
+  <diagram id="88gfuiEhciibhOhWjwMT" name="Pagina-2">
+    <mxGraphModel dx="3652" dy="1682" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-1" target="1QVaJ5h9D44BkOUkU3bD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-1" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); line-height: 0%;&quot;&gt;&lt;b style=&quot;font-size: 14px; line-height: 120%;&quot;&gt;Home Page&lt;/b&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal; line-height: 120%;&quot;&gt;- Utente naviga la pagina&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="17" y="96" width="109" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-7" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;endArrow=none;endFill=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-4" target="1QVaJ5h9D44BkOUkU3bD-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-4" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Pagina dettaglio prodotto&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal;&quot;&gt;- Utente clicca un prodotto e viene reindirizzato alla pagina specifica&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-495" y="316" width="281" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-5" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Aggiungi al carrello&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Utente aggiunge il prodotto al carrello&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-204" y="381" width="165" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-8" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Carrello&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal;&quot;&gt;- Utente clicca sull&#39;icona del carrello e viene reindirizzato alla pagina del carrello&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="126" y="192" width="334" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-9" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-8" target="1QVaJ5h9D44BkOUkU3bD-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="111" y="229" as="sourcePoint" />
+            <mxPoint x="126" y="188" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-10" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Rimozione&lt;/b&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Utente rimuove un prodotto dal carrello&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-25" y="316" width="176" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-11" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Modifica&lt;/b&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Utente modifica la quantità di un prodotto nel carrello&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="174" y="316" width="234" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-12" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-10" target="1QVaJ5h9D44BkOUkU3bD-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-6" y="299" as="sourcePoint" />
+            <mxPoint x="44" y="249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-13" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-11" target="1QVaJ5h9D44BkOUkU3bD-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="66" y="315" as="sourcePoint" />
+            <mxPoint x="139" y="267" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-23" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;endArrow=none;endFill=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-14" target="1QVaJ5h9D44BkOUkU3bD-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-14" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Catalogo&amp;nbsp;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Utente entra nel catalogo per visualizzare i prodotti&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-81" y="219" width="218" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-15" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-14" target="1QVaJ5h9D44BkOUkU3bD-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-31" y="326" as="sourcePoint" />
+            <mxPoint x="155" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-25" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;exitX=0;exitY=1;exitDx=0;exitDy=0;endArrow=classicThin;endFill=1;startArrow=none;startFill=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-16" target="1QVaJ5h9D44BkOUkU3bD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-16" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Filtra i prodotti&amp;nbsp;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Utente aggiunge filtri per i prodotti&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-272" y="265" width="165" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-20" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;startArrow=classicThin;startFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-16" target="1QVaJ5h9D44BkOUkU3bD-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-74" y="274" as="sourcePoint" />
+            <mxPoint x="-72" y="202" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-28" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Acquisto&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Utente tenta di acquistare i prodotti nel carrello&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="307" y="265" width="202" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-29" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-28" target="1QVaJ5h9D44BkOUkU3bD-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="302" y="355" as="sourcePoint" />
+            <mxPoint x="235" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-30" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Utente Loggato&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Se l&#39;utente ha effettuato la procedura di login procede all&#39;acuisto&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="499" y="395" width="274" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-31" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-30" target="1QVaJ5h9D44BkOUkU3bD-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="412" y="399" as="sourcePoint" />
+            <mxPoint x="283" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-32" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Utente NON Loggato&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Se l&#39;utente non ha effettuato la procedura di login viene reindirizzato alla pagina di login&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="499" y="304" width="367" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-33" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-32" target="1QVaJ5h9D44BkOUkU3bD-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="414" y="297" as="sourcePoint" />
+            <mxPoint x="276" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-46" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-34" target="1QVaJ5h9D44BkOUkU3bD-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-34" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); line-height: 0%;&quot;&gt;&lt;b style=&quot;font-size: 14px; line-height: 120%;&quot;&gt;Login Page&lt;/b&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal; line-height: 120%;&quot;&gt;- Utente accede alla pagina di login&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="866" y="96" width="161" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-35" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endFill=0;startArrow=classicThin;startFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-34" target="1QVaJ5h9D44BkOUkU3bD-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="133" y="201" as="sourcePoint" />
+            <mxPoint x="133" y="132" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-38" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;endFill=0;startArrow=classicThin;startFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-34" target="1QVaJ5h9D44BkOUkU3bD-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="874" y="551" as="sourcePoint" />
+            <mxPoint x="776" y="496" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="835" y="212" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-39" value="" style="endArrow=classicThin;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-30" target="1QVaJ5h9D44BkOUkU3bD-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="979" y="258" as="sourcePoint" />
+            <mxPoint x="936" y="414" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-40" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Form di acqcuisto&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- Se l&#39;utente inserisce i dati e procede all&#39;acquisto&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="870" y="395" width="202" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-41" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;endFill=0;startArrow=classicThin;startFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-43" target="1QVaJ5h9D44BkOUkU3bD-34">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1203" y="326" as="sourcePoint" />
+            <mxPoint x="1253" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-50" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;exitX=0.25;exitY=1;exitDx=0;exitDy=0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-43" target="1QVaJ5h9D44BkOUkU3bD-48">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="946" y="317" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-43" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); line-height: 0%;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b style=&quot;line-height: 120%;&quot;&gt;Effettua il login&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-weight: bold; text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; font-weight: normal; line-height: 120%;&quot;&gt;- Utente accede alla pagina di login&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="906" y="185" width="161" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-44" value="" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;endFill=0;startArrow=classicThin;startFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-30" target="1QVaJ5h9D44BkOUkU3bD-43">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="942" y="219" as="sourcePoint" />
+            <mxPoint x="943" y="157" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="896" y="372" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-47" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="1QVaJ5h9D44BkOUkU3bD-45" target="1QVaJ5h9D44BkOUkU3bD-43">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1154" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-45" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); line-height: 0%;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b style=&quot;line-height: 120%;&quot;&gt;Pagina registrazione&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center; line-height: 120%;&quot;&gt;- Utente senza account si registra&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1124" y="84" width="170" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="1QVaJ5h9D44BkOUkU3bD-48" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;Area personale&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 10px; text-align: center;&quot;&gt;- L&#39;utente può accedere alla propria area personale&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="287" width="224" height="37" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
