@@ -26,12 +26,12 @@
 		</div>
 
 		<div class="form-container sign-in">
-			<form action="loginservlet" method="post">
+			<form action="/loginservlet" method="POST">
 				<h1>Accedi al tuo account</h1>
 				<input type="text" name="email" placeholder="Email"> <input
 					type="password" name="password" placeholder="Password"> <a
 					href="#">Password Dimenticata?</a>
-				<button type ="submit">Accedi</button>
+				<button type ="submit" action = "/loginservlet">Accedi</button>
 			</form>
 		</div>
 
