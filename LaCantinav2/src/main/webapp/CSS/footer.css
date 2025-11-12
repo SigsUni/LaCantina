@@ -1,0 +1,159 @@
+/* Stili di base per il footer */
+.footer {
+  width: 100%;
+  background: #1f1f1f;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* OK su desktop */
+  /* rimuovo height fissa: lascia che il contenuto determini l'altezza */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;      /* per evitare allargamenti eccessivi */
+  margin: 0 auto;
+  padding: 24px 20px;     /* padding laterale così su mobile non tocca i bordi */
+  box-sizing: border-box;
+}
+
+.footer-logo img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 10px;
+  min-width: 150px;
+  box-sizing: border-box;
+  min-width: 0;           /* evita overflow di contenuto lungo */
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section ul {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.footer-section ul li a:hover {
+  opacity: 1;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;              /* sostituisce margin-right puntuale */
+  flex-wrap: wrap;        /* evita overflow orizzontale */
+}
+
+.social-icon {
+  width: 30px;
+  height: auto;
+  display: block;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+}
+
+/* Stili aggiuntivi per evitare sovrapposizioni */
+.container {
+  min-height: calc(100vh - 100px); /* Altezza minima: 100% viewport meno footer */
+  padding-bottom: 50px;            /* Spazio per evitare che il footer copra il contenuto */
+  position: relative;
+}
+
+#testimonials {
+  margin-bottom: 100px; /* Margine inferiore sufficiente */
+}
+
+/* Mobile (smartphone) */
+@media (max-width: 768px) {
+
+  .footer {
+    /* NON fissare l'altezza, lascia auto */
+    align-items: stretch;    /* evitiamo compressioni verticali */
+  }
+
+  .footer-container {
+    flex-direction: column;  /* colonne impilate */
+    justify-content: center;
+    align-items: center;
+    padding: 16px 14px;      /* più compatto su mobile */
+    gap: 12px;               /* spaziatura costante fra blocchi */
+  }
+
+  .footer-logo img {
+    margin-top: 0;           /* rimuove l'offset eccessivo */
+    max-width: 120px;        /* dimensione più equilibrata su mobile */
+    width: 100%;
+    height: auto;
+  }
+
+  .footer-section {
+    flex: 0 1 auto;          /* blocchi naturali senza espandersi troppo */
+    text-align: center;
+    margin-bottom: 0;        /* rimuove il -15px che causava sovrapposizioni */
+    width: 100%;
+  }
+
+  .footer-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;           /* link in riga, avvolgibili */
+    padding: 0;
+  }
+
+  .footer-section p,
+  .footer-section a,
+  .footer-section li {
+    font-size: 14px;         /* testo più leggibile in poco spazio */
+    line-height: 1.4;
+    word-break: break-word;  /* niente overflow per parole lunghe */
+  }
+
+  .social-icons {
+    gap: 12px;
+  }
+
+  .footer-bottom {
+    padding: 14px 0;
+  }
+}
+
+/* Salvaguardia generale contro overflow nel footer */
+.footer * {
+  box-sizing: border-box;
+  max-width: 100%;
+}

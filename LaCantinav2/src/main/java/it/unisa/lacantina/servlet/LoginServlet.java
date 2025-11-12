@@ -1,0 +1,70 @@
+package it.unisa.lacantina.servlet;
+import it.unisa.lacantina.control.UserDao;
+import it.unisa.lacantina.model.User;
+import it.unisa.lacantina.model.ConnectToDB;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+/**
+ * Servlet implementation class LoginServlet
+ */
+@WebServlet("/user-login")
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public LoginServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.sendRedirect("index.jsp");
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html;charset=UTF-8");
+		try(PrintWriter out = response.getWriter()){
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			
+			out.print(email+password);
+			UserDao udao = new UserDao(ConnectToDB.getConnection());
+			User user = udao.userLogin(email, password);
+			
+			if(user!=null)
+			{
+				out.print("user login");
+			}
+			else
+			{
+				out.println("<html><head>");
+			    out.println("<meta http-equiv='refresh' content='3;url=" 
+			                + request.getContextPath() + "/LoginAndRegistration.jsp'>");
+			    out.println("</head><body>");
+			    out.println("<h2>Login errato!</h2>");
+			    out.println("<p>Verrai reindirizzato alla pagina precedente tra 3 secondi... ritenta</p>");
+			    out.println("</body></html>");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		doGet(request, response);
+	}
+
+}
