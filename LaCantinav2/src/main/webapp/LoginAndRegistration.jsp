@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<%@page import="it.unisa.lacantina.model.User" %>
+<% 
+		User auth = (User)request.getSession().getAttribute("auth"); 
+
+		if(auth!=null)
+		{
+			response.sendRedirect("index.jsp");
+		}
+%>
 <html lang="it">
 <head>
 <meta charset="UTF-8">

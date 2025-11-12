@@ -1,4 +1,12 @@
 <%@page import="it.unisa.lacantina.model.ConnectToDB" %>
+<%@page import="it.unisa.lacantina.model.User" %>
+<% 
+	User auth = (User)request.getSession().getAttribute("auth"); 
+	if(auth != null)
+	{
+		request.setAttribute("auth",auth);
+	} 
+%>
 <!DOCTYPE html>
 <html >
     <head>

@@ -2,8 +2,14 @@
 <html lang="it">
 <head>
 
-
-<!-- INSERIRE IMPORT -->
+<%@page import="it.unisa.lacantina.model.User" %>
+<% 
+		User auth = (User)request.getSession().getAttribute("auth"); 
+		if(auth != null)
+		{
+			request.setAttribute("auth",auth);
+		}
+%>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,15 +29,11 @@
 				<li><a href="./shop.jsp">Shop</a></li>
 				<li><a href="./aboutUs.jsp">About us</a></li>
 				<li><a href="./contatti.jsp">Contatti</a></li>
+				<% if (auth!=null){%>
+						<li><a href="./ordini.jsp">Ordini</a></li>
+						<%} %>
 			</ul>
-
-
-
-<!--                 INSERIRE COLLEGAMENTO CON LA SESSIONE UTENTE -->  
-			
-			
-			
-
+ 
 			<div class="header__icons">
 				<a href="./carrello.jsp" aria-label="Visualizza il carrello"> <img
 					src="./IMG/shoppingbag.png" class="menu-icon" id="carrello"
@@ -42,13 +44,22 @@
 				<div class="dropdown-menu" id="dropdownMenu" role="menu"
 					aria-hidden="true">
 					<ul>
+					
 						<li class="mobile-only"><a href="./index.jsp">Home</a></li>
 						<li class="mobile-only"><a href="./shop.jsp">Shop</a></li>
 						<li class="mobile-only"><a href="./aboutUs.jsp">About us</a></li>
 						<li class="mobile-only"><a href="./contatti.jsp">Contatti</a></li>
+						<% if (auth!=null){%>
+						<li class ="mobile-only"><a href="./ordini.jsp">Ordini</a></li>
+						<%} %>
+						
+						<% if (auth==null){%>
 						<li><a href="./LoginAndRegistration.jsp">Accedi</a></li>
 						<li><a href="./LoginAndRegistration.jsp">Registrati</a></li>
-						<!--  INSERIRE CONTROLLI PER FAR VISUALIZZARE LOGIN OPPURE REGISTER -->
+						<%} %>
+						<% if(auth != null){ %>
+						<li><a href="user-logout">Logout</a>
+						<%} %>
 					</ul>
 				</div>
 			</div>

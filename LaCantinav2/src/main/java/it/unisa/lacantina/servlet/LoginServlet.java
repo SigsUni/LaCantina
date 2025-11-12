@@ -46,7 +46,14 @@ public class LoginServlet extends HttpServlet {
 			
 			if(user!=null)
 			{
-				out.print("user login");
+				request.getSession().setAttribute("auth", user);
+				
+				out.println("<html><head>");
+			    out.println("<meta http-equiv='refresh' content='2;url=" 
+			                + request.getContextPath() + "/index.jsp'>");
+			    out.println("</head><body>");
+			    out.println("<h2>Login effettuato!</h2>");
+			    out.println("</body></html>");
 			}
 			else
 			{
@@ -64,7 +71,6 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		doGet(request, response);
 	}
 
 }
