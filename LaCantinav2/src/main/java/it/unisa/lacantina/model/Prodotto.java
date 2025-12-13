@@ -10,8 +10,11 @@ public class Prodotto {
 	private float prezzo;
 	private String immagine;
 	
+	public Prodotto() {
+		
+	}
 	
-	public Prodotto(int id, String nome, String descrizione, String categoria, float prezzo, String immagine){
+	public Prodotto(int id, String nome, String descrizione, String categoria, float prezzo, String immagine, int stock){
 		
 		this.id = id;
 		this.nome = nome;
@@ -19,6 +22,11 @@ public class Prodotto {
 		this.categoria = categoria;
 		this.prezzo = prezzo;
 		this.immagine = immagine;
+		this.stock = stock;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public int getId() {
@@ -45,27 +53,35 @@ public class Prodotto {
 		return this.immagine;
 	}
 	
+	public int getStock() {
+		return stock;
+	}
 	
-	void setNome(String nome)
+	
+	
+	public void setNome(String nome)
 	{
 		this.nome = nome;
 	}
 	
-	void setDescrizione(String descrizione) {
+	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
 	
-	void setCategoria(String categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 	
-	void setPrezzo(float prezzo) {
+	public void setPrezzo(float prezzo) {
 		
 		this.prezzo = prezzo;
 	}
 	
-	void setImmagine(String immagine) {
+	public void setImmagine(String immagine) {
 		
 		this.immagine = immagine;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 }
