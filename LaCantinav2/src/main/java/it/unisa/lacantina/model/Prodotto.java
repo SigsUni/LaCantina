@@ -1,5 +1,8 @@
 package it.unisa.lacantina.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Prodotto {
 	
 	private int id;
@@ -57,8 +60,6 @@ public class Prodotto {
 		return stock;
 	}
 	
-	
-	
 	public void setNome(String nome)
 	{
 		this.nome = nome;
@@ -84,4 +85,10 @@ public class Prodotto {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	
+	
+	
+	
+	
+	
 }

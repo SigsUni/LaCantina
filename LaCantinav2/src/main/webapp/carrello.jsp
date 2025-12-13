@@ -1,12 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="it.unisa.lacantina.model.*" %>
-     <%@page import="it.unisa.lacantina.control.*" %>
+    <%@page import="it.unisa.lacantina.control.*" %>
+    <%@page import="java.util.*" %>
+     
 <% 
 		User auth = (User)request.getSession().getAttribute("auth"); 
 		if(auth != null)
 		{
 			request.setAttribute("auth",auth);
+		}
+		
+		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+		List<Cart> cartProduct = null;
+		if(cart_list != null){
+			ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
+			cartProduct = pDao.getCartProducts(cart_list);
+			request.setAttribute("cart_list", cart_list);
 		}
 %>
 <!DOCTYPE html>
@@ -63,22 +73,29 @@
  </tr>
  
  <tbody>
- 	<tr>
- 	<td>Scarp</td>
- 	<td>Scarp</td>
- 	<td>45</td>
- 	<td> 
- 	<form method= "post" class= "form-inline">
- 	<input type= "hidden" name="id" value = "1" class = "form-input">
- 	<div class = "form-group d-flex justify-content-between">
- 	<a class="btn btn-sm btn-decre" href = ""><i class= "fas fa-minus-square"></i></a>
- 	<input type="text" name="quantity" class = "form-control" value="1" readonly>
- 	<a class="btn btn-sm btn-incre" href = ""><i class= "fas fa-plus-square"></i></a>
- 	</div>
- 	</form>
- 	</td>
- 	<td><a class = "btn btn-sm btn-danger" href="">Remove</a></td>
- 	</tr>
+ <%if (cart_list!= null){
+ 	for(Cart c:cartProduct)
+ 	{%>
+ 			
+ 		<tr>
+ 	 		<td><%=c.getNome() %></td>
+ 	 			<td><%=c.getCategoria() %></td>
+ 	 				<td><%=c.getPrezzo() %></td>
+ 	 					<td> 
+ 	 						<form method= "post" class= "form-inline">
+ 	 						<input type= "hidden" name="id" value = "<%=c.getId() %>" class = "form-input">
+ 	 						<div class = "form-group d-flex justify-content-between">
+ 	 						<a class="btn btn-sm btn-decre" href = ""><i class= "fas fa-minus-square"></i></a>
+ 	 						<input type="text" name="quantity" class = "form-control" value="1" readonly>
+ 	 						<a class="btn btn-sm btn-incre" href = ""><i class= "fas fa-plus-square"></i></a>
+ 	 						</div>
+ 	 						</form>
+ 	 					</td>
+ 	 						<td><a class = "btn btn-sm btn-danger" href="">Rimuovi</a></td>
+ 	 			</tr>
+ 	<%}
+ 	} %>
+ 
  
  
  </tbody>
