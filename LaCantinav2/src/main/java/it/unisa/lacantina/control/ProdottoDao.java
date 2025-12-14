@@ -87,5 +87,32 @@ public class ProdottoDao {
 		return prodotti;
 	
 	}
-
+	
+	public float getTotalCartPrice(ArrayList<Cart> cartList) {
+		
+		float sum = 0;
+	
+		try {
+			if(cartList.size()>0) {
+				for(Cart item:cartList) 
+				{
+					query = "select prezzo from prodotti where id=?;";
+					pst = this.con.prepareStatement(query);
+					pst.setInt(1, item.getId());
+					rs = pst.executeQuery();
+					while(rs.next()) {
+						sum += rs.getFloat("prezzo") * item.getQuantity();
+					}
+					
+				}
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return sum;
+	}
+	
 }
+	

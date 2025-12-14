@@ -41,10 +41,9 @@ public class AddToCartServlet extends HttpServlet {
 			ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 			
 			
-		if(cart_list == null) {
+		if(cart_list == null) { //SE INSERIAMO IL PRIMO ELEMENTO NEL CARELLO
 			cartList.add(cm);
 			session.setAttribute("cart-list", cartList);
-			out.println("session crerated and added the list");
 		}
 		else
 		{
@@ -56,22 +55,15 @@ public class AddToCartServlet extends HttpServlet {
 				
 				if(c.getId() == id) {
 					exist = true;
-					out.println("product exist");
 				}
 				
 			}
 			if(!exist) {
 				cartList.add(cm);
-				out.println("product-added");
 			}
 		}
-		
-		for(Cart c:cart_list) {
 			
-			out.println(c.getId());
-		}
-			
-			
+		response.sendRedirect("shop.jsp");
 		}
 	}
 

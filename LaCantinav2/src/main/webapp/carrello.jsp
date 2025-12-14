@@ -13,10 +13,14 @@
 		
 		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 		List<Cart> cartProduct = null;
+		
+		
 		if(cart_list != null){
 			ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
 			cartProduct = pDao.getCartProducts(cart_list);
+			float totale = pDao.getTotalCartPrice(cart_list);
 			request.setAttribute("cart_list", cart_list);
+			 request.setAttribute("totale", totale); 
 		}
 %>
 <!DOCTYPE html>
@@ -59,7 +63,7 @@
   
  <div class = "container">
  
- <div class ="d-flex py-3"><h3>Prezzo totale:€452</h3>
+ <div class ="d-flex py-3"><h3>Conto: $ ${ (totale>0)?totale:0}</h3>
  <a class="mx-3 btn btn-primary" href ="#">CheckOut</a></div>
  <table class = "table table-loght">
  
@@ -85,13 +89,13 @@
  	 						<form method= "post" class= "form-inline">
  	 						<input type= "hidden" name="id" value = "<%=c.getId() %>" class = "form-input">
  	 						<div class = "form-group d-flex justify-content-between">
- 	 						<a class="btn btn-sm btn-decre" href = ""><i class= "fas fa-minus-square"></i></a>
- 	 						<input type="text" name="quantity" class = "form-control" value="1" readonly>
- 	 						<a class="btn btn-sm btn-incre" href = ""><i class= "fas fa-plus-square"></i></a>
+ 	 						<a class="btn btn-sm btn-decre" href = "quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class= "fas fa-minus-square"></i></a>
+ 	 						<input type="text" name="quantity" class = "form-control" value="<%=c.getQuantity()%>" readonly>
+ 	 						<a class="btn btn-sm btn-incre" href = "quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class= "fas fa-plus-square"></i></a>
  	 						</div>
  	 						</form>
  	 					</td>
- 	 						<td><a class = "btn btn-sm btn-danger" href="">Rimuovi</a></td>
+ 	 						<td><a class = "btn btn-sm btn-danger" href="remove-from-cart?id=<%=c.getId()%>">Rimuovi</a></td>
  	 			</tr>
  	<%}
  	} %>

@@ -3,12 +3,22 @@
 <head>
 
 <%@page import="it.unisa.lacantina.model.User" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@page import="it.unisa.lacantina.model.*" %>
+    <%@page import="it.unisa.lacantina.control.*" %>
+    <%@page import="java.util.*" %>
 <% 
 		User auth = (User)request.getSession().getAttribute("auth"); 
 		if(auth != null)
 		{
 			request.setAttribute("auth",auth);
 		}
+		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+		if(cart_list!=null){
+			request.setAttribute("cart_list", cart_list);
+		}
+		
 %>
 
 <meta charset="UTF-8">
@@ -26,7 +36,7 @@
 			</a>
 			<ul class="header__menu desktop-only">
 				<li><a href="./index.jsp">Home</a></li>
-				<li><a href="./shop.jsp">Shop</a></li>
+				<li><a href="./shop.jsp?categoria=tutto">Shop</a></li>
 				<li><a href="./aboutUs.jsp">About us</a></li>
 				<li><a href="./contatti.jsp">Contatti</a></li>
 				<% if (auth!=null){%>
@@ -37,7 +47,7 @@
 			<div class="header__icons">
 				<a href="./carrello.jsp" aria-label="Visualizza il carrello"> <img
 					src="./IMG/shoppingbag.png" class="menu-icon" id="carrello"
-					alt="Carrello">
+					alt="Carrello"> <span>${cart_list.size()}</span> <!-- ELEMENTI PRESENTI NEL CARRELLO -->
 				</a> <img src="./IMG/menu2.png" class="menu-icon" id="dropdownIcon"
 					alt="Menu" tabindex="0" aria-expanded="false"
 					aria-controls="dropdownMenu">

@@ -1,11 +1,17 @@
 <%@page import="it.unisa.lacantina.model.ConnectToDB" %>
 <%@page import="it.unisa.lacantina.model.User" %>
+<%@page import="it.unisa.lacantina.model.Cart" %>
+<%@page import="java.util.*" %>
 <% 
 	User auth = (User)request.getSession().getAttribute("auth"); 
 	if(auth != null)
 	{
 		request.setAttribute("auth",auth);
 	} 
+	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	if(cart_list!=null){
+		request.setAttribute("cart_list", cart_list);
+	}
 %>
 <!DOCTYPE html>
 <html >
