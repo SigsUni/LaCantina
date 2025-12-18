@@ -64,7 +64,7 @@
  <div class = "container">
  
  <div class ="d-flex py-3"><h3>Conto: $ ${ (totale>0)?totale:0}</h3>
- <a class="mx-3 btn btn-primary" href ="#">CheckOut</a></div>
+ <a class="mx-3 btn btn-primary" href ="check-out">CheckOut</a></div>
  <table class = "table table-loght">
  
  <thread>
