@@ -8,8 +8,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import it.unisa.lacantina.control.OrdineDao;
+import it.unisa.lacantina.model.Cart;
+import it.unisa.lacantina.model.ConnectToDB;
 import it.unisa.lacantina.model.Ordine;
 import it.unisa.lacantina.model.User;
 
@@ -28,7 +32,7 @@ public class OrderNowServlet extends HttpServlet {
 		
 		try(PrintWriter out = response.getWriter())
 		{
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Date date = new Date();
 			
 			User auth = (User)request.getSession().getAttribute("auth");
@@ -42,13 +46,32 @@ public class OrderNowServlet extends HttpServlet {
 				}else {
 					
 					Ordine orderModel = new Ordine();
-					orderModel.setId(Integer.parseInt(prodottoId));
+					orderModel.setId_prodotto(Integer.parseInt(prodottoId));
 					orderModel.setId_utente(auth.getID());
+					orderModel.setQuantity(productQuantity);
 					orderModel.setData(formatter.format(date));
 					
+					OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
+					boolean result = orderDao.insertOrder(orderModel);
 					
-					
-					
+					if(result) 
+					{
+						ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+						if(cart_list!= null) {
+							for(Cart c:cart_list) {
+								if(c.getId() == Integer.parseInt(prodottoId)) 
+								{
+									cart_list.remove(cart_list.indexOf(c));
+									break;
+								}
+							}
+						}
+						response.sendRedirect("ordini.jsp");
+					}
+					else 
+					{
+						response.sendRedirect("LoginAndRegistration.jsp");
+					}
 				}
 				
 				
@@ -56,7 +79,7 @@ public class OrderNowServlet extends HttpServlet {
 				
 			}
 			else {
-				response.sendRedirect("LoginAndRegistration.jsp")
+				response.sendRedirect("LoginAndRegistration.jsp");
 			}
 			
 			

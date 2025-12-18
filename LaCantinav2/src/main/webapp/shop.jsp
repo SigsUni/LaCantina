@@ -105,7 +105,7 @@
            							 <p class="card-text"><%= p.getDescrizione() %></p>
 
             						<div class="mt-3 d-flex justify-content-between">
-               							 <a href="#" class="btn btn-primary btn-sm">Acquista</a>
+               							 <a href="order-now?quantity=1&id=<%= p.getId() %>" class="btn btn-primary btn-sm">Acquista</a>
               								  <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-primary btn-sm">Add to Cart</a>
             						</div>
        							 </div>

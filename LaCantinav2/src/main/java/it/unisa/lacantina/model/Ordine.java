@@ -20,7 +20,7 @@ public class Ordine extends Prodotto{
 		this.data = data;
 	}
 	
-	public int getId() 
+	public int getIdProdotto() 
 	{
 		return this.id_prodotto;
 	}
@@ -40,8 +40,8 @@ public class Ordine extends Prodotto{
 		return this.data;
 	}
 	
-	public void setId(int id) {
-		this.id = id;
+	public void setId_prodotto(int id) {
+		this.id_prodotto = id;
 	}
 	
 	public void setId_utente(int id) {
