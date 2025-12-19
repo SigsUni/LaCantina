@@ -2,6 +2,7 @@ package it.unisa.lacantina.model;
 
 public class Ordine extends Prodotto{
 	
+	private int id;
 	private int id_prodotto;
 	private int id_utente;
 	private int quantity;
@@ -12,14 +13,18 @@ public class Ordine extends Prodotto{
 		
 	}
 	
-	public Ordine(int id, int id_utente, int quantity, String data) {
+	public Ordine(int id,int id_prodotto, int id_utente, int quantity, String data) {
 		super();
-		this.id_prodotto = id;
+		this.id = id;
+		this.id_prodotto = id_prodotto;
 		this.id_utente = id_utente;
 		this.quantity = quantity;
 		this.data = data;
 	}
 	
+	public int getId_ordine() {
+		return id;
+	}
 	public int getIdProdotto() 
 	{
 		return this.id_prodotto;
@@ -56,6 +61,9 @@ public class Ordine extends Prodotto{
 	public void setData(String data) 
 	{
 		this.data = data;
+	}
+	public void setId_ordine(int id) {
+		this.id = id;
 	}
 	
 

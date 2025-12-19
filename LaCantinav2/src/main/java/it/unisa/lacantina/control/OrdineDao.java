@@ -3,8 +3,11 @@ package it.unisa.lacantina.control;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.unisa.lacantina.model.Ordine;
+import it.unisa.lacantina.model.Prodotto;
 
 public class OrdineDao 
 {
@@ -42,6 +45,41 @@ public class OrdineDao
 		
 		
 		return result;
+	}
+	
+	public List<Ordine> userOrders(int id){
+		List<Ordine> list = new ArrayList<>();
+		try {
+			
+			query = "select * from ordini where id_utente =? order by ordini.id desc;";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				Ordine order = new Ordine();
+				ProdottoDao productDao = new ProdottoDao(this.con);
+				
+				int pId = rs.getInt("id_prodotto");
+				
+				Prodotto prodotto = productDao.getSingleProdotto(pId);
+				order.setId_ordine(rs.getInt("id"));
+				order.setNome(prodotto.getNome());
+				order.setCategoria(prodotto.getCategoria());
+				order.setPrezzo(prodotto.getPrezzo() * rs.getInt("quantity"));
+				order.setQuantity(rs.getInt("quantity"));
+				order.setData(rs.getString("data_ordine"));
+			
+				list.add(order);
+				
+			}
+			
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	

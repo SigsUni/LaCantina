@@ -114,5 +114,36 @@ public class ProdottoDao {
 		return sum;
 	}
 	
+	public Prodotto getSingleProdotto(int id) {
+		Prodotto prod = null;
+		
+		try {
+			query = "select * from prodotti where id=?;";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				prod = new Prodotto();
+				
+				prod.setId(rs.getInt("id"));
+				prod.setNome(rs.getString("nome"));
+				prod.setCategoria(rs.getString("categoria"));
+				prod.setPrezzo(rs.getFloat("prezzo"));
+				prod.setImmagine(rs.getString("immagine"));
+				prod.setDescrizione(rs.getString("descrizione"));
+				prod.setStock(rs.getInt("stock"));
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return prod;
+	}
+	
 }
 	
