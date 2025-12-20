@@ -49,8 +49,17 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("auth", user);
 				
 				out.println("<html><head>");
+				if(user.getID()!=2) {
 			    out.println("<meta http-equiv='refresh' content='2;url=" 
 			                + request.getContextPath() + "/index.jsp'>");
+			    out.println("</head><body>");
+			    out.println("<h2>Login effettuato!</h2>");
+			    out.println("</body></html>");
+			    }
+				else 
+				{
+					response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
+				}
 			    out.println("</head><body>");
 			    out.println("<h2>Login effettuato!</h2>");
 			    out.println("</body></html>");
