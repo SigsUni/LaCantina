@@ -12,18 +12,17 @@ import it.unisa.lacantina.control.ProdottoDao;
 import it.unisa.lacantina.model.ConnectToDB;
 
 
-
 /**
- * Servlet implementation class AdminRemoveStock
+ * Servlet implementation class AdminInsertNewProduct
  */
-@WebServlet("/remove-stock")
-public class AdminRemoveStock extends HttpServlet {
+@WebServlet("/insert-product")
+public class AdminInsertNewProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminRemoveStock() {
+    public AdminInsertNewProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,36 +31,44 @@ public class AdminRemoveStock extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		response.setContentType("text/html; charset = UTF-8");
 		
-		try(PrintWriter out = response.getWriter())
-		{
-			int id = Integer.parseInt(request.getParameter("id"));
-			int stock_input = Integer.parseInt(request.getParameter("stock_remove"));
-			ProdottoDao productdao = new ProdottoDao(ConnectToDB.getConnection());
-			
-			int stock = productdao.getStockFromId(id);
-			if((stock - stock_input) <0)
-			{
-				response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
-			}
-			else
-			{
-				productdao.setNewStock(id, stock-stock_input);
-			
-				response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
-			}
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	
-	
+		response.setContentType("text/html; charset= UTF-8");
 		
+		try (PrintWriter out = response.getWriter())
+		{
+			String name = request.getParameter("insert-nome");
+			String categoria = request.getParameter("insert-categoria");
+			String descrizione = request.getParameter("insert-descrizione");
+			int Stock = Integer.parseInt(request.getParameter("insert-stock"));
+			String immagine = request.getParameter("insert-immagine");
+			float prezzo= Float.parseFloat(request.getParameter("insert-prezzo"));
+			
+			
+			try 
+			{
+				ProdottoDao productdao = new ProdottoDao(ConnectToDB.getConnection());
+				
+				boolean x = productdao.insertProduct(name,categoria,descrizione,Stock,prezzo,immagine);
+				
+				
+				if(x == true)
+				{
+					response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
+				}
+				else
+				{
+					response.sendRedirect("/LaCantinav2/admin-pages/insert_error.jsp");
+				}
+				
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			
+		}
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

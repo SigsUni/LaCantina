@@ -1,17 +1,16 @@
-<%@page import = "cn.uliveto.connection.DbCon" %>
-<%@page import ="cn.uliveto.model.*" %>
-<%@page import ="java.util.*" %>
-<%@page import ="cn.uliveto.dao.*" %>
+<%@page import = "it.unisa.lacantina.control.*" %>
+<%@page import = "it.unisa.lacantina.model.*" %>
+<%@page import = "java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<%Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+	<%User auth = (User)request.getSession().getAttribute("auth"); 
   	
   	if(auth!=null)
   	{
   		request.setAttribute("auth",auth);
   		
-  		if(auth.getId() != 2)
+  		if(auth.getID() != 2)
   	  	{
   	  		response.sendRedirect("/uliveto/index.jsp");
   	  	}
@@ -36,7 +35,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Nuovo prodotto</title>
 <%@include file = "admin_includes/header.jsp" %>
 </head>
 <body>
@@ -59,7 +58,7 @@
 	<!-- card body --> 
 	
 
-<form action ="/uliveto/insert-product" method = "GET" >
+<form action ="<%= request.getContextPath() %>/insert-product" method = "GET" >
 
 <div class= "form-group">
 

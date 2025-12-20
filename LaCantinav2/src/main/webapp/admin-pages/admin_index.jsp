@@ -65,7 +65,7 @@
     				</div>
     				<div class="form-group d-flex justify-content-between w-50">
     				
-    				<form action="<%= request.getContextPath() %>/add-stock"" method="GET" class="form-inline d-flex" >
+    				<form action="<%= request.getContextPath() %>/add-stock" method="GET" class="form-inline d-flex" >
 					<input type="number" name ="stock_add" class="form-control w-100" value="" placeholder="">
 				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
 				  	<button type="submit" class="btn btn-primary">Aggiungi</button>
@@ -80,7 +80,7 @@
 				  	</form>
 						</div>
     				 
-    					<a href="/uliveto/delete-prodotto?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a> 
+    					<a href="<%= request.getContextPath() %>/delete-prodotto?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a> 
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescrizione() %></p>
     				</div>

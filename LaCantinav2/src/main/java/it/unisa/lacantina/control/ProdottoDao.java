@@ -189,5 +189,54 @@ public class ProdottoDao {
 		
 	}
 	
+	
+	public void DeleteById(int id)
+	{
+		try {
+			
+			query = "delete from prodotti where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			pst.execute();
+	
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean insertProduct(String nome, String categoria, String descrizione,int stock, float prezzo, String immagine)
+	{
+		boolean result = false;
+		
+		try {
+			
+			query = "insert into prodotti (nome,descrizione,categoria,stock,prezzo,immagine) values(?,?,?,?,?,?)";
+			
+			pst= this.con.prepareStatement(query);
+			pst.setString(1,nome);
+			pst.setString(2,descrizione);
+			pst.setString(3,categoria);
+			pst.setInt(4,stock);
+			pst.setFloat(5,prezzo);
+			pst.setString(6,immagine);
+			pst.executeUpdate();
+			result = true;
+			
+			return result;
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+		
+	}
+	
 }
 	
