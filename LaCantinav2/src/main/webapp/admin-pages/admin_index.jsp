@@ -65,7 +65,7 @@
     				</div>
     				<div class="form-group d-flex justify-content-between w-50">
     				
-    				<form action="/uliveto/add-stock" method="GET" class="form-inline d-flex" >
+    				<form action="<%= request.getContextPath() %>/add-stock"" method="GET" class="form-inline d-flex" >
 					<input type="number" name ="stock_add" class="form-control w-100" value="" placeholder="">
 				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
 				  	<button type="submit" class="btn btn-primary">Aggiungi</button>
@@ -73,7 +73,7 @@
 				  	
 				  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				  	
-				  	<form action="/uliveto/delete-stock" method="GET" class="form-inline d-flex">
+				  	<form action="<%= request.getContextPath() %>/remove-stock"delete-stock" method="GET" class="form-inline d-flex">
 				  	<input type="number" name ="stock_remove" class="form-control w-100" value="" placeholder="">
 				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
 				  	<button type="submit" class="btn btn-danger">&nbsp;Rimuovi&nbsp;</button>

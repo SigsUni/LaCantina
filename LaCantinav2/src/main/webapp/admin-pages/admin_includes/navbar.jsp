@@ -23,7 +23,7 @@
       		</li>
       			
       		<li class="nav-item">
-            <a class="nav-link" href="/uliveto/log-out">EXIT-ADMIN-MODE</a>
+            <a class="nav-link" href="<%= request.getContextPath() %>/user-logout">EXIT-ADMIN-MODE</a>
             </li>
     </ul>
   </div>
