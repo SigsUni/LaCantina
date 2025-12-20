@@ -91,6 +91,8 @@
     		<%	
     if(p.getCategoria().equals(categoriaSelezionata) || categoriaSelezionata.equals("tutto"))
     {%>
+    
+    <% if(p.checkSingleStock()){%> 
     		
         			<div class="col-md-3 mb-4">
 
@@ -101,6 +103,7 @@
         						<div class="card-body">
            							<h5 class="card-title"><%= p.getNome() %></h5>
             						<h6 class="price">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
+            						<h6 class="stock">Stock: <%= p.getStock() %></h6>
             						<h6 class="category">Categoria: <%= p.getCategoria() %></h6>
            							 <p class="card-text"><%= p.getDescrizione() %></p>
 
@@ -108,10 +111,31 @@
                							 <a href="order-now?quantity=1&id=<%= p.getId() %>" class="btn btn-primary btn-sm">Acquista</a>
               								  <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-primary btn-sm">Add to Cart</a>
             						</div>
+            						
        							 </div>
 
     					</div>
 				</div>
+				<%} else{%>
+				
+					<div class="col-md-3 mb-4">
+
+					<div class="card w-100" style="width: 18rem;">
+    
+   						 <img class="card-img-top product-img" src="<%= p.getImmagine() %>">
+
+    						<div class="card-body">
+       							<h5 class="card-title"><%= p.getNome() %></h5>
+        						<h6 class="price">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
+        						<h6 class="stock">Stock: <b>Out of Stock</b></h6>
+        						<h6 class="category">Categoria: <%= p.getCategoria() %></h6>
+       							 <p class="card-text"><%= p.getDescrizione() %></p>
+        						
+   							 </div>
+
+					</div>
+			</div>
+				<%} %>
 
     	
     		

@@ -74,7 +74,6 @@
 				<td><%= o.getPrezzo() %></td>
 				<td><%= o.getQuantity() %></td>
 				<td><%= o.getPrezzo()%></td>
-				<%System.out.println(o.getPrezzo());%>
 				<td><a class = "btn btn-sm btn-danger" href="cancel-order?id=<%= o.getId_ordine() %>">Gestisci</a></td>
 				
 			<tr>

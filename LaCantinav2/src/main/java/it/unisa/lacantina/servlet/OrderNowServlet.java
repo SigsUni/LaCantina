@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import it.unisa.lacantina.control.OrdineDao;
+import it.unisa.lacantina.control.ProdottoDao;
 import it.unisa.lacantina.model.Cart;
 import it.unisa.lacantina.model.ConnectToDB;
 import it.unisa.lacantina.model.Ordine;
@@ -36,6 +37,7 @@ public class OrderNowServlet extends HttpServlet {
 			Date date = new Date();
 			
 			User auth = (User)request.getSession().getAttribute("auth");
+			ProdottoDao prodotto = null;
 			if(auth!=null) 
 			{
 				
@@ -50,11 +52,14 @@ public class OrderNowServlet extends HttpServlet {
 					orderModel.setId_utente(auth.getID());
 					orderModel.setQuantity(productQuantity);
 					orderModel.setData(formatter.format(date));
+					prodotto = new ProdottoDao(ConnectToDB.getConnection());
 					
 					OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
 					boolean result = orderDao.insertOrder(orderModel);
+					int nuovo_stock = prodotto.getStockFromId(orderModel.getIdProdotto()) - 1;
+					boolean result_update_stock = prodotto.setNewStock(orderModel.getIdProdotto(),nuovo_stock);
 					
-					if(result) 
+					if(result || result_update_stock) 
 					{
 						ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
 						if(cart_list!= null) {

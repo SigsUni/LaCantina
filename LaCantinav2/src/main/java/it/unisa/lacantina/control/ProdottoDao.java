@@ -145,5 +145,49 @@ public class ProdottoDao {
 		return prod;
 	}
 	
+	public boolean setNewStock(int id, int nuovo_stock) 
+	{
+		
+		boolean result = false;
+		
+		try {
+			
+			query = "update prodotti set stock=? where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, nuovo_stock);
+			pst.setInt(2, id);
+			pst.executeUpdate();
+			result = true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
+	
+	public int getStockFromId(int id) {
+		
+		int stock = 0;
+		
+		try {
+			query = "select stock from prodotti where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				stock = rs.getInt("stock");
+			}
+			
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return stock;
+		
+	}
+	
 }
 	

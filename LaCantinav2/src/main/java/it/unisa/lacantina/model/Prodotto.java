@@ -60,6 +60,20 @@ public class Prodotto {
 		return stock;
 	}
 	
+	public boolean checkStock(int quantity) { //CONTROLLA SE ESISTONO UN NUMERO MINIMO DI PRODOTTI
+		if(stock>=quantity) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkSingleStock() { //CONTROLLA SE ESISTE ALEMNO UN PRODOTTO
+		if(stock>0) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void setNome(String nome)
 	{
 		this.nome = nome;

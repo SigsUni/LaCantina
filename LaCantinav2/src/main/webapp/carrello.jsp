@@ -96,8 +96,10 @@
 
     					<input type="text" name="quantity" class="form-control form-control-sm text-center" style="width: 40px;" value="<%=c.getQuantity()%>" readonly>
 
+						<%if(c.checkStock(c.getQuantity() + 1)){ %>
     					<a class="btn btn-sm btn-incre px-1 py-0" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>">
-						<i class="fas fa-plus-square"></i>
+    					<%} %>
+    					<i class="fas fa-plus-square"></i>
    						 </a>
     						<button type="submit" class="btn btn-primary btn-sm">Buy</button>
 					</div>

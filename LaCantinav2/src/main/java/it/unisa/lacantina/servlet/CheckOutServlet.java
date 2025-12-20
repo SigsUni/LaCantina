@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import it.unisa.lacantina.control.OrdineDao;
+import it.unisa.lacantina.control.ProdottoDao;
 import it.unisa.lacantina.model.Cart;
 import it.unisa.lacantina.model.ConnectToDB;
 import it.unisa.lacantina.model.Ordine;
@@ -38,12 +39,16 @@ public class CheckOutServlet extends HttpServlet {
 			
 			//controlli cart-list e autenticazione
 			
+			
+			ProdottoDao prodotto = null;
+			
 			if(cart_list != null && auth!= null) {
 			
 				for(Cart c:cart_list)
 				{
 	
 					Ordine order = new Ordine();
+					prodotto = new ProdottoDao(ConnectToDB.getConnection());
 					order.setId_prodotto(c.getId());
 					order.setId_utente(auth.getID());
 					order.setQuantity(c.getQuantity());
@@ -52,7 +57,13 @@ public class CheckOutServlet extends HttpServlet {
 					OrdineDao oDao = new OrdineDao(ConnectToDB.getConnection());
 					oDao.insertOrder(order);
 					boolean result = oDao.insertOrder(order);
-					if(!result) break;
+					//UPDATE NUOVO STOCK
+					int nuovo_stock = prodotto.getStockFromId(c.getId()) - c.getQuantity();
+					boolean result_update_stock = prodotto.setNewStock(c.getId(),nuovo_stock);
+					if(!result || !result_update_stock) {
+						
+						break;
+					}
 				}
 				
 				
