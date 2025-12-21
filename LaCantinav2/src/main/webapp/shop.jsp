@@ -3,6 +3,7 @@
 <%@page import="it.unisa.lacantina.control.*" %>
 <%@page import="java.util.List" %>
 <%@page import="java.util.*" %>
+
 <% 
 	User auth = (User)request.getSession().getAttribute("auth"); 
 	if(auth != null)
@@ -98,7 +99,7 @@
 
     					<div class="card w-100" style="width: 18rem;">
         
-       						 <img class="card-img-top product-img" src="<%= p.getImmagine() %>">
+       						 <img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>">
 
         						<div class="card-body">
            							<h5 class="card-title"><%= p.getNome() %></h5>

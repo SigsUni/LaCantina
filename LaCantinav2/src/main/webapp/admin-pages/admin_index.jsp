@@ -55,7 +55,7 @@
 			<div class="col-12 col-md-6 col-lg-4 gy-3">
 			<div class="card w-100" style="width: 8rem;">
 				<a href="#">
-  				<img class="card-img-top" src="/LaCantinav2/<%= p.getImmagine() %>" alt="Card image cap"></a>
+  				<img class="card-img-top" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>" alt="Card image cap"></a>
   					<div class="card-body">
     				<h5 class="card-title"><%= p.getNome() %></h5>
     				<h6 class = "price">Prezzo €<%= p.getPrezzo() %></h6>
