@@ -1,14 +1,14 @@
-<%@page import = "cn.uliveto.connection.DbCon" %>
-<%@page import ="cn.uliveto.model.*" %>
+<%@page import = "it.unisa.lacantina.control.*" %>
+<%@page import = "it.unisa.lacantina.model.*" %>
 <%@page import = "java.util.*" %>
-<%@page import = "cn.uliveto.dao.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
     <%
-    Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+    User auth = (User)request.getSession().getAttribute("auth"); 
   	
     List<Ordine> orders = null;
+    UserDao NomeUser = null;
     
     
    
@@ -18,13 +18,13 @@
   	{
   		request.setAttribute("auth",auth);
   		
-  		if(auth.getId() != 2)
+  		if(auth.getID() != 2)
   		{
   			response.sendRedirect("/uliveto/index.jsp");
   		}
   		
-  		OrderDao orderDao = new OrderDao(DbCon.getConnection());
-  		orders = new OrderDao(DbCon.getConnection()).all_userOrders();
+  		OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
+  		orders = new OrdineDao(ConnectToDB.getConnection()).all_userOrders();
   		
   	}
   	else
@@ -71,18 +71,22 @@
 			if(orders!=null){
 				
 				for(Ordine o:orders)
-				{%>
+				{
+				NomeUser = new UserDao(ConnectToDB.getConnection());
+				
+				%>
+				
 				
 				<tr>
 					
-					<td><%=o.getDate() %></td>
-					<td><%=o.getUsername() %></td>
-					<td><%=o.getName() %></td>
-					<td><%=o.getCategory() %></td>
+					<td><%=o.getData() %></td>
+					<td><%=NomeUser.getNomeById(o.getIdUtente()) %></td>
+					<td><%=o.getNome() %></td>
+					<td><%=o.getCategoria() %></td>
 					<td><%=o.getQuantity() %></td>
-					<td>€<%=o.getPrice() %></td>
+					<td>€<%=o.getPrezzo() %></td>
 					
-					<td><a class = "btn btn-sm btn-danger" href="/uliveto/cancel-order?id=<%=o.getOrderId() %>"> Elimina</a></td>
+					<td><a class = "btn btn-sm btn-danger" href="/uliveto/cancel-order?id=<%=o.getId() %>"> Elimina</a></td>
 					
 					
 				<% }

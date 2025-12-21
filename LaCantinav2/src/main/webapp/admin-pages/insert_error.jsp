@@ -1,16 +1,16 @@
-<%@page import ="cn.uliveto.connection.DbCon"%>
-<%@page import ="cn.uliveto.model.*" %>
+<%@page import ="it.unisa.lacantina.control.*"%>
+<%@page import ="it.unisa.lacantina.model.*"%>
 <%@page import = "java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-     <%Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+     <%User auth = (User)request.getSession().getAttribute("auth"); 
   	
   	if(auth!=null)
   	{
   		request.setAttribute("auth",auth);
   		
-  		if(auth.getId() != 2)
+  		if(auth.getID() != 2)
   	  	{
   	  		response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
   	  	}
