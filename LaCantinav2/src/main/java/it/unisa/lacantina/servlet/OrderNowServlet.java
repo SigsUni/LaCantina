@@ -45,22 +45,25 @@ public class OrderNowServlet extends HttpServlet {
 				int productQuantity = Integer.parseInt(request.getParameter("quantity"));
 				if(productQuantity<=0) {
 					response.sendRedirect("index.jsp");
-				}else {
+				}else 
+				{
 					
 					Ordine orderModel = new Ordine();
 					orderModel.setId_prodotto(Integer.parseInt(prodottoId));
 					orderModel.setId_utente(auth.getID());
 					orderModel.setQuantity(productQuantity);
 					orderModel.setData(formatter.format(date));
-					prodotto = new ProdottoDao(ConnectToDB.getConnection());
-					
 					OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
+					//OPERAZIONI DI DECREMENTO STOCK
+					prodotto = new ProdottoDao(ConnectToDB.getConnection());
 					boolean result = orderDao.insertOrder(orderModel);
 					int nuovo_stock = prodotto.getStockFromId(orderModel.getIdProdotto()) - 1;
 					boolean result_update_stock = prodotto.setNewStock(orderModel.getIdProdotto(),nuovo_stock);
+					//FINE OPERAZIONI DECREMENTO STOCK
 					
 					if(result || result_update_stock) 
 					{
+						//RIMOZIONE ELEMENTO DA CARRELLO SE PRESENTE
 						ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
 						if(cart_list!= null) {
 							for(Cart c:cart_list) {

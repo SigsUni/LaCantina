@@ -7,23 +7,28 @@ public class Ordine extends Prodotto{
 	private int id_utente;
 	private int quantity;
 	private String data;
+	private int id_riga_ordine;
 	
 	
 	public Ordine() {
 		
 	}
 	
-	public Ordine(int id,int id_prodotto, int id_utente, int quantity, String data) {
+	public Ordine(int id,int id_prodotto, int id_utente, int quantity, String data, int id_riga_ordine) {
 		super();
 		this.id = id;
 		this.id_prodotto = id_prodotto;
 		this.id_utente = id_utente;
 		this.quantity = quantity;
 		this.data = data;
+		this.id_riga_ordine = id_riga_ordine;
 	}
 	
 	public int getId_ordine() {
 		return id;
+	}
+	public int getIdRigaOrdine() {
+		return id_riga_ordine;
 	}
 	public int getIdProdotto() 
 	{
@@ -64,6 +69,10 @@ public class Ordine extends Prodotto{
 	}
 	public void setId_ordine(int id) {
 		this.id = id;
+	}
+	public void setIdRigaOrdine(int id) {
+
+		this.id_riga_ordine = id;
 	}
 	
 
