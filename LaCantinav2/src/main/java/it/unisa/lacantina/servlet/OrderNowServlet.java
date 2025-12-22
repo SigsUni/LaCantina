@@ -13,9 +13,11 @@ import java.util.Date;
 
 import it.unisa.lacantina.control.OrdineDao;
 import it.unisa.lacantina.control.ProdottoDao;
+import it.unisa.lacantina.control.RigaOrdineDao;
 import it.unisa.lacantina.model.Cart;
 import it.unisa.lacantina.model.ConnectToDB;
 import it.unisa.lacantina.model.Ordine;
+import it.unisa.lacantina.model.RigaOrdine;
 import it.unisa.lacantina.model.User;
 
 /**
@@ -43,28 +45,52 @@ public class OrderNowServlet extends HttpServlet {
 				
 				String prodottoId = request.getParameter("id");
 				int productQuantity = Integer.parseInt(request.getParameter("quantity"));
+				ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+				float prezzo_totale = 0;
+				prezzo_totale = Float.parseFloat(request.getParameter("prezzo"));
+				
+				if(prezzo_totale!=0) {
+				if(cart_list!= null)
+				{
+					for(Cart c:cart_list) {
+						if(c.getId() == Integer.parseInt(prodottoId)) 
+						{
+							System.out.println("PREZO CARRELLO = " + c.getPrezzo());
+							System.out.println("QUANTITY CARRELLO ="+ c.getQuantity());
+							
+							prezzo_totale = prezzo_totale + (c.getPrezzo() * c.getQuantity());
+							break;
+						}
+					}
+				}}
+				
+				
 				if(productQuantity<=0) {
 					response.sendRedirect("index.jsp");
 				}else 
 				{
 					
 					Ordine orderModel = new Ordine();
+					//CREZIONE NUOVA RIGAORDINE
+					RigaOrdineDao nuovaRiga = new RigaOrdineDao(ConnectToDB.getConnection());
+					int id_riga_ordine = nuovaRiga.nuovaRigaOrdine(prezzo_totale, 1);
+					//FINE CREAZIONE NUOVA RIGAORDINE
 					orderModel.setId_prodotto(Integer.parseInt(prodottoId));
 					orderModel.setId_utente(auth.getID());
 					orderModel.setQuantity(productQuantity);
 					orderModel.setData(formatter.format(date));
+					orderModel.setIdRigaOrdine(id_riga_ordine);
 					OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
+					boolean result = orderDao.insertOrder(orderModel);
 					//OPERAZIONI DI DECREMENTO STOCK
 					prodotto = new ProdottoDao(ConnectToDB.getConnection());
-					boolean result = orderDao.insertOrder(orderModel);
 					int nuovo_stock = prodotto.getStockFromId(orderModel.getIdProdotto()) - 1;
 					boolean result_update_stock = prodotto.setNewStock(orderModel.getIdProdotto(),nuovo_stock);
 					//FINE OPERAZIONI DECREMENTO STOCK
-					
 					if(result || result_update_stock) 
 					{
 						//RIMOZIONE ELEMENTO DA CARRELLO SE PRESENTE
-						ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+						cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
 						if(cart_list!= null) {
 							for(Cart c:cart_list) {
 								if(c.getId() == Integer.parseInt(prodottoId)) 

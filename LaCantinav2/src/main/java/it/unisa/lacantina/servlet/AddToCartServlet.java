@@ -33,9 +33,11 @@ public class AddToCartServlet extends HttpServlet {
 			
 			
 			int id = Integer.parseInt(request.getParameter("id"));
+			float prezzo = Float.parseFloat(request.getParameter("prezzo"));
 			Cart cm = new Cart();
 			cm.setId(id);
 			cm.setQuantity(1);
+			cm.setPrezzo(prezzo);
 			
 			HttpSession session = request.getSession();
 			ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");

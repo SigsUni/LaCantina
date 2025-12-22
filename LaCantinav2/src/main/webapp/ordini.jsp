@@ -55,6 +55,7 @@
 	<table class = "table table-light">
 	<thead>
 	<tr>
+	<th scope = "col">ID</th>
 	<th scope = "col">Data</th>
 	<th scope = "col">Nome</th>
 	<th scope = "col">Categoria</th>
@@ -69,6 +70,7 @@
 			
 			for(Ordine o:ordini){%>
 			<tr>
+				<td><%= o.getIdRigaOrdine() %>
 				<td><%= o.getData() %></td>
 				<td><%= o.getCategoria() %></td>
 				<td><%= o.getPrezzo() %></td>
