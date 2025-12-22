@@ -58,6 +58,7 @@
 		<!-- nuovo -->
 		<div class="panel">
         <div class="panel-description">
+       	<br>	<br>
           <giustify>
 <p>Benvenuti dello Shop LaCantina, All&rsquo;interno &egrave; possibile trovare una selezione di prodotti tipici campani, tra cui <strong>olio extravergine d&rsquo;oliva</strong>, <strong>limoncello artigianale</strong>, <strong>vino bianco</strong> e <strong>vino rosso</strong>, tutti ottenuti nel pieno rispetto delle tradizioni locali e dei pi&ugrave; alti standard di produzione.</p>
 
@@ -123,7 +124,7 @@
 
 					<div class="card w-100" style="width: 18rem;">
     
-   						 <img class="card-img-top product-img" src="<%= p.getImmagine() %>">
+   						 <img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>">
 
     						<div class="card-body">
        							<h5 class="card-title"><%= p.getNome() %></h5>
