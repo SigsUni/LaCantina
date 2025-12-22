@@ -56,9 +56,10 @@
 	<thead>
 	
 		<tr>
+			<th scope ="col">ID</th>
 			<th scope= "col">Data</th>
 			<th scope ="col">Utente</th>
-			<th scope= "col">Nome</th>
+			<th scope= "col">Prodotto</th>
 			<th scope= "col">Categoria</th>
 			<th scope= "col">Quantità</th>
 			<th scope= "col">Prezzo</th>
@@ -78,7 +79,7 @@
 				
 				
 				<tr>
-					
+					<td><%=o.getIdRigaOrdine() %></td>
 					<td><%=o.getData() %></td>
 					<td><%=NomeUser.getNomeById(o.getIdUtente()) %></td>
 					<td><%=o.getNome() %></td>

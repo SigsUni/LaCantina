@@ -8,6 +8,8 @@
 <head>
 <% 
 		User auth = (User)request.getSession().getAttribute("auth"); 
+		RigaOrdineDao riga_ordine = new RigaOrdineDao(ConnectToDB.getConnection());
+
 		List<Ordine> ordini = null;
 		if(auth != null)
 		{
@@ -57,7 +59,7 @@
 	<tr>
 	<th scope = "col">ID</th>
 	<th scope = "col">Data</th>
-	<th scope = "col">Nome</th>
+	<th scope = "col">Prodotto</th>
 	<th scope = "col">Categoria</th>
 	<th scope = "col">Quantità</th>
 	<th scope = "col">Prezzo</th>
@@ -72,11 +74,11 @@
 			<tr>
 				<td><%= o.getIdRigaOrdine() %>
 				<td><%= o.getData() %></td>
-				<td><%= o.getCategoria() %></td>
+				<td><%= o.getNome() %></td>
 				<td><%= o.getPrezzo() %></td>
 				<td><%= o.getQuantity() %></td>
 				<td><%= o.getPrezzo()%></td>
-				<td><a class = "btn btn-sm btn-danger" href="cancel-order?id=<%= o.getId_ordine() %>">Gestisci</a></td>
+				<td><a class = "btn btn-sm btn-danger" href="<%= request.getContextPath() %>/gestisci_ordine.jsp?id=<%= o.getIdRigaOrdine() %>">Gestisci</a></td>
 				
 			<tr>
 			<% }

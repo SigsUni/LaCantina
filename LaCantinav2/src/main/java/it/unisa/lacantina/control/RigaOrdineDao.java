@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import it.unisa.lacantina.model.Ordine;
+import it.unisa.lacantina.model.Prodotto;
+import it.unisa.lacantina.model.RigaOrdine;
 
 public class RigaOrdineDao {
 
@@ -61,5 +63,35 @@ public class RigaOrdineDao {
 	    }
 
 	    return id_nuova_riga;
+	}
+	
+	public RigaOrdine getInfoById(int id) {
+		RigaOrdine prod = null;
+		
+		try {
+			query = "select * from riga_ordini where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				prod = new RigaOrdine();
+				
+				prod.setId(rs.getInt("id"));
+				prod.setQuantity(rs.getInt("numero_ordini"));
+				prod.setPrezzoTotale(rs.getInt("prezzo_totale"));
+				prod.setStatoOrdine(rs.getString("stato_ordine"));
+				prod.setIndirizzo(rs.getString("indirizzo"));
+				prod.setCap(rs.getString("cap"));
+				prod.setCitta(rs.getString("citta"));
+				prod.setProvincia(rs.getString("provincia"));
+				
+				}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return prod;
 	}
 }

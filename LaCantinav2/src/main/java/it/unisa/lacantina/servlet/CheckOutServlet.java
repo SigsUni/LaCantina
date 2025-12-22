@@ -12,6 +12,7 @@ import java.util.*;
 
 import it.unisa.lacantina.control.OrdineDao;
 import it.unisa.lacantina.control.ProdottoDao;
+import it.unisa.lacantina.control.RigaOrdineDao;
 import it.unisa.lacantina.model.Cart;
 import it.unisa.lacantina.model.ConnectToDB;
 import it.unisa.lacantina.model.Ordine;
@@ -39,11 +40,28 @@ public class CheckOutServlet extends HttpServlet {
 			
 			//controlli cart-list e autenticazione
 			
+			float prezzo_totale =0;
+			int num_oggetti = 0;
+			RigaOrdineDao nuovaRiga = new RigaOrdineDao(ConnectToDB.getConnection());
+			int id_riga_ordine = 0;
+			if(cart_list!=null && auth!=null) {
+				
+				for(Cart c:cart_list) {
+					prezzo_totale = prezzo_totale + (c.getPrezzo() * c.getQuantity());
+					num_oggetti++;
+				}
+				id_riga_ordine = nuovaRiga.nuovaRigaOrdine(prezzo_totale, num_oggetti);
+			}
+			
+			
 			
 			ProdottoDao prodotto = null;
 			
 			if(cart_list != null && auth!= null) {
 			
+				//INSERIMENTO RIGA ORDINE
+				
+				
 				for(Cart c:cart_list)
 				{
 	
@@ -53,9 +71,9 @@ public class CheckOutServlet extends HttpServlet {
 					order.setId_utente(auth.getID());
 					order.setQuantity(c.getQuantity());
 					order.setData(formatter.format(date));
+					order.setIdRigaOrdine(id_riga_ordine);
 					
 					OrdineDao oDao = new OrdineDao(ConnectToDB.getConnection());
-					oDao.insertOrder(order);
 					boolean result = oDao.insertOrder(order);
 					//UPDATE NUOVO STOCK
 					int nuovo_stock = prodotto.getStockFromId(c.getId()) - c.getQuantity();
