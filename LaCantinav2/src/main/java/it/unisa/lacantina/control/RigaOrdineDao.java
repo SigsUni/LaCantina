@@ -94,4 +94,13 @@ public class RigaOrdineDao {
 		
 		return prod;
 	}
+	
+	public boolean UpdateData(int id, String descrizione, String provincia, String cap, String citta, String stato_ordine) {
+		boolean result = false;
+		
+		
+		
+		
+		return result;
+	}
 }

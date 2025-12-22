@@ -86,7 +86,7 @@
 <div class= "form-group">
 
 	<label>Provincia</label>
-	<input type = "text" class = "form-control" name = "insert-stock" value = "<%=info_ordine.getProvincia() %>" required>
+	<input type = "text" class = "form-control" name = "insert-provincia" value = "<%=info_ordine.getProvincia() %>" required>
 
 </div>
 
@@ -105,7 +105,10 @@
     <option value="annullato">Annullato</option>
   </select>
 
+
 </div>
+<label>ID</label>
+	<input type = "text" class = "form-control" name = "insert-id" value = "<%=info_ordine.getId() %>" required readonly>
 	
 	<button type = "submit" class = "btn btn-primary"> CONFERMA MODIFICHE </button>
 	
@@ -138,7 +141,7 @@
 <div class= "form-group">
 
 	<label>Provincia</label>
-	<input type = "text" class = "form-control" name = "insert-stock" value = "<%=info_ordine.getProvincia() %>" readonly >
+	<input type = "text" class = "form-control" name = "insert-provincia" value = "<%=info_ordine.getProvincia() %>" readonly >
 
 </div>
 
@@ -152,9 +155,12 @@
 <div class= "form-group">
 
 <label for="stato">Stato ordine:</label>
-  <input type = "text" class = "form-control" name = "insert-prezzo" placeholder = "<%=info_ordine.getStatoOrdine() %>" readonly >
+  <input type = "text" class = "form-control" placeholder = "<%=info_ordine.getStatoOrdine() %>" readonly >
+  
 
 </div>
+<label>ID</label>
+	<input type = "text" class = "form-control" name = "insert-id" value = "<%=info_ordine.getId() %>" required readonly>
 	</div>
 </form>
 <%} %>

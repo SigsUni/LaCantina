@@ -31,16 +31,16 @@ public class ModifyOrderData extends HttpServlet {
 			String indirizzo = request.getParameter("insert-indirizzo");
 			String provincia = request.getParameter("insert-provincia");
 			String cap = request.getParameter("insert-cap");
-			String citta = request.getParameter("insert-citta"));
-			String immagine = request.getParameter("insert-immagine");
-			float prezzo= Float.parseFloat(request.getParameter("insert-prezzo"));
+			String citta = request.getParameter("insert-citta");
+			String stato_ordine = request.getParameter("stato_ordine");
+			int id = Integer.parseInt(request.getParameter("insert-id"));
 			
 			
 			try 
 			{
 				RigaOrdineDao rigaOrdinedao = new RigaOrdineDao(ConnectToDB.getConnection());
 				
-				boolean x = rigaOrdinedao.UpdateData()
+				boolean x = rigaOrdinedao.UpdateData(id,indirizzo, provincia, cap, citta, stato_ordine);
 				
 				
 				if(x == true)
@@ -57,6 +57,7 @@ public class ModifyOrderData extends HttpServlet {
 			{
 				e.printStackTrace();
 			}
+		}
 		
 		
 		
