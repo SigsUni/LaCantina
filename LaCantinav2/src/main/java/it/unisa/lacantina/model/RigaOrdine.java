@@ -8,7 +8,7 @@ public class RigaOrdine {
 	private String stato_ordine;
 	private String indirizzo;
 	private String cap;
-	private String city;
+	private String citta;
 	private String provincia;
 
 	
@@ -22,8 +22,75 @@ public class RigaOrdine {
 		this.quantity = quantity;
 		this.prezzo_totale = prezzo_totale;
 		this.stato_ordine = stato_ordine;
+		this.citta = city;
 		this.indirizzo = indirizzo;
 		this.cap = cap;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	
+	public int getPrezzoTotale() {
+		return prezzo_totale;
+	}
+	
+	public String getStatoOrdine() {
+		return stato_ordine;
+	}
+	
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	
+	public String getCap() {
+		return cap;
+	}
+	
+	public String getCitta() {
+		return citta;
+	}
+	
+	public String getProvincia() {
+		return provincia;
+	}
+	
+	//SETTER
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	public void setPrezzoTotale(int prezzo) {
+		this.prezzo_totale =  prezzo;
+	}
+	
+	public void setStatoOrdine(String stato_ordine) {
+		this.stato_ordine = stato_ordine;
+	}
+	
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo =  indirizzo;
+	}
+	
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
+	
+	public void setCitta(String city) {
+		this.citta = city;
+	}
+	
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
 	}
 
 }
