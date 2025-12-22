@@ -95,12 +95,27 @@ public class RigaOrdineDao {
 		return prod;
 	}
 	
-	public boolean UpdateData(int id, String descrizione, String provincia, String cap, String citta, String stato_ordine) {
+	public boolean UpdateData(int id, String indirizzo, String provincia, String cap, String citta, String stato_ordine) {
 		boolean result = false;
 		
-		
+		try {
+			query = "update riga_ordini set indirizzo=?,provincia=?,cap=?,citta=?,stato_ordine=? where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setString(1, indirizzo);
+			pst.setString(2, provincia);
+			pst.setString(3, cap);
+			pst.setString(4, citta);
+			pst.setString(5, stato_ordine);
+			pst.setInt(6, id);
+			pst.executeUpdate();
+			result = true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 		return result;
+		
 	}
 }

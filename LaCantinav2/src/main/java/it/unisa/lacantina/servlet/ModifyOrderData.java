@@ -45,11 +45,11 @@ public class ModifyOrderData extends HttpServlet {
 				
 				if(x == true)
 				{
-					response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
+					response.sendRedirect("/LaCantinav2/index.jsp");
 				}
 				else
 				{
-					response.sendRedirect("/LaCantinav2/admin-pages/insert_error.jsp");
+					response.sendRedirect("/LaCantinav2/index.jsp");
 				}
 				
 			}

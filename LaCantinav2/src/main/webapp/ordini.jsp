@@ -60,9 +60,8 @@
 	<th scope = "col">ID</th>
 	<th scope = "col">Data</th>
 	<th scope = "col">Prodotto</th>
-	<th scope = "col">Categoria</th>
-	<th scope = "col">Quantità</th>
 	<th scope = "col">Prezzo</th>
+	<th scope = "col">Quantità</th>
 	<th scope = "col">Stato</th>
 	</tr>
 	</thead>
@@ -77,7 +76,6 @@
 				<td><%= o.getNome() %></td>
 				<td><%= o.getPrezzo() %></td>
 				<td><%= o.getQuantity() %></td>
-				<td><%= o.getPrezzo()%></td>
 				<td><a class = "btn btn-sm btn-danger" href="<%= request.getContextPath() %>/gestisci_ordine.jsp?id=<%= o.getIdRigaOrdine() %>">Gestisci</a></td>
 				
 			<tr>

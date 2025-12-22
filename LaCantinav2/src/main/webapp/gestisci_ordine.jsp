@@ -60,7 +60,7 @@
 	<!-- card body --> 
 	
 <%if(info_ordine.getStatoOrdine().equals("attesa di conferma") || info_ordine.getStatoOrdine().equals("preso in carico")){ %>
-<form action ="<%= request.getContextPath() %>/change-status" method = "GET" >
+<form action ="<%= request.getContextPath() %>/modifica-dati" method = "GET" >
 
 <div class= "form-group">
 
@@ -115,7 +115,7 @@
 	</div>
 </form>
 <%} else{%>
-<form action ="<%= request.getContextPath() %>/change-status" method = "GET" >
+<form action ="" method = "GET" >
 
 <div class= "form-group">
 
