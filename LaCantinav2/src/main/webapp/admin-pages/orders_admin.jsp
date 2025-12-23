@@ -20,7 +20,7 @@
   		
   		if(auth.getID() != 2)
   		{
-  			response.sendRedirect("/uliveto/index.jsp");
+  			response.sendRedirect("/LaCantinav2/index.jsp");
   		}
   		
   		OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
@@ -29,7 +29,7 @@
   	}
   	else
   	{
-  		response.sendRedirect("/uliveto/index.jsp");
+  		response.sendRedirect("/LaCantinav2/index.jsp");
   	}
   	
 	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
@@ -63,7 +63,7 @@
 			<th scope= "col">Categoria</th>
 			<th scope= "col">Quantità</th>
 			<th scope= "col">Prezzo</th>
-			<th scope= "col">Cancella</th>
+			<th scope= "col">Gestisci</th>
 			
 		</tr>
 		
@@ -87,7 +87,7 @@
 					<td><%=o.getQuantity() %></td>
 					<td>€<%=o.getPrezzo() %></td>
 					
-					<td><a class = "btn btn-sm btn-danger" href="/uliveto/cancel-order?id=<%=o.getId() %>"> Elimina</a></td>
+					<td><a class = "btn btn-sm btn-danger" href="<%= request.getContextPath() %>/admin-pages/gestisci_ordini_admin.jsp?id=<%=o.getIdRigaOrdine()%>"> Gestisci Ordine</a></td>
 					
 					
 				<% }

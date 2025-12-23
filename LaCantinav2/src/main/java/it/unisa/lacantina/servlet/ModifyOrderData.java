@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import it.unisa.lacantina.control.ProdottoDao;
 import it.unisa.lacantina.control.RigaOrdineDao;
 import it.unisa.lacantina.model.ConnectToDB;
+import it.unisa.lacantina.model.User;
 
 /**
  * Servlet implementation class ModifyOrderData
@@ -28,6 +29,7 @@ public class ModifyOrderData extends HttpServlet {
 		
 		try (PrintWriter out = response.getWriter())
 		{
+			User auth = (User)request.getSession().getAttribute("auth");
 			String indirizzo = request.getParameter("insert-indirizzo");
 			String provincia = request.getParameter("insert-provincia");
 			String cap = request.getParameter("insert-cap");
@@ -45,10 +47,18 @@ public class ModifyOrderData extends HttpServlet {
 				
 				if(x == true)
 				{
+					if(auth.getID() == 2) 
+					{
+						response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");	
+					}
 					response.sendRedirect("/LaCantinav2/index.jsp");
 				}
 				else
 				{
+					if(auth.getID() == 2) 
+					{
+						response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");		
+					}
 					response.sendRedirect("/LaCantinav2/index.jsp");
 				}
 				
