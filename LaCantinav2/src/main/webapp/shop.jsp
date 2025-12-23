@@ -110,7 +110,7 @@
            							 <p class="card-text"><%= p.getDescrizione() %></p>
 
             						<div class="mt-3 d-flex justify-content-between">
-               							 <a href="order-now?quantity=1&id=<%= p.getId() %>&prezzo=<%=p.getPrezzo() %>" class="btn btn-primary btn-sm">Acquista</a>
+            							<a href="<%= request.getContextPath() %>/acquisto_singolo_prodotto.jsp?quantity=1&id=<%= p.getId() %>&prezzo=<%=p.getPrezzo() %>&nome=<%=p.getNome() %>" class="btn btn-primary btn-sm">Acquista</a>
               								  <a href="add-to-cart?id=<%=p.getId()%>&prezzo=<%=p.getPrezzo() %>" class="btn btn-primary btn-sm">Add to Cart</a>
             						</div>
             						

@@ -38,6 +38,11 @@ public class CheckOutServlet extends HttpServlet {
 			//prende la sessione utente
 			User auth = (User)request.getSession().getAttribute("auth");
 			
+			String indirizzo = request.getParameter("insert-indirizzo");
+			String provincia = request.getParameter("insert-provincia");
+			String cap = request.getParameter("insert-cap");
+			String citta = request.getParameter("insert-citta");
+			
 			//controlli cart-list e autenticazione
 			
 			float prezzo_totale =0;
@@ -50,7 +55,7 @@ public class CheckOutServlet extends HttpServlet {
 					prezzo_totale = prezzo_totale + (c.getPrezzo() * c.getQuantity());
 					num_oggetti++;
 				}
-				id_riga_ordine = nuovaRiga.nuovaRigaOrdine(prezzo_totale, num_oggetti);
+				id_riga_ordine = nuovaRiga.nuovaRigaOrdine(indirizzo, cap, citta, provincia, prezzo_totale, num_oggetti);
 			}
 			
 			

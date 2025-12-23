@@ -43,11 +43,18 @@ public class OrderNowServlet extends HttpServlet {
 			if(auth!=null) 
 			{
 				
-				String prodottoId = request.getParameter("id");
-				int productQuantity = Integer.parseInt(request.getParameter("quantity"));
+				String prodottoId = request.getParameter("insert-id");
+				int productQuantity = Integer.parseInt(request.getParameter("insert-quantity"));
+				String indirizzo = request.getParameter("insert-indirizzo");
+				String provincia = request.getParameter("insert-provincia");
+				String cap = request.getParameter("insert-cap");
+				String citta = request.getParameter("insert-citta");
+				
+				
+				
 				ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
 				float prezzo_totale = 0;
-				prezzo_totale = Float.parseFloat(request.getParameter("prezzo"));
+				prezzo_totale = Float.parseFloat(request.getParameter("insert-prezzo"));
 				
 				if(prezzo_totale!=0) {
 				if(cart_list!= null)
@@ -73,7 +80,7 @@ public class OrderNowServlet extends HttpServlet {
 					Ordine orderModel = new Ordine();
 					//CREZIONE NUOVA RIGAORDINE
 					RigaOrdineDao nuovaRiga = new RigaOrdineDao(ConnectToDB.getConnection());
-					int id_riga_ordine = nuovaRiga.nuovaRigaOrdine(prezzo_totale, 1);
+					int id_riga_ordine = nuovaRiga.nuovaRigaOrdine(indirizzo, cap, citta,provincia,prezzo_totale, 1);
 					//FINE CREAZIONE NUOVA RIGAORDINE
 					orderModel.setId_prodotto(Integer.parseInt(prodottoId));
 					orderModel.setId_utente(auth.getID());

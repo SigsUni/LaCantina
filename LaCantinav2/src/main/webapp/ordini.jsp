@@ -17,7 +17,7 @@
 			ordini = new OrdineDao(ConnectToDB.getConnection()).userOrders(auth.getID());
 		}
 		else{
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("LoginAndRegistration.jsp");
 		}
 		
 		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");

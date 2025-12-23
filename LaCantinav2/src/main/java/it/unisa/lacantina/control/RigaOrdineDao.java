@@ -28,7 +28,7 @@ public class RigaOrdineDao {
 		
 	}
 	
-	public int nuovaRigaOrdine(float prezzo_totale, int numero_ordini) // ritorna l'id della riga ordine creata
+	public int nuovaRigaOrdine(String indirizzo, String cap, String citta, String provincia,float prezzo_totale, int numero_ordini) // ritorna l'id della riga ordine creata
 	{
 	    int id_nuova_riga = 0;
 
@@ -45,10 +45,10 @@ public class RigaOrdineDao {
 	        pst.setInt(1, numero_ordini);
 	        pst.setFloat(2, prezzo_totale);
 	        pst.setString(3, "attesa di conferma");
-	        pst.setString(4, "via giovanni nicotera");
-	        pst.setString(5, "84015");
-	        pst.setString(6, "Nocera Superiore");
-	        pst.setString(7, "Salerno");
+	        pst.setString(4, indirizzo);
+	        pst.setString(5, cap);
+	        pst.setString(6, citta);
+	        pst.setString(7, provincia);
 
 	        pst.executeUpdate();
 

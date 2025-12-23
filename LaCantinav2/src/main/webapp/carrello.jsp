@@ -63,8 +63,8 @@
   
  <div class = "container">
  
- <div class ="d-flex py-3"><h3>Conto: $ ${ (totale>0)?totale:0}</h3>
- <a class="mx-3 btn btn-primary" href ="check-out">CheckOut</a></div>
+ <div class ="d-flex py-3"><h3>Conto:€ ${ (totale>0)?totale:0}</h3>
+ <a class="mx-3 btn btn-primary" href ="<%= request.getContextPath() %>/acquisto_carrello.jsp">CheckOut</a></div>
  <table class = "table table-loght">
  
  <thread>
@@ -86,26 +86,41 @@
  	 			<td><%=c.getCategoria() %></td>
  	 				<td><%=c.getPrezzo() %></td>
  	 					<td> 
- 	 						<form method= "post" class= "form-inline" action="order-now">
- 	 						<input type= "hidden" name="id" value = "<%=c.getId() %>" class = "form-input">
- 	 						<div class = "form-group d-flex justify-content-between">
- 	 				<div class="d-flex align-items-center gap-1">
-    						<a class="btn btn-sm btn-decre px-1 py-0"  href="quantity-inc-dec?action=dec&id=<%=c.getId()%>">
-        						<i class="fas fa-minus-square"></i>
-    						</a>
+ 	 						<form method="post"
+      class="form-inline"
+      action="<%= request.getContextPath() %>/acquisto_singolo_prodotto.jsp">
 
-    					<input type="text" name="quantity" class="form-control form-control-sm text-center" style="width: 40px;" value="<%=c.getQuantity()%>" readonly>
+    		<input type="hidden" name="id" value="<%= c.getId() %>">
+    		<input type="hidden" name="prezzo" value="<%= c.getPrezzo() %>">
+    		<input type="hidden" name="quantity" value="<%= c.getQuantity() %>">
+    		<input type="hidden" name="nome" value ="<%=c.getNome()%>">
 
-						<%if(c.checkStock(c.getQuantity() + 1)){ %>
-    					<a class="btn btn-sm btn-incre px-1 py-0" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>">
-    					<%} %>
-    					<i class="fas fa-plus-square"></i>
-   						 </a>
-    						<button type="submit" class="btn btn-primary btn-sm">Buy</button>
-					</div>
- 	 						</div>
- 	 						
- 	 						</form>
+    	<div class="form-group d-flex justify-content-between">
+       	 	<div class="d-flex align-items-center gap-1">
+
+            <a class="btn btn-sm btn-decre px-1 py-0"
+               href="quantity-inc-dec?action=dec&id=<%=c.getId()%>">
+                <i class="fas fa-minus-square"></i>
+            </a>
+
+            <input type="text"
+                   class="form-control form-control-sm text-center"
+                   style="width: 40px;"
+                   value="<%= c.getQuantity() %>"
+                   readonly>
+
+            <% if (c.checkStock(c.getQuantity() + 1)) { %>
+                <a class="btn btn-sm btn-incre px-1 py-0"
+                   href="quantity-inc-dec?action=inc&id=<%=c.getId()%>">
+                    <i class="fas fa-plus-square"></i>
+                </a>
+            <% } %>
+
+            <button type="submit" class="btn btn-primary btn-sm">Buy</button>
+
+        </div>
+    </div>
+</form>
  	 					</td>
  	 						<td><a class = "btn btn-sm btn-danger" href="remove-from-cart?id=<%=c.getId()%>">Rimuovi</a></td>
  	 			</tr>
@@ -118,12 +133,6 @@
  
  </table>
  </div>
- 
- 
- 
- 
- 
- 
  
  
  
