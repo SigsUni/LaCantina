@@ -31,12 +31,12 @@
 	<br>
 	<div class="container" id="container">
 		<div class="form-container sign-up">
-			<form action="./RegistrationServlet" method="post">
+			<form action="registration" method="post">
 				<h1>Crea il tuo account</h1>
-				<input type="text" name="nome" placeholder="Nome"> <input
-					type="text" name="cognome" placeholder="Cognome"> <input
-					type="email" name="email" placeholder="Email"> <input
-					type="password" name="password" placeholder="Password">
+				<input type="text" name="login_nome" placeholder="Nome"required> <input
+					type="text" name="login_cognome" placeholder="Cognome" required> <input
+					type="email" name="login_email" placeholder="Email" required> <input
+					type="password" name="login_password" placeholder="Password" required>
 				<button>Registrati</button>
 			</form>
 		</div>
@@ -44,8 +44,8 @@
 		<div class="form-container sign-in">
 			<form action="user-login" method="post">
 				<h1>Accedi al tuo account</h1>
-				<input type="text" name="email" placeholder="Email"> <input
-					type="password" name="password" placeholder="Password"> <a
+				<input type="text" name="email" placeholder="Email" required> <input
+					type="password" name="password" placeholder="Password" required> <a
 					href="#">Password Dimenticata?</a>
 				<button>Accedi</button>
 				</form>
