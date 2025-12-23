@@ -26,14 +26,17 @@ CREATE TABLE `ordini` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_utente` int NOT NULL,
   `id_prodotto` int NOT NULL,
+  `id_riga_ordine` int NOT NULL,
   `quantity` int NOT NULL,
   `data_ordine` varchar(450) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_utente` (`id_utente`),
   KEY `id_prodotto` (`id_prodotto`),
+  KEY `id_riga_ordine` (`id_riga_ordine`),
   CONSTRAINT `ordini_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`),
-  CONSTRAINT `ordini_ibfk_2` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `ordini_ibfk_2` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`),
+  CONSTRAINT `ordini_ibfk_3` FOREIGN KEY (`id_riga_ordine`) REFERENCES `riga_ordini` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +45,7 @@ CREATE TABLE `ordini` (
 
 LOCK TABLES `ordini` WRITE;
 /*!40000 ALTER TABLE `ordini` DISABLE KEYS */;
+INSERT INTO `ordini` VALUES (1,1,13,1,1,'22/12/2025'),(2,1,14,1,2,'22/12/2025'),(3,1,13,2,3,'22/12/2025'),(4,1,14,2,1,'22/12/2025'),(5,1,16,3,3,'22/12/2025'),(6,1,15,3,3,'22/12/2025'),(7,1,12,4,1,'22/12/2025'),(10,1,12,5,1,'23/12/2025'),(11,1,12,6,1,'23/12/2025'),(12,1,13,7,2,'23/12/2025'),(13,1,14,7,1,'23/12/2025'),(14,1,12,8,1,'23/12/2025'),(15,1,14,9,1,'23/12/2025'),(16,1,15,9,4,'23/12/2025'),(17,3,13,10,1,'23/12/2025');
 /*!40000 ALTER TABLE `ordini` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,8 +74,38 @@ CREATE TABLE `prodotti` (
 
 LOCK TABLES `prodotti` WRITE;
 /*!40000 ALTER TABLE `prodotti` DISABLE KEYS */;
-INSERT INTO `prodotti` VALUES (12,'olio extravergine d\'oliva 500ml','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',5,10,'IMG/olio_extravergine_oliva_500.jpg'),(13,'vino rosso 500ml','Bottiglia in vetro di vino rosso del Beneventano da 500ml lavorato presso LaCantina','vino-rosso',5,10,'IMG/immagine_prova2.png'),(14,'vino bianco 500ml','Bottiglia in vetro di vino bianco del Beneventano da 500ml lavorato presso LaCantina','vino-bianco',5,10,'IMG/immagine_prova2.png'),(15,'Limoncello  500ml','Bottiglia in vetro di limoncello di Amalfi da 500ml lavorato presso LaCantina','limoncello',5,10,'IMG/immagine_prova2.png'),(16,'olio extravergine d\'oliva 1L','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',5,10,'IMG/olio_extravergine_oliva_500.jpg');
+INSERT INTO `prodotti` VALUES (12,'olio extravergine d\'oliva 500ml','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',49,10,'olio_extravergine_oliva_500.jpg'),(13,'vino rosso 500ml','Bottiglia in vetro di vino rosso del Beneventano da 500ml lavorato presso LaCantina','vino-rosso',48,10,'olio_extravergine_oliva_500.jpg'),(14,'vino bianco 500ml','Bottiglia in vetro di vino bianco del Beneventano da 500ml lavorato presso LaCantina','vino-bianco',50,10,'olio_extravergine_oliva_500.jpg'),(15,'Limoncello  500ml','Bottiglia in vetro di limoncello di Amalfi da 500ml lavorato presso LaCantina','limoncello',48,10,'olio_extravergine_oliva_500.jpg'),(16,'olio extravergine d\'oliva 1L','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',2,10,'olio_extravergine_oliva_500.jpg');
 /*!40000 ALTER TABLE `prodotti` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `riga_ordini`
+--
+
+DROP TABLE IF EXISTS `riga_ordini`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `riga_ordini` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `numero_ordini` int NOT NULL,
+  `prezzo_totale` float NOT NULL,
+  `stato_ordine` varchar(50) NOT NULL,
+  `indirizzo` varchar(450) NOT NULL,
+  `cap` varchar(5) NOT NULL,
+  `citta` varchar(450) NOT NULL,
+  `provincia` varchar(450) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `riga_ordini`
+--
+
+LOCK TABLES `riga_ordini` WRITE;
+/*!40000 ALTER TABLE `riga_ordini` DISABLE KEYS */;
+INSERT INTO `riga_ordini` VALUES (1,2,30,'annullato','via giovanni','840','Napoli','napoli'),(2,2,40,'spedito','via giovanni nicotera','84015','Nocera Superiore','Salerno'),(3,2,60,'annullato','via giovanni nicotera','84','Nocera Superiore','Salerno'),(4,1,10,'attesa di conferma','via giovanni nicotera','84015','Nocera Superiore','Salerno'),(5,1,10,'annullato','erwerw','84015','123123','123123'),(6,1,20,'attesa di conferma','asdadas','84012','ANGRI','adasdas'),(7,2,30,'in consegna','Gabriele','84015','CIAO2','SALIERNo'),(8,1,10,'spedito','vgjugy','6754','ugkgiug','vkhjgk'),(9,2,50,'spedito','7tt7686y9','89769','hoihoiyoi','9709'),(10,1,10,'annullato','dadas','dadaa','adasdas','adsa');
+/*!40000 ALTER TABLE `riga_ordini` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -88,7 +122,7 @@ CREATE TABLE `utenti` (
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +131,7 @@ CREATE TABLE `utenti` (
 
 LOCK TABLES `utenti` WRITE;
 /*!40000 ALTER TABLE `utenti` DISABLE KEYS */;
-INSERT INTO `utenti` VALUES (1,'gabriele','gabriele.cicalese2004@gmail.com','1234');
+INSERT INTO `utenti` VALUES (1,'gabriele','gabriele.cicalese2004@gmail.com','1234'),(2,'admin','admin@lacantina.it','1234'),(3,'FarbizioGrazioso','fabrizio.grazioso@gmail.com','1234');
 /*!40000 ALTER TABLE `utenti` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -110,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-12-18 17:06:42
+-- Dump completed on 2025-12-23 19:20:07
