@@ -9,9 +9,13 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import it.unisa.lacantina.model.dao.ProdottoDao;
 import it.unisa.lacantina.model.domain.Carrello;
+import it.unisa.lacantina.model.domain.Prodotto;
+import it.unisa.lacantina.util.ConnectToDB;
 
 /**
  * Servlet implementation class AddToCartServlet
@@ -23,50 +27,48 @@ public class AddToCartServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html;charset=UTF-8");
-		
-		try(PrintWriter out = response.getWriter()){
-			
-			ArrayList<Carrello> cartList = new ArrayList<>();
-			
-			
-			int id = Integer.parseInt(request.getParameter("id"));
-			float prezzo = Float.parseFloat(request.getParameter("prezzo"));
-			Carrello cm = new Carrello();
-			cm.setId(id);
-			cm.setQuantity(1);
-			cm.setPrezzo(prezzo);
-			
-			HttpSession session = request.getSession();
-			ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
-			
-			
-		if(cart_list == null) { //SE INSERIAMO IL PRIMO ELEMENTO NEL CARELLO
-			cartList.add(cm);
-			session.setAttribute("cart-list", cartList);
-		}
-		else
-		{
-			cartList = cart_list;
-			boolean exist = false;
-			
-			
-			for(Carrello c:cart_list) {
-				
-				if(c.getId() == id) {
-					exist = true;
-				}
-				
-			}
-			if(!exist) {
-				cartList.add(cm);
-			}
-		}
-			
-		response.sendRedirect("shop.jsp");
-		}
-	}
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
 
+	    try {
+	        int id = Integer.parseInt(request.getParameter("id"));
+
+	        ProdottoDao pdao = new ProdottoDao(ConnectToDB.getConnection());
+	        Prodotto prodotto = pdao.getSingleProdotto(id);
+
+	        HttpSession session = request.getSession();
+
+	        ArrayList<Carrello> cartList =
+	                (ArrayList<Carrello>) session.getAttribute("cart-list");
+
+	        if (cartList == null) {
+	            cartList = new ArrayList<>();
+	        }
+
+	        boolean exist = false;
+
+	        for (Carrello c : cartList) {
+	            if (c.getProdotto().getId() == id) {
+	                c.setQuantity(c.getQuantity() + 1); // aumenta quantità
+	                exist = true;
+	                break;
+	            }
+	        }
+
+	        if (!exist) {
+	            Carrello item = new Carrello();
+	            item.setProdotto(prodotto);
+	            item.setQuantity(1);
+	            cartList.add(item);
+	        }
+
+	        session.setAttribute("cart-list", cartList);
+	        response.sendRedirect("shop.jsp");
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        response.sendRedirect("error.jsp");
+	    }
+	}
 }

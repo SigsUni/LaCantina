@@ -17,9 +17,9 @@
           		
           		
           		if(cart_list != null){
-          	ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
-          	cartProduct = pDao.getCartProducts(cart_list);
-          	float totale = pDao.getTotalCartPrice(cart_list);
+          	CarrelloDao cDao = new CarrelloDao(ConnectToDB.getConnection());
+          	cartProduct = cDao.getCartProducts(cart_list);
+          	float totale = cDao.getTotalCartPrice(cart_list);
           	request.setAttribute("cart_list", cart_list);
           	 request.setAttribute("totale", totale); 
           		}
@@ -85,24 +85,24 @@
  %>
  			
  		<tr>
- 	 		<td><%=c.getNome() %></td>
- 	 			<td><%=c.getCategoria() %></td>
- 	 				<td><%=c.getPrezzo() %></td>
+ 	 		<td><%=c.getProdotto().getNome() %></td>
+ 	 			<td><%=c.getProdotto().getCategoria() %></td>
+ 	 				<td><%=c.getProdotto().getPrezzo() %></td>
  	 					<td> 
  	 						<form method="post"
       class="form-inline"
       action="<%= request.getContextPath() %>/acquisto_singolo_prodotto.jsp">
 
-    		<input type="hidden" name="id" value="<%= c.getId() %>">
-    		<input type="hidden" name="prezzo" value="<%= c.getPrezzo() %>">
+    		<input type="hidden" name="id" value="<%= c.getProdotto().getId() %>">
+    		<input type="hidden" name="prezzo" value="<%= c.getProdotto().getPrezzo() %>">
     		<input type="hidden" name="quantity" value="<%= c.getQuantity() %>">
-    		<input type="hidden" name="nome" value ="<%=c.getNome()%>">
+    		<input type="hidden" name="nome" value ="<%=c.getProdotto().getNome()%>">
 
     	<div class="form-group d-flex justify-content-between">
        	 	<div class="d-flex align-items-center gap-1">
 
             <a class="btn btn-sm btn-decre px-1 py-0"
-               href="quantity-inc-dec?action=dec&id=<%=c.getId()%>">
+               href="quantity-inc-dec?action=dec&id=<%=c.getProdotto().getId()%>">
                 <i class="fas fa-minus-square"></i>
             </a>
 
@@ -112,9 +112,9 @@
                    value="<%= c.getQuantity() %>"
                    readonly>
 
-            <% if (c.checkStock(c.getQuantity() + 1)) { %>
+            <% if (c.getProdotto().checkStock(c.getQuantity() + 1)) { %>
                 <a class="btn btn-sm btn-incre px-1 py-0"
-                   href="quantity-inc-dec?action=inc&id=<%=c.getId()%>">
+                   href="quantity-inc-dec?action=inc&id=<%=c.getProdotto().getId()%>">
                     <i class="fas fa-plus-square"></i>
                 </a>
             <% } %>
@@ -125,7 +125,7 @@
     </div>
 </form>
  	 					</td>
- 	 						<td><a class = "btn btn-sm btn-danger" href="remove-from-cart?id=<%=c.getId()%>">Rimuovi</a></td>
+ 	 						<td><a class = "btn btn-sm btn-danger" href="remove-from-cart?id=<%=c.getProdotto().getId()%>">Rimuovi</a></td>
  	 			</tr>
  	<%}
  	} %>

@@ -32,7 +32,7 @@ public class RemoveFromCartServlet extends HttpServlet {
 				ArrayList<Carrello> cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 				if(cart_list!= null) {
 					for(Carrello c:cart_list) {
-						if(c.getId() == Integer.parseInt(id)) 
+						if(c.getProdotto().getId() == Integer.parseInt(id)) 
 						{
 							cart_list.remove(cart_list.indexOf(c));
 							break;

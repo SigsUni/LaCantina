@@ -36,7 +36,7 @@ public class QuantityIncDecServlet extends HttpServlet {
 				
 				if(action.equals("inc")) {
 					for(Carrello c:cart_list) {
-						if(c.getId() == id) {
+						if(c.getProdotto().getId() == id) {
 							
 							int quantity = c.getQuantity();
 							quantity++;
@@ -48,7 +48,7 @@ public class QuantityIncDecServlet extends HttpServlet {
 				else if(action.equals("dec")) {
 					
 					for(Carrello c:cart_list) {
-						if(c.getId() == id) {
+						if(c.getProdotto().getId() == id) {
 							
 							int quantity = c.getQuantity();
 							if(quantity>1)

@@ -52,7 +52,7 @@ public class CheckOutServlet extends HttpServlet {
 			if(cart_list!=null && auth!=null) {
 				
 				for(Carrello c:cart_list) {
-					prezzo_totale = prezzo_totale + (c.getPrezzo() * c.getQuantity());
+					prezzo_totale = prezzo_totale + (c.getProdotto().getPrezzo() * c.getQuantity());
 					num_oggetti++;
 				}
 				id_riga_ordine = nuovaRiga.nuovaRigaOrdine(indirizzo, cap, citta, provincia, prezzo_totale, num_oggetti);
@@ -72,7 +72,7 @@ public class CheckOutServlet extends HttpServlet {
 	
 					Ordine order = new Ordine();
 					prodotto = new ProdottoDao(ConnectToDB.getConnection());
-					order.setId_prodotto(c.getId());
+					order.setId_prodotto(c.getProdotto().getId());
 					order.setId_utente(auth.getID());
 					order.setQuantity(c.getQuantity());
 					order.setData(formatter.format(date));
@@ -81,8 +81,8 @@ public class CheckOutServlet extends HttpServlet {
 					OrdineDao oDao = new OrdineDao(ConnectToDB.getConnection());
 					boolean result = oDao.insertOrder(order);
 					//UPDATE NUOVO STOCK
-					int nuovo_stock = prodotto.getStockFromId(c.getId()) - c.getQuantity();
-					boolean result_update_stock = prodotto.setNewStock(c.getId(),nuovo_stock);
+					int nuovo_stock = prodotto.getStockFromId(c.getProdotto().getId()) - c.getQuantity();
+					boolean result_update_stock = prodotto.setNewStock(c.getProdotto().getId(),nuovo_stock);
 					if(!result || !result_update_stock) {
 						
 						break;

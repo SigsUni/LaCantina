@@ -25,9 +25,9 @@
 		  	{	
 		  		request.setAttribute("cart_list",cart_list);
 
-		ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
-		cartProduct = pDao.getCartProducts(cart_list);
-		float totale = pDao.getTotalCartPrice(cart_list);
+		CarrelloDao cDao = new CarrelloDao(ConnectToDB.getConnection());
+		cartProduct = cDao.getCartProducts(cart_list);
+		float totale = cDao.getTotalCartPrice(cart_list);
 		request.setAttribute("cart_list", cart_list);
 		request.setAttribute("totale", totale); 
 			}
@@ -78,16 +78,16 @@
 	<div class= "form-group">
 	
 			<label>ID Prodotto</label>
-			<input type = "text" class = "form-control" name = "insert-id" value ="<%=c.getId()%>"  required readonly>
+			<input type = "text" class = "form-control" name = "insert-id" value ="<%=c.getProdotto().getId()%>"  required readonly>
 			
 			<label>Prodotto</label>
-			<input type = "text" class = "form-control" name = "insert-id" value ="<%=c.getNome()%>"  required readonly>
+			<input type = "text" class = "form-control" name = "insert-id" value ="<%=c.getProdotto().getNome()%>"  required readonly>
 			
 			<label>Quantità</label>
 			<input type = "text" class = "form-control" name = "insert-quantity" value ="<%=c.getQuantity() %>"  required readonly>
 			
 			<label>Prezzo</label>
-			<input type = "text" class = "form-control" name = "insert-prezzo" value ="<%=c.getPrezzo()%>"  required readonly>
+			<input type = "text" class = "form-control" name = "insert-prezzo" value ="<%=c.getProdotto().getPrezzo()%>"  required readonly>
 		
 		<br><br>
 		</div>

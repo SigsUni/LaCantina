@@ -60,12 +60,12 @@ public class OrderNowServlet extends HttpServlet {
 				if(cart_list!= null)
 				{
 					for(Carrello c:cart_list) {
-						if(c.getId() == Integer.parseInt(prodottoId)) 
+						if(c.getProdotto().getId() == Integer.parseInt(prodottoId)) 
 						{
-							System.out.println("PREZO CARRELLO = " + c.getPrezzo());
+							System.out.println("PREZO CARRELLO = " + c.getProdotto().getPrezzo());
 							System.out.println("QUANTITY CARRELLO ="+ c.getQuantity());
 							
-							prezzo_totale = prezzo_totale + (c.getPrezzo() * c.getQuantity());
+							prezzo_totale = prezzo_totale + (c.getProdotto().getPrezzo() * c.getQuantity());
 							break;
 						}
 					}
@@ -100,7 +100,7 @@ public class OrderNowServlet extends HttpServlet {
 						cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 						if(cart_list!= null) {
 							for(Carrello c:cart_list) {
-								if(c.getId() == Integer.parseInt(prodottoId)) 
+								if(c.getProdotto().getId() == Integer.parseInt(prodottoId)) 
 								{
 									cart_list.remove(cart_list.indexOf(c));
 									break;
