@@ -5,31 +5,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<%User auth = (User)request.getSession().getAttribute("auth"); 
-  	
-  	if(auth!=null)
-  	{
-  		request.setAttribute("auth",auth);
-  		
-  	}
-  	else
-  	{
-  		response.sendRedirect("/LaCantinav2/LoginAndRegistration.jsp");
-  	}
-  	
-  	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-  	
-  	if(cart_list!=null)
-  	{	
-  		request.setAttribute("cart_list",cart_list);
-  	}
-  	
-	int id_prodotto = Integer.parseInt(request.getParameter("id"));
-	int qunatity = Integer.parseInt(request.getParameter("quantity"));
-	float prezzo = Float.parseFloat(request.getParameter("prezzo"));
-	
-  
-  %>  
+	<%
+	Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+		  	
+		  	if(auth!=null)
+		  	{
+		  		request.setAttribute("auth",auth);
+		  		
+		  	}
+		  	else
+		  	{
+		  		response.sendRedirect("/LaCantinav2/LoginAndRegistration.jsp");
+		  	}
+		  	
+		  	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+		  	
+		  	if(cart_list!=null)
+		  	{	
+		  		request.setAttribute("cart_list",cart_list);
+		  	}
+		  	
+			int id_prodotto = Integer.parseInt(request.getParameter("id"));
+			int qunatity = Integer.parseInt(request.getParameter("quantity"));
+			float prezzo = Float.parseFloat(request.getParameter("prezzo"));
+	%>  
 
 
 

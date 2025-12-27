@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 import it.unisa.lacantina.model.*;
-import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Carrello;
 import it.unisa.lacantina.model.domain.Prodotto;
 
 public class ProdottoDao {
@@ -53,20 +53,20 @@ public class ProdottoDao {
 	
 	////////METODI IMPLEMENTATIVI DELLE FUNZIONI DEL CARRELLO
 	
-	public List<Cart> getCartProducts(ArrayList<Cart> cartList){
+	public List<Carrello> getCartProducts(ArrayList<Carrello> cartList){
 	
-		List<Cart> prodotti = new ArrayList<Cart>();
+		List<Carrello> prodotti = new ArrayList<Carrello>();
 	
 		try {
 		
 			if(cartList.size()>0) {
-				for(Cart item:cartList) {
+				for(Carrello item:cartList) {
 					query = "select * from prodotti where id=?";
 					pst = this.con.prepareStatement(query);
 					pst.setInt(1,item.getId());
 					rs = pst.executeQuery();
 					while(rs.next()) {
-						Cart row = new Cart();
+						Carrello row = new Carrello();
 						row.setId(rs.getInt("id"));
 						row.setNome(rs.getString("nome"));
 						row.setCategoria(rs.getString("categoria"));
@@ -90,13 +90,13 @@ public class ProdottoDao {
 	
 	}
 	
-	public float getTotalCartPrice(ArrayList<Cart> cartList) {
+	public float getTotalCartPrice(ArrayList<Carrello> cartList) {
 		
 		float sum = 0;
 	
 		try {
 			if(cartList.size()>0) {
-				for(Cart item:cartList) 
+				for(Carrello item:cartList) 
 				{
 					query = "select prezzo from prodotti where id=?;";
 					pst = this.con.prepareStatement(query);

@@ -3,16 +3,16 @@
 <%@page import="java.util.*" %>
 <%@page import="it.unisa.lacantina.model.*" %>
 
-<% 
-		User auth = (User)request.getSession().getAttribute("auth"); 
+<%
+Utente auth = (Utente)request.getSession().getAttribute("auth"); 
 
 		if(auth!=null)
 		{
-			response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp");
 		}
-		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+		ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
 		if(cart_list!=null){
-			request.setAttribute("cart_list", cart_list);
+	request.setAttribute("cart_list", cart_list);
 		}
 %>
 <html lang="it">

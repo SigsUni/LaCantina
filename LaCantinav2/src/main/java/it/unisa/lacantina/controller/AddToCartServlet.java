@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Carrello;
 
 /**
  * Servlet implementation class AddToCartServlet
@@ -29,18 +29,18 @@ public class AddToCartServlet extends HttpServlet {
 		
 		try(PrintWriter out = response.getWriter()){
 			
-			ArrayList<Cart> cartList = new ArrayList<>();
+			ArrayList<Carrello> cartList = new ArrayList<>();
 			
 			
 			int id = Integer.parseInt(request.getParameter("id"));
 			float prezzo = Float.parseFloat(request.getParameter("prezzo"));
-			Cart cm = new Cart();
+			Carrello cm = new Carrello();
 			cm.setId(id);
 			cm.setQuantity(1);
 			cm.setPrezzo(prezzo);
 			
 			HttpSession session = request.getSession();
-			ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+			ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
 			
 			
 		if(cart_list == null) { //SE INSERIAMO IL PRIMO ELEMENTO NEL CARELLO
@@ -53,7 +53,7 @@ public class AddToCartServlet extends HttpServlet {
 			boolean exist = false;
 			
 			
-			for(Cart c:cart_list) {
+			for(Carrello c:cart_list) {
 				
 				if(c.getId() == id) {
 					exist = true;

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-import it.unisa.lacantina.model.dao.UserDao;
+import it.unisa.lacantina.model.dao.UtenteDao;
 import it.unisa.lacantina.util.ConnectToDB;
 
 
@@ -52,7 +52,7 @@ response.setContentType("text/html; charset= UTF-8");
 			
 			
 			try {
-				UserDao udao = new UserDao(ConnectToDB.getConnection());
+				UtenteDao udao = new UtenteDao(ConnectToDB.getConnection());
 				boolean x = udao.UserCheck(email);
 				
 				if(x)

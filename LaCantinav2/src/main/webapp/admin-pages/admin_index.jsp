@@ -6,26 +6,26 @@
     pageEncoding="UTF-8"%>
     
     
-    <%User auth = (User)request.getSession().getAttribute("auth"); 
-  	
-  	if(auth!=null)
-  	{
-  		request.setAttribute("auth",auth);
-  		
-  		if(auth.getID() != 2)
-  		{
-  			response.sendRedirect("/LaCantinav2/index.jsp");
-  		}
-  	}
-  	else
-  	{
-  		response.sendRedirect("/LaCantinav2/index.jsp");
-  	}
-  	
-  	ProdottoDao pd = new ProdottoDao(ConnectToDB.getConnection());
-  	List<Prodotto> products = pd.getAllProdotti();
-  	
-  %>  
+    <%
+            Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+              	
+              	if(auth!=null)
+              	{
+              		request.setAttribute("auth",auth);
+              		
+              		if(auth.getID() != 2)
+              		{
+              			response.sendRedirect("/LaCantinav2/index.jsp");
+              		}
+              	}
+              	else
+              	{
+              		response.sendRedirect("/LaCantinav2/index.jsp");
+              	}
+              	
+              	ProdottoDao pd = new ProdottoDao(ConnectToDB.getConnection());
+              	List<Prodotto> products = pd.getAllProdotti();
+            %>  
   
 <!DOCTYPE html>
 <html>

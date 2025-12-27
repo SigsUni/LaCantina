@@ -7,24 +7,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<% 
-		User auth = (User)request.getSession().getAttribute("auth"); 
+<%
+Utente auth = (Utente)request.getSession().getAttribute("auth"); 
 		RigaOrdineDao riga_ordine = new RigaOrdineDao(ConnectToDB.getConnection());
 
 		List<Ordine> ordini = null;
 		if(auth != null)
 		{
-			request.setAttribute("auth",auth);
-			ordini = new OrdineDao(ConnectToDB.getConnection()).userOrders(auth.getID());
+	request.setAttribute("auth",auth);
+	ordini = new OrdineDao(ConnectToDB.getConnection()).userOrders(auth.getID());
 		}
 		else{
-			response.sendRedirect("LoginAndRegistration.jsp");
+	response.sendRedirect("LoginAndRegistration.jsp");
 		}
 		
-		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-		List<Cart> cartProduct = null;
+		ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+		List<Carrello> cartProduct = null;
 		if(cart_list != null){
-			request.setAttribute("cart_list", cart_list);
+	request.setAttribute("cart_list", cart_list);
 		}
 %>
 <meta charset="UTF-8">

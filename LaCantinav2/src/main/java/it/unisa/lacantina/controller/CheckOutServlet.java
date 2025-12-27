@@ -13,9 +13,9 @@ import java.util.*;
 import it.unisa.lacantina.model.dao.OrdineDao;
 import it.unisa.lacantina.model.dao.ProdottoDao;
 import it.unisa.lacantina.model.dao.RigaOrdineDao;
-import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Carrello;
 import it.unisa.lacantina.model.domain.Ordine;
-import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;
 
 /**
@@ -34,9 +34,9 @@ public class CheckOutServlet extends HttpServlet {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Date date = new Date();
 			//prende tutti i prodotti dal carrello
-			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+			ArrayList<Carrello> cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 			//prende la sessione utente
-			User auth = (User)request.getSession().getAttribute("auth");
+			Utente auth = (Utente)request.getSession().getAttribute("auth");
 			
 			String indirizzo = request.getParameter("insert-indirizzo");
 			String provincia = request.getParameter("insert-provincia");
@@ -51,7 +51,7 @@ public class CheckOutServlet extends HttpServlet {
 			int id_riga_ordine = 0;
 			if(cart_list!=null && auth!=null) {
 				
-				for(Cart c:cart_list) {
+				for(Carrello c:cart_list) {
 					prezzo_totale = prezzo_totale + (c.getPrezzo() * c.getQuantity());
 					num_oggetti++;
 				}
@@ -67,7 +67,7 @@ public class CheckOutServlet extends HttpServlet {
 				//INSERIMENTO RIGA ORDINE
 				
 				
-				for(Cart c:cart_list)
+				for(Carrello c:cart_list)
 				{
 	
 					Ordine order = new Ordine();

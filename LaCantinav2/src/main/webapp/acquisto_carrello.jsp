@@ -5,34 +5,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<%User auth = (User)request.getSession().getAttribute("auth"); 
-  	
-  	if(auth!=null)
-  	{
-  		request.setAttribute("auth",auth);
-  		
-  	}
-  	else
-  	{
-  		response.sendRedirect("/LaCantinav2/LoginAndRegistration.jsp");
-  	}
-  	
-  	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-	List<Cart> cartProduct = null;
-  	
-  	if(cart_list!=null)
-  	{	
-  		request.setAttribute("cart_list",cart_list);
+	<%
+	Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+		  	
+		  	if(auth!=null)
+		  	{
+		  		request.setAttribute("auth",auth);
+		  		
+		  	}
+		  	else
+		  	{
+		  		response.sendRedirect("/LaCantinav2/LoginAndRegistration.jsp");
+		  	}
+		  	
+		  	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+			List<Carrello> cartProduct = null;
+		  	
+		  	if(cart_list!=null)
+		  	{	
+		  		request.setAttribute("cart_list",cart_list);
 
 		ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
 		cartProduct = pDao.getCartProducts(cart_list);
 		float totale = pDao.getTotalCartPrice(cart_list);
 		request.setAttribute("cart_list", cart_list);
 		request.setAttribute("totale", totale); 
-	}
-	
-  
-  %>  
+			}
+	%>  
 
 
 
@@ -65,15 +64,17 @@
 	
 	<!-- card body --> 
 	
-<form action ="<%= request.getContextPath() %>/check-out" method = "GET" >
+<form action ="<%=request.getContextPath()%>/check-out" method = "GET" >
 
 <div class= "form-group">
 
 <div class = "card-header text-center">
 	Riepilogo del tuo acquisto
 	<h4><b><center>Prezzo Totale€ ${ (totale>0)?totale:0}</center></b></h4>
-	<%if (cart_list!= null){
-			 	for(Cart c:cartProduct){%>
+	<%
+	if (cart_list!= null){
+		 	for(Carrello c:cartProduct){
+	%>
 	<div class= "form-group">
 	
 			<label>ID Prodotto</label>

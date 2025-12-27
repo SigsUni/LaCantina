@@ -1,7 +1,5 @@
 package it.unisa.lacantina.model.domain;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Prodotto {
 	

@@ -8,7 +8,7 @@ import java.util.List;
 
 import it.unisa.lacantina.model.domain.Ordine;
 import it.unisa.lacantina.model.domain.Prodotto;
-import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.model.domain.Utente;
 
 public class OrdineDao 
 {
@@ -103,14 +103,14 @@ public class OrdineDao
 				Ordine order = new Ordine();
 				
 				ProdottoDao productdao = new ProdottoDao(this.con);
-				UserDao userdao = new UserDao(this.con);
+				UtenteDao userdao = new UtenteDao(this.con);
 				
 				int pId = rs.getInt("id_prodotto");
 				int uId = rs.getInt("id_utente");
 				
 				
 				Prodotto product = productdao.getSingleProdotto(pId);
-				User user = userdao.getSingleUser(uId);
+				Utente user = userdao.getSingleUser(uId);
 				order.setId(rs.getInt("id"));
 				order.setIdRigaOrdine(rs.getInt("id_riga_ordine"));
 				order.setId_prodotto(pId);

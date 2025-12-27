@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Carrello;
 
 /**
  * Servlet implementation class RemoveFromCartServlet
@@ -29,9 +29,9 @@ public class RemoveFromCartServlet extends HttpServlet {
 			String id = request.getParameter("id");
 			if(id != null ) {
 				
-				ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+				ArrayList<Carrello> cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 				if(cart_list!= null) {
-					for(Cart c:cart_list) {
+					for(Carrello c:cart_list) {
 						if(c.getId() == Integer.parseInt(id)) 
 						{
 							cart_list.remove(cart_list.indexOf(c));

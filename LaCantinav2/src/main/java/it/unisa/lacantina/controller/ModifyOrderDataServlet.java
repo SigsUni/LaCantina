@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 
 import it.unisa.lacantina.model.dao.ProdottoDao;
 import it.unisa.lacantina.model.dao.RigaOrdineDao;
-import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;
 
 /**
@@ -29,7 +29,7 @@ public class ModifyOrderDataServlet extends HttpServlet {
 		
 		try (PrintWriter out = response.getWriter())
 		{
-			User auth = (User)request.getSession().getAttribute("auth");
+			Utente auth = (Utente)request.getSession().getAttribute("auth");
 			String indirizzo = request.getParameter("insert-indirizzo");
 			String provincia = request.getParameter("insert-provincia");
 			String cap = request.getParameter("insert-cap");

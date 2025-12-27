@@ -2,24 +2,23 @@
 <html lang="it">
 <head>
 
-<%@page import="it.unisa.lacantina.model.domain.User" %>
+<%@page import="it.unisa.lacantina.model.domain.Utente" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="it.unisa.lacantina.model.domain.*" %>
 <%@page import="it.unisa.lacantina.model.dao.*" %>
 <%@page import="it.unisa.lacantina.util.*" %>
     <%@page import="java.util.*" %>
-<% 
-		User auth = (User)request.getSession().getAttribute("auth"); 
+<%
+Utente auth = (Utente)request.getSession().getAttribute("auth"); 
 		if(auth != null)
 		{
-			request.setAttribute("auth",auth);
+	request.setAttribute("auth",auth);
 		}
-		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+		ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
 		if(cart_list!=null){
-			request.setAttribute("cart_list", cart_list);
+	request.setAttribute("cart_list", cart_list);
 		}
-		
 %>
 
 <meta charset="UTF-8">

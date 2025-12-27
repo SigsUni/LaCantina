@@ -4,8 +4,8 @@
 <%@page import="java.util.List" %>
 <%@page import="java.util.*" %>
 
-<% 
-	User auth = (User)request.getSession().getAttribute("auth"); 
+<%
+Utente auth = (Utente)request.getSession().getAttribute("auth"); 
 	if(auth != null)
 	{
 		request.setAttribute("auth",auth);
@@ -20,11 +20,10 @@
 	
 	ProdottoDao pd = new ProdottoDao(ConnectToDB.getConnection());
 	List<Prodotto> prodotti = pd.getAllProdotti();
-	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
 	if(cart_list!=null){
 		request.setAttribute("cart_list", cart_list);
 	}
-   
 %>
 <!DOCTYPE html>
 <html >

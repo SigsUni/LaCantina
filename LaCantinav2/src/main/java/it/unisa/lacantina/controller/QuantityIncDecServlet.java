@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Carrello;
 
 /**
  * Servlet implementation class QuantityIncDecServlet
@@ -29,13 +29,13 @@ public class QuantityIncDecServlet extends HttpServlet {
 			String action = request.getParameter("action");
 			int id = Integer.parseInt(request.getParameter("id"));
 			
-			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+			ArrayList<Carrello> cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 			
 			
 			if(action != null && id>=1) {
 				
 				if(action.equals("inc")) {
-					for(Cart c:cart_list) {
+					for(Carrello c:cart_list) {
 						if(c.getId() == id) {
 							
 							int quantity = c.getQuantity();
@@ -47,7 +47,7 @@ public class QuantityIncDecServlet extends HttpServlet {
 				}
 				else if(action.equals("dec")) {
 					
-					for(Cart c:cart_list) {
+					for(Carrello c:cart_list) {
 						if(c.getId() == id) {
 							
 							int quantity = c.getQuantity();

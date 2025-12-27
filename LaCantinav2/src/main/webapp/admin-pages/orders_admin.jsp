@@ -6,40 +6,40 @@
     pageEncoding="UTF-8"%>
     
     <%
-    User auth = (User)request.getSession().getAttribute("auth"); 
-  	
-    List<Ordine> orders = null;
-    UserDao NomeUser = null;
-    
-    
-   
-  
-    
-  	if(auth!=null)
-  	{
-  		request.setAttribute("auth",auth);
-  		
-  		if(auth.getID() != 2)
-  		{
-  			response.sendRedirect("/LaCantinav2/index.jsp");
-  		}
-  		
-  		OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
-  		orders = new OrdineDao(ConnectToDB.getConnection()).all_userOrders();
-  		
-  	}
-  	else
-  	{
-  		response.sendRedirect("/LaCantinav2/index.jsp");
-  	}
-  	
-	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-  	
-  	if(cart_list!=null)
-  	{	
-  		request.setAttribute("cart_list",cart_list);
-  	}
-  %>  
+        Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+                          	
+                            List<Ordine> orders = null;
+                            UtenteDao NomeUser = null;
+                            
+                            
+                           
+                          
+                            
+                          	if(auth!=null)
+                          	{
+                          		request.setAttribute("auth",auth);
+                          		
+                          		if(auth.getID() != 2)
+                          		{
+                          			response.sendRedirect("/LaCantinav2/index.jsp");
+                          		}
+                          		
+                          		OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
+                          		orders = new OrdineDao(ConnectToDB.getConnection()).all_userOrders();
+                          		
+                          	}
+                          	else
+                          	{
+                          		response.sendRedirect("/LaCantinav2/index.jsp");
+                          	}
+                          	
+                        	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+                          	
+                          	if(cart_list!=null)
+                          	{	
+                          		request.setAttribute("cart_list",cart_list);
+                          	}
+        %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,14 +69,13 @@
 		</tr>
 		
 		<tbody>
-			<% 
+			<%
 			if(orders!=null){
-				
-				for(Ordine o:orders)
-				{
-				NomeUser = new UserDao(ConnectToDB.getConnection());
-				
-				%>
+					
+					for(Ordine o:orders)
+					{
+					NomeUser = new UtenteDao(ConnectToDB.getConnection());
+			%>
 				
 				
 				<tr>

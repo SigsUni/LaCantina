@@ -1,14 +1,14 @@
 <%@page import="it.unisa.lacantina.util.ConnectToDB" %>
-<%@page import="it.unisa.lacantina.model.domain.User" %>
-<%@page import="it.unisa.lacantina.model.domain.Cart" %>
+<%@page import="it.unisa.lacantina.model.domain.Utente" %>
+<%@page import="it.unisa.lacantina.model.domain.Carrello" %>
 <%@page import="java.util.*" %>
-<% 
-	User auth = (User)request.getSession().getAttribute("auth"); 
+<%
+Utente auth = (Utente)request.getSession().getAttribute("auth"); 
 	if(auth != null)
 	{
 		request.setAttribute("auth",auth);
 	} 
-	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
 	if(cart_list!=null){
 		request.setAttribute("cart_list", cart_list);
 	}

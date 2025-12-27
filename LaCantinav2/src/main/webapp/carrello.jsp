@@ -5,25 +5,25 @@
 <%@page import="it.unisa.lacantina.util.*" %>
 <%@page import="java.util.*" %>
      
-<% 
-		User auth = (User)request.getSession().getAttribute("auth"); 
-		if(auth != null)
-		{
-			request.setAttribute("auth",auth);
-		}
-		
-		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-		List<Cart> cartProduct = null;
-		
-		
-		if(cart_list != null){
-			ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
-			cartProduct = pDao.getCartProducts(cart_list);
-			float totale = pDao.getTotalCartPrice(cart_list);
-			request.setAttribute("cart_list", cart_list);
-			 request.setAttribute("totale", totale); 
-		}
-%>
+<%
+     Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+          		if(auth != null)
+          		{
+          	request.setAttribute("auth",auth);
+          		}
+          		
+          		ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+          		List<Carrello> cartProduct = null;
+          		
+          		
+          		if(cart_list != null){
+          	ProdottoDao pDao = new ProdottoDao(ConnectToDB.getConnection());
+          	cartProduct = pDao.getCartProducts(cart_list);
+          	float totale = pDao.getTotalCartPrice(cart_list);
+          	request.setAttribute("cart_list", cart_list);
+          	 request.setAttribute("totale", totale); 
+          		}
+     %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +65,7 @@
  <div class = "container">
  
  <div class ="d-flex py-3"><h3>Conto:€ ${ (totale>0)?totale:0}</h3>
- <a class="mx-3 btn btn-primary" href ="<%= request.getContextPath() %>/acquisto_carrello.jsp">CheckOut</a></div>
+ <a class="mx-3 btn btn-primary" href ="<%=request.getContextPath()%>/acquisto_carrello.jsp">CheckOut</a></div>
  <table class = "table table-loght">
  
  <thread>
@@ -78,9 +78,11 @@
  </tr>
  
  <tbody>
- <%if (cart_list!= null){
- 	for(Cart c:cartProduct)
- 	{%>
+ <%
+ if (cart_list!= null){
+  	for(Carrello c:cartProduct)
+  	{
+ %>
  			
  		<tr>
  	 		<td><%=c.getNome() %></td>

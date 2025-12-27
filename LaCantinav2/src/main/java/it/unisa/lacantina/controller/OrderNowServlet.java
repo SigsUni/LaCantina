@@ -14,10 +14,10 @@ import java.util.Date;
 import it.unisa.lacantina.model.dao.OrdineDao;
 import it.unisa.lacantina.model.dao.ProdottoDao;
 import it.unisa.lacantina.model.dao.RigaOrdineDao;
-import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Carrello;
 import it.unisa.lacantina.model.domain.Ordine;
 import it.unisa.lacantina.model.domain.RigaOrdine;
-import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;
 
 /**
@@ -38,7 +38,7 @@ public class OrderNowServlet extends HttpServlet {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Date date = new Date();
 			
-			User auth = (User)request.getSession().getAttribute("auth");
+			Utente auth = (Utente)request.getSession().getAttribute("auth");
 			ProdottoDao prodotto = null;
 			if(auth!=null) 
 			{
@@ -52,14 +52,14 @@ public class OrderNowServlet extends HttpServlet {
 				
 				
 				
-				ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+				ArrayList<Carrello> cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 				float prezzo_totale = 0;
 				prezzo_totale = Float.parseFloat(request.getParameter("insert-prezzo"));
 				
 				if(prezzo_totale!=0) {
 				if(cart_list!= null)
 				{
-					for(Cart c:cart_list) {
+					for(Carrello c:cart_list) {
 						if(c.getId() == Integer.parseInt(prodottoId)) 
 						{
 							System.out.println("PREZO CARRELLO = " + c.getPrezzo());
@@ -97,9 +97,9 @@ public class OrderNowServlet extends HttpServlet {
 					if(result || result_update_stock) 
 					{
 						//RIMOZIONE ELEMENTO DA CARRELLO SE PRESENTE
-						cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+						cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
 						if(cart_list!= null) {
-							for(Cart c:cart_list) {
+							for(Carrello c:cart_list) {
 								if(c.getId() == Integer.parseInt(prodottoId)) 
 								{
 									cart_list.remove(cart_list.indexOf(c));

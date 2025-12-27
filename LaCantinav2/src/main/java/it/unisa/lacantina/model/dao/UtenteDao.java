@@ -4,21 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.model.domain.Utente;
 
-public class UserDao {
+public class UtenteDao {
 	
 	private Connection con;
 	private String query;
 	private PreparedStatement pst;
 	private ResultSet rs;
 	
-	public UserDao(Connection con) {
+	public UtenteDao(Connection con) {
 		this.con = con;
 	}
 	
-	public User userLogin(String email, String password) {
-		User user = null;
+	public Utente userLogin(String email, String password) {
+		Utente user = null;
 		
 		try {
 			query= "select * from utenti where email =? and password=?";
@@ -29,7 +29,7 @@ public class UserDao {
 			
 			if(rs.next())
 			{
-				user = new User();
+				user = new Utente();
 				user.setID(rs.getInt("id"));
 				user.setName(rs.getString("nome"));
 				user.setEmail(rs.getString("email"));
@@ -96,9 +96,9 @@ public class UserDao {
 		return false;
 	}
 	
-	public User getSingleUser(int id)
+	public Utente getSingleUser(int id)
 	{
-		User row = null;
+		Utente row = null;
 		
 		try {
 			
@@ -111,7 +111,7 @@ public class UserDao {
 			
 			while(rs.next()) {
 				
-				row = new User();
+				row = new Utente();
 				
 				row.setID(rs.getInt("id"));
 				row.setName(rs.getString("nome"));

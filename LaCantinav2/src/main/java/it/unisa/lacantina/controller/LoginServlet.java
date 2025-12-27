@@ -1,6 +1,6 @@
 package it.unisa.lacantina.controller;
-import it.unisa.lacantina.model.dao.UserDao;
-import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.model.dao.UtenteDao;
+import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -41,8 +41,8 @@ public class LoginServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			
 			out.print(email+password);
-			UserDao udao = new UserDao(ConnectToDB.getConnection());
-			User user = udao.userLogin(email, password);
+			UtenteDao udao = new UtenteDao(ConnectToDB.getConnection());
+			Utente user = udao.userLogin(email, password);
 			
 			if(user!=null)
 			{

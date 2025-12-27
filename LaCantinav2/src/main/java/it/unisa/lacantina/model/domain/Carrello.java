@@ -1,9 +1,9 @@
 package it.unisa.lacantina.model.domain;
 
-public class Cart extends Prodotto{
+public class Carrello extends Prodotto{
 	private int quantity;
 	
-	public Cart() {
+	public Carrello() {
 		
 	}
 	
