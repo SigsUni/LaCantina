@@ -17,7 +17,7 @@ import it.unisa.lacantina.util.ConnectToDB;
  * Servlet implementation class ModifyOrderData
  */
 @WebServlet("/modifica-dati")
-public class ModifyOrderData extends HttpServlet {
+public class ModifyOrderDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
