@@ -82,10 +82,10 @@
 					<td><%=o.getIdRigaOrdine() %></td>
 					<td><%=o.getData() %></td>
 					<td><%=NomeUser.getNomeById(o.getIdUtente()) %></td>
-					<td><%=o.getNome() %></td>
-					<td><%=o.getCategoria() %></td>
+					<td><%=o.getProdotto().getNome() %></td>
+					<td><%=o.getProdotto().getCategoria() %></td>
 					<td><%=o.getQuantity() %></td>
-					<td>€<%=o.getPrezzo() %></td>
+					<td>€<%=o.getProdotto().getPrezzo() %></td>
 					
 					<td><a class = "btn btn-sm btn-danger" href="<%= request.getContextPath() %>/admin-pages/gestisci_ordini_admin.jsp?id=<%=o.getIdRigaOrdine()%>"> Gestisci Ordine</a></td>
 					

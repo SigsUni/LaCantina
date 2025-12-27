@@ -74,8 +74,8 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 			<tr>
 				<td><%= o.getIdRigaOrdine() %>
 				<td><%= o.getData() %></td>
-				<td><%= o.getNome() %></td>
-				<td><%= o.getPrezzo() %></td>
+				<td><%= o.getProdotto().getNome() %></td>
+				<td><%= o.getProdotto().getPrezzo() %></td>
 				<td><%= o.getQuantity() %></td>
 				<td><a class = "btn btn-sm btn-danger" href="<%= request.getContextPath() %>/gestisci_ordine.jsp?id=<%= o.getIdRigaOrdine() %>">Gestisci</a></td>
 				

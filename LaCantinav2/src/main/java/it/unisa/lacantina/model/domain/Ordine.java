@@ -1,6 +1,6 @@
 package it.unisa.lacantina.model.domain;
 
-public class Ordine extends Prodotto{
+public class Ordine{
 	
 	private int id;
 	private int id_prodotto;
@@ -8,10 +8,11 @@ public class Ordine extends Prodotto{
 	private int quantity;
 	private String data;
 	private int id_riga_ordine;
+	private Prodotto prodotto;
 	
 	
 	public Ordine() {
-		
+		this.prodotto = new Prodotto();
 	}
 	
 	public Ordine(int id,int id_prodotto, int id_utente, int quantity, String data, int id_riga_ordine) {
@@ -22,6 +23,7 @@ public class Ordine extends Prodotto{
 		this.quantity = quantity;
 		this.data = data;
 		this.id_riga_ordine = id_riga_ordine;
+		this.prodotto = new Prodotto();
 	}
 	
 	public int getId_ordine() {
@@ -50,6 +52,10 @@ public class Ordine extends Prodotto{
 		return this.data;
 	}
 	
+	public Prodotto getProdotto() {
+		return prodotto;
+	}
+	
 	public void setId_prodotto(int id) {
 		this.id_prodotto = id;
 	}
@@ -73,6 +79,10 @@ public class Ordine extends Prodotto{
 	public void setIdRigaOrdine(int id) {
 
 		this.id_riga_ordine = id;
+	}
+	
+	public void setProdotto(Prodotto prod) {
+		this.prodotto = prod;
 	}
 	
 

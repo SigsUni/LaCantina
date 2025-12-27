@@ -28,7 +28,8 @@ public class OrdineDao
 	public boolean insertOrder(Ordine model) 
 	{
 		boolean result = false;
-		
+		ProdottoDao productDao = new ProdottoDao(this.con);
+		Prodotto prod = productDao.getSingleProdotto(model.getIdProdotto());
 		try {
 			
 			query = "insert into ordini(id_prodotto,id_utente, quantity, data_ordine, id_riga_ordine) values(?,?,?,?,?)";
@@ -39,7 +40,9 @@ public class OrdineDao
 			pst.setString(4, model.getData());
 			pst.setInt(5, model.getIdRigaOrdine());
 			pst.executeUpdate();
+			model.setProdotto(prod);
 			result = true;
+			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -67,9 +70,7 @@ public class OrdineDao
 				Prodotto prodotto = productDao.getSingleProdotto(pId);
 				order.setId_ordine(rs.getInt("id"));
 				order.setIdRigaOrdine(rs.getInt("id_riga_ordine"));
-				order.setNome(prodotto.getNome());
-				order.setCategoria(prodotto.getCategoria());
-				order.setPrezzo(prodotto.getPrezzo() * rs.getInt("quantity"));
+				order.setProdotto(prodotto);
 				order.setQuantity(rs.getInt("quantity"));
 				order.setData(rs.getString("data_ordine"));
 			
@@ -111,13 +112,11 @@ public class OrdineDao
 				
 				Prodotto product = productdao.getSingleProdotto(pId);
 				Utente user = userdao.getSingleUser(uId);
-				order.setId(rs.getInt("id"));
+				order.setId_ordine(rs.getInt("id"));
 				order.setIdRigaOrdine(rs.getInt("id_riga_ordine"));
 				order.setId_prodotto(pId);
 				order.setId_utente(uId);
-				order.setNome(product.getNome());
-				order.setCategoria(product.getCategoria());
-				order.setPrezzo(product.getPrezzo()*rs.getInt("quantity"));
+				order.setProdotto(product);
 				order.setQuantity(rs.getInt("quantity"));
 				order.setData(rs.getString("data_ordine"));
 				list.add(order);

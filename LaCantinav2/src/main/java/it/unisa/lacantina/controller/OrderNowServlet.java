@@ -16,6 +16,7 @@ import it.unisa.lacantina.model.dao.ProdottoDao;
 import it.unisa.lacantina.model.dao.RigaOrdineDao;
 import it.unisa.lacantina.model.domain.Carrello;
 import it.unisa.lacantina.model.domain.Ordine;
+import it.unisa.lacantina.model.domain.Prodotto;
 import it.unisa.lacantina.model.domain.RigaOrdine;
 import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;
@@ -87,6 +88,9 @@ public class OrderNowServlet extends HttpServlet {
 					orderModel.setQuantity(productQuantity);
 					orderModel.setData(formatter.format(date));
 					orderModel.setIdRigaOrdine(id_riga_ordine);
+					ProdottoDao productDao = new ProdottoDao(ConnectToDB.getConnection());
+					Prodotto prod = productDao.getSingleProdotto(orderModel.getIdProdotto());
+					orderModel.setProdotto(prod);
 					OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
 					boolean result = orderDao.insertOrder(orderModel);
 					//OPERAZIONI DI DECREMENTO STOCK
