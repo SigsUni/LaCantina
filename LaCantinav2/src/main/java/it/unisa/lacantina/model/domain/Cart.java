@@ -1,4 +1,4 @@
-package it.unisa.lacantina.model;
+package it.unisa.lacantina.model.domain;
 
 public class Cart extends Prodotto{
 	private int quantity;

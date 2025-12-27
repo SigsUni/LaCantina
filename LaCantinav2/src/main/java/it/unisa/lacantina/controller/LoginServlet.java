@@ -1,7 +1,7 @@
-package it.unisa.lacantina.servlet;
-import it.unisa.lacantina.control.UserDao;
-import it.unisa.lacantina.model.User;
-import it.unisa.lacantina.model.ConnectToDB;
+package it.unisa.lacantina.controller;
+import it.unisa.lacantina.model.dao.UserDao;
+import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.util.ConnectToDB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

@@ -1,6 +1,6 @@
-<%@page import="it.unisa.lacantina.model.ConnectToDB" %>
-<%@page import="it.unisa.lacantina.model.*" %>
-<%@page import="it.unisa.lacantina.control.*" %>
+<%@page import="it.unisa.lacantina.model.domain.*" %>
+<%@page import="it.unisa.lacantina.model.dao.*" %>
+<%@page import="it.unisa.lacantina.util.*" %>
 <%@page import="java.util.List" %>
 <%@page import="java.util.*" %>
 

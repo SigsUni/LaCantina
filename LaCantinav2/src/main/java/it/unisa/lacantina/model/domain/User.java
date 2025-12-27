@@ -1,4 +1,4 @@
-package it.unisa.lacantina.model;
+package it.unisa.lacantina.model.domain;
 
 public class User {
 	private int id;

@@ -1,6 +1,6 @@
-<%@page import="it.unisa.lacantina.model.ConnectToDB" %>
-<%@page import="it.unisa.lacantina.model.User" %>
-<%@page import="it.unisa.lacantina.model.Cart" %>
+<%@page import="it.unisa.lacantina.util.ConnectToDB" %>
+<%@page import="it.unisa.lacantina.model.domain.User" %>
+<%@page import="it.unisa.lacantina.model.domain.Cart" %>
 <%@page import="java.util.*" %>
 <% 
 	User auth = (User)request.getSession().getAttribute("auth"); 

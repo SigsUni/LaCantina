@@ -1,4 +1,4 @@
-package it.unisa.lacantina.model;
+package it.unisa.lacantina.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

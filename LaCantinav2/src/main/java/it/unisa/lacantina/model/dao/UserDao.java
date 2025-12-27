@@ -1,11 +1,10 @@
-package it.unisa.lacantina.control;
+package it.unisa.lacantina.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
-import it.unisa.lacantina.model.User;
+import it.unisa.lacantina.model.domain.User;
 
 public class UserDao {
 	

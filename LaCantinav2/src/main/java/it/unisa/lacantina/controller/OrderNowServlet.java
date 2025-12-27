@@ -1,4 +1,4 @@
-package it.unisa.lacantina.servlet;
+package it.unisa.lacantina.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,14 +11,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import it.unisa.lacantina.control.OrdineDao;
-import it.unisa.lacantina.control.ProdottoDao;
-import it.unisa.lacantina.control.RigaOrdineDao;
-import it.unisa.lacantina.model.Cart;
-import it.unisa.lacantina.model.ConnectToDB;
-import it.unisa.lacantina.model.Ordine;
-import it.unisa.lacantina.model.RigaOrdine;
-import it.unisa.lacantina.model.User;
+import it.unisa.lacantina.model.dao.OrdineDao;
+import it.unisa.lacantina.model.dao.ProdottoDao;
+import it.unisa.lacantina.model.dao.RigaOrdineDao;
+import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Ordine;
+import it.unisa.lacantina.model.domain.RigaOrdine;
+import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.util.ConnectToDB;
 
 /**
  * Servlet implementation class OrderNowServlet

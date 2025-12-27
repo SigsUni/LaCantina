@@ -1,4 +1,4 @@
-package it.unisa.lacantina.servlet;
+package it.unisa.lacantina.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,24 +6,21 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import it.unisa.lacantina.control.ProdottoDao;
-import it.unisa.lacantina.model.ConnectToDB;
-
-
+import it.unisa.lacantina.model.dao.ProdottoDao;
+import it.unisa.lacantina.util.ConnectToDB;
 
 /**
- * Servlet implementation class AdminRemoveStock
+ * Servlet implementation class AdminDeleteProdotto
  */
-@WebServlet("/remove-stock")
-public class AdminRemoveStock extends HttpServlet {
+@WebServlet("/delete-prodotto")
+public class AdminDeleteProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminRemoveStock() {
+    public AdminDeleteProdotto() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,33 +29,21 @@ public class AdminRemoveStock extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		response.setContentType("text/html; charset = UTF-8");
 		
-		try(PrintWriter out = response.getWriter())
+		try
 		{
-			int id = Integer.parseInt(request.getParameter("id"));
-			int stock_input = Integer.parseInt(request.getParameter("stock_remove"));
-			ProdottoDao productdao = new ProdottoDao(ConnectToDB.getConnection());
-			
-			int stock = productdao.getStockFromId(id);
-			if((stock - stock_input) <0)
-			{
-				response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
-			}
-			else
-			{
-				productdao.setNewStock(id, stock-stock_input);
-			
-				response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
-			}
+		int id = Integer.parseInt(request.getParameter("id"));
+		ProdottoDao productdao = new ProdottoDao(ConnectToDB.getConnection());
+		
+		productdao.DeleteById(id);
+		
+		response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-	
-	
+		
 		
 	}
 

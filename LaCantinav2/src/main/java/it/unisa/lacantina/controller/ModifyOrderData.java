@@ -1,4 +1,4 @@
-package it.unisa.lacantina.servlet;
+package it.unisa.lacantina.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,10 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import it.unisa.lacantina.control.ProdottoDao;
-import it.unisa.lacantina.control.RigaOrdineDao;
-import it.unisa.lacantina.model.ConnectToDB;
-import it.unisa.lacantina.model.User;
+import it.unisa.lacantina.model.dao.ProdottoDao;
+import it.unisa.lacantina.model.dao.RigaOrdineDao;
+import it.unisa.lacantina.model.domain.User;
+import it.unisa.lacantina.util.ConnectToDB;
 
 /**
  * Servlet implementation class ModifyOrderData

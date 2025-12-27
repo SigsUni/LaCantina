@@ -1,17 +1,18 @@
-package it.unisa.lacantina.control;
+package it.unisa.lacantina.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import it.unisa.lacantina.model.domain.Ordine;
+import it.unisa.lacantina.model.domain.Prodotto;
+import it.unisa.lacantina.model.domain.RigaOrdine;
+
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import it.unisa.lacantina.model.Ordine;
-import it.unisa.lacantina.model.Prodotto;
-import it.unisa.lacantina.model.RigaOrdine;
 
 public class RigaOrdineDao {
 

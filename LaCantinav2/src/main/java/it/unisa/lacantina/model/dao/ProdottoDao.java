@@ -1,10 +1,12 @@
-package it.unisa.lacantina.control;
+package it.unisa.lacantina.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 import it.unisa.lacantina.model.*;
+import it.unisa.lacantina.model.domain.Cart;
+import it.unisa.lacantina.model.domain.Prodotto;
 
 public class ProdottoDao {
 

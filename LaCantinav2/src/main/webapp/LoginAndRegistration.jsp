@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<%@page import="it.unisa.lacantina.model.User" %>
+<%@page import="it.unisa.lacantina.model.domain.*" %>
 <%@page import="java.util.*" %>
 <%@page import="it.unisa.lacantina.model.*" %>
-<%@page import="it.unisa.lacantina.control.*" %>
+
 <% 
 		User auth = (User)request.getSession().getAttribute("auth"); 
 

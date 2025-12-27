@@ -2,11 +2,12 @@
 <html lang="it">
 <head>
 
-<%@page import="it.unisa.lacantina.model.User" %>
+<%@page import="it.unisa.lacantina.model.domain.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="it.unisa.lacantina.model.*" %>
-    <%@page import="it.unisa.lacantina.control.*" %>
+<%@page import="it.unisa.lacantina.model.domain.*" %>
+<%@page import="it.unisa.lacantina.model.dao.*" %>
+<%@page import="it.unisa.lacantina.util.*" %>
     <%@page import="java.util.*" %>
 <% 
 		User auth = (User)request.getSession().getAttribute("auth"); 

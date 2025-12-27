@@ -1,4 +1,4 @@
-package it.unisa.lacantina.servlet;
+package it.unisa.lacantina.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,8 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import it.unisa.lacantina.model.*;
-import it.unisa.lacantina.control.*;
+
+import it.unisa.lacantina.model.dao.UserDao;
+import it.unisa.lacantina.util.ConnectToDB;
+
 
 /**
  * Servlet implementation class RegisterServlet

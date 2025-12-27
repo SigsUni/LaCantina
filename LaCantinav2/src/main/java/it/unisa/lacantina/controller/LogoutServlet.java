@@ -1,4 +1,4 @@
-package it.unisa.lacantina.servlet;
+package it.unisa.lacantina.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

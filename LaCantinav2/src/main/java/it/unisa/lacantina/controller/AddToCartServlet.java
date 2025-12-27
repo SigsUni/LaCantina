@@ -1,4 +1,4 @@
-package it.unisa.lacantina.servlet;
+package it.unisa.lacantina.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import it.unisa.lacantina.model.Cart;
+import it.unisa.lacantina.model.domain.Cart;
 
 /**
  * Servlet implementation class AddToCartServlet

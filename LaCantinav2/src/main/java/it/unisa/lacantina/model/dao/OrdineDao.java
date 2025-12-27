@@ -1,4 +1,4 @@
-package it.unisa.lacantina.control;
+package it.unisa.lacantina.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import it.unisa.lacantina.model.Ordine;
-import it.unisa.lacantina.model.Prodotto;
-import it.unisa.lacantina.model.User;
+import it.unisa.lacantina.model.domain.Ordine;
+import it.unisa.lacantina.model.domain.Prodotto;
+import it.unisa.lacantina.model.domain.User;
 
 public class OrdineDao 
 {
