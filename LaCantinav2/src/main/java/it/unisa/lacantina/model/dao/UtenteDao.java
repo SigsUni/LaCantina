@@ -46,6 +46,7 @@ public class UtenteDao {
 	
 	public boolean UserCheck(String email)
 	{
+		boolean result = false;
 		try
 		{
 			query = "select * from utenti where email=?";
@@ -58,10 +59,11 @@ public class UtenteDao {
 			{
 				if(rs.getString("email").equals(email))
 				{
-						return true;
+						result = true;
+						return result;
 				}
 			}
-			return false;
+			return result;
 			
 		}
 		catch(Exception e)
@@ -69,7 +71,7 @@ public class UtenteDao {
 			e.printStackTrace();
 			System.out.print(e.getMessage());
 		}
-		return false;
+		return result;
 	}
 	
 	

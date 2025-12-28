@@ -4,7 +4,7 @@ public class RigaOrdine {
 	
 	private int id;
 	private int quantity;
-	private int prezzo_totale;
+	private float prezzo_totale;
 	private String stato_ordine;
 	private String indirizzo;
 	private String cap;
@@ -16,7 +16,7 @@ public class RigaOrdine {
 		
 	}
 	
-	public RigaOrdine(int id,int quantity, int prezzo_totale, String stato_ordine, String indirizzo, String cap, String city, String provincia) {
+	public RigaOrdine(int id,int quantity, float prezzo_totale, String stato_ordine, String indirizzo, String cap, String city, String provincia) {
 		super();
 		this.id = id;
 		this.quantity = quantity;
@@ -35,7 +35,7 @@ public class RigaOrdine {
 		return quantity;
 	}
 	
-	public int getPrezzoTotale() {
+	public float getPrezzoTotale() {
 		return prezzo_totale;
 	}
 	
@@ -69,7 +69,7 @@ public class RigaOrdine {
 		this.quantity = quantity;
 	}
 	
-	public void setPrezzoTotale(int prezzo) {
+	public void setPrezzoTotale(float prezzo) {
 		this.prezzo_totale =  prezzo;
 	}
 	
