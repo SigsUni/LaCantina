@@ -10,12 +10,13 @@ public class Prodotto {
 	private int stock;
 	private float prezzo;
 	private String immagine;
+	private String stato;
 	
 	public Prodotto() {
 		
 	}
 	
-	public Prodotto(int id, String nome, String descrizione, String categoria, float prezzo, String immagine, int stock){
+	public Prodotto(int id, String nome, String descrizione, String categoria, float prezzo, String immagine, int stock, String stato){
 		
 		this.id = id;
 		this.nome = nome;
@@ -24,6 +25,7 @@ public class Prodotto {
 		this.prezzo = prezzo;
 		this.immagine = immagine;
 		this.stock = stock;
+		this.stato = stato;
 	}
 	
 	public void setId(int id) {
@@ -56,6 +58,10 @@ public class Prodotto {
 	
 	public int getStock() {
 		return stock;
+	}
+	
+	public String getStato() {
+		return stato;
 	}
 	
 	public boolean checkStock(int quantity) { //CONTROLLA SE ESISTONO UN NUMERO MINIMO DI PRODOTTI
@@ -96,6 +102,17 @@ public class Prodotto {
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
+	
+	public boolean checkActive() {
+		if(this.stato.equals("attivo")) {
+			return true;
+		}
+		return false;
 	}
 	
 	

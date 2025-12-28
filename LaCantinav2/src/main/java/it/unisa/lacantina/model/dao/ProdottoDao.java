@@ -37,6 +37,7 @@ public class ProdottoDao {
 				row.setImmagine(rs.getString("immagine"));
 				row.setDescrizione(rs.getString("descrizione"));
 				row.setStock(rs.getInt("stock"));
+				row.setStato(rs.getString("stato"));
 				
 				
 				prodotti.add(row);
@@ -133,7 +134,7 @@ public class ProdottoDao {
 	{
 		try {
 			
-			query = "delete from prodotti where id=?";
+			query = "UPDATE prodotti SET stato ='inattivo' where id=?";
 			pst = this.con.prepareStatement(query);
 			pst.setInt(1, id);
 			
@@ -152,7 +153,7 @@ public class ProdottoDao {
 		
 		try {
 			
-			query = "insert into prodotti (nome,descrizione,categoria,stock,prezzo,immagine) values(?,?,?,?,?,?)";
+			query = "insert into prodotti (nome,descrizione,categoria,stock,prezzo,immagine, stato) values(?,?,?,?,?,?,?)";
 			
 			pst= this.con.prepareStatement(query);
 			pst.setString(1,nome);
@@ -161,6 +162,7 @@ public class ProdottoDao {
 			pst.setInt(4,stock);
 			pst.setFloat(5,prezzo);
 			pst.setString(6,immagine);
+			pst.setString(7, "attivo");
 			pst.executeUpdate();
 			result = true;
 			

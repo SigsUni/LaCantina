@@ -93,7 +93,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
     if(p.getCategoria().equals(categoriaSelezionata) || categoriaSelezionata.equals("tutto"))
     {%>
     
-    <% if(p.checkSingleStock()){%> 
+    <% if(p.checkSingleStock() && (p.checkActive())){%> 
     		
         			<div class="col-md-3 mb-4">
 
@@ -117,7 +117,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 
     					</div>
 				</div>
-				<%} else{%>
+				<%} else if(p.checkActive()){%>
 				
 					<div class="col-md-3 mb-4">
 

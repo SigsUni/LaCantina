@@ -52,7 +52,7 @@
 	{
 		for(Prodotto p:products)
 		{%>
-			
+			<%if(p.checkActive()){ %>
 			<div class="col-12 col-md-6 col-lg-4 gy-3">
 			<div class="card w-100" style="width: 8rem;">
 				<a href="#">
@@ -90,7 +90,7 @@
 			</div>
 		</div>
 			
-		<%
+		<%}
 			}
 		}
 	
