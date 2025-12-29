@@ -94,7 +94,7 @@
 <div class= "form-group">
 
 	<label>Prezzo totale ordine</label>
-	<input type = "number" class = "form-control" name = "insert-prezzo" placeholder = "<%=info_ordine.getPrezzoTotale() %>" readonly required>
+	<input type = "text" class = "form-control" name = "insert-prezzo" placeholder = "<%=info_ordine.getPrezzoTotale() %>" readonly required>
 
 </div>
 

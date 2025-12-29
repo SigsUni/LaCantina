@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0" version="29.2.9">
   <diagram name="Pagina-1" id="hoOLi6wDGyYDmmPKA0wB">
-    <mxGraphModel dx="1698" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="10000" pageHeight="10000" math="0" shadow="0">
+    <mxGraphModel dx="946" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="10000" pageHeight="10000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -64,19 +64,16 @@
         <mxCell id="wQpD50VRQBcK8jCaAvT1-8" parent="wQpD50VRQBcK8jCaAvT1-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;+ Carrello():void&lt;/div&gt;&lt;div&gt;+ getQuantity(): int&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setQuantity(quantity: int): void&lt;/div&gt;&lt;div&gt;+ getProdoto(): Prodotto&lt;/div&gt;&lt;div&gt;+ setProdotto(p: Prodotto): void&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="270" y="70" as="geometry" />
         </mxCell>
-        <mxCell id="wQpD50VRQBcK8jCaAvT1-9" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="CarrelloDao" vertex="1">
-          <mxGeometry height="160" width="470" x="420" y="210" as="geometry">
+        <mxCell id="wQpD50VRQBcK8jCaAvT1-9" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="CarrelloService" vertex="1">
+          <mxGeometry height="96" width="470" x="420" y="210" as="geometry">
             <mxRectangle height="30" width="80" x="640" y="300" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wQpD50VRQBcK8jCaAvT1-10" parent="wQpD50VRQBcK8jCaAvT1-9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;- con: Connection&lt;/div&gt;&lt;div&gt;- query: String&lt;/div&gt;&lt;div&gt;- pst: PreparedStatement&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;- rs: ResultSet&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="64" width="470" y="26" as="geometry" />
-        </mxCell>
         <mxCell id="wQpD50VRQBcK8jCaAvT1-11" parent="wQpD50VRQBcK8jCaAvT1-9" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="470" y="90" as="geometry" />
+          <mxGeometry height="8" width="470" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="wQpD50VRQBcK8jCaAvT1-12" parent="wQpD50VRQBcK8jCaAvT1-9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;+ CarrelloDao(con: Connection):void&lt;/div&gt;&lt;div&gt;+ getCartProducts(cartList: ArrayList&amp;lt;Carrello&amp;gt;): List&amp;lt;Carrello&amp;gt;&lt;/div&gt;&lt;div&gt;+ getTotalCartPrice(cartList:&amp;nbsp;ArrayList&amp;lt;Carrello&amp;gt;: ): float&amp;nbsp;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="62" width="470" y="98" as="geometry" />
+        <mxCell id="wQpD50VRQBcK8jCaAvT1-12" parent="wQpD50VRQBcK8jCaAvT1-9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;+ CarrelloService():void&lt;/div&gt;&lt;div&gt;+ getTotalCartPrice(cartList:&amp;nbsp;ArrayList&amp;lt;Carrello&amp;gt;: ): float&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="62" width="470" y="34" as="geometry" />
         </mxCell>
         <mxCell id="wQpD50VRQBcK8jCaAvT1-13" edge="1" parent="1" source="wQpD50VRQBcK8jCaAvT1-12" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.488;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="wQpD50VRQBcK8jCaAvT1-5" value="">
           <mxGeometry relative="1" width="160" as="geometry">

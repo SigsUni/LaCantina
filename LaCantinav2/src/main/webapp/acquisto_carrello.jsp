@@ -2,35 +2,35 @@
 <%@page import="it.unisa.lacantina.model.dao.*" %>
 <%@page import="it.unisa.lacantina.util.*" %>
 <%@page import = "java.util.*" %>
+<%@page import="it.unisa.lacantina.model.service.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 	<%
 	Utente auth = (Utente)request.getSession().getAttribute("auth"); 
-		  	
-		  	if(auth!=null)
-		  	{
-		  		request.setAttribute("auth",auth);
-		  		
-		  	}
-		  	else
-		  	{
-		  		response.sendRedirect("/LaCantinav2/LoginAndRegistration.jsp");
-		  	}
-		  	
-		  	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
-			List<Carrello> cartProduct = null;
-		  	
-		  	if(cart_list!=null)
-		  	{	
-		  		request.setAttribute("cart_list",cart_list);
+			  	
+			  	if(auth!=null)
+			  	{
+			  		request.setAttribute("auth",auth);
+			  		
+			  	}
+			  	else
+			  	{
+			  		response.sendRedirect("/LaCantinav2/LoginAndRegistration.jsp");
+			  	}
+			  	
+			  	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+		List<Carrello> cartProduct = null;
+			  	
+			  	if(cart_list!=null)
+			  	{	
+			  		request.setAttribute("cart_list",cart_list);
 
-		CarrelloDao cDao = new CarrelloDao(ConnectToDB.getConnection());
-		cartProduct = cDao.getCartProducts(cart_list);
-		float totale = cDao.getTotalCartPrice(cart_list);
-		request.setAttribute("cart_list", cart_list);
-		request.setAttribute("totale", totale); 
-			}
+			CarrelloService cService = new CarrelloService();
+			float totale = cService.getTotalCartPrice(cart_list);
+			request.setAttribute("cart_list", cart_list);
+			request.setAttribute("totale", totale); 
+		}
 	%>  
 
 
@@ -73,7 +73,7 @@
 	<h4><b><center>Prezzo Totale€ ${ (totale>0)?totale:0}</center></b></h4>
 	<%
 	if (cart_list!= null){
-		 	for(Carrello c:cartProduct){
+		 	for(Carrello c:cart_list){
 	%>
 	<div class= "form-group">
 	

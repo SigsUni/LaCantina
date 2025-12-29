@@ -3,26 +3,25 @@
 <%@page import="it.unisa.lacantina.model.domain.*" %>
 <%@page import="it.unisa.lacantina.model.dao.*" %>
 <%@page import="it.unisa.lacantina.util.*" %>
+<%@page import="it.unisa.lacantina.model.service.*" %>
 <%@page import="java.util.*" %>
      
 <%
      Utente auth = (Utente)request.getSession().getAttribute("auth"); 
-          		if(auth != null)
-          		{
-          	request.setAttribute("auth",auth);
-          		}
-          		
-          		ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
-          		List<Carrello> cartProduct = null;
-          		
-          		
-          		if(cart_list != null){
-          	CarrelloDao cDao = new CarrelloDao(ConnectToDB.getConnection());
-          	cartProduct = cDao.getCartProducts(cart_list);
-          	float totale = cDao.getTotalCartPrice(cart_list);
-          	request.setAttribute("cart_list", cart_list);
-          	 request.setAttribute("totale", totale); 
-          		}
+               		if(auth != null)
+               		{
+               	request.setAttribute("auth",auth);
+               		}
+               		
+               		ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+               		
+               		
+               		if(cart_list != null){
+               	CarrelloService cService = new CarrelloService();
+               	float totale = cService.getTotalCartPrice(cart_list);
+               	request.setAttribute("cart_list", cart_list);
+               	 request.setAttribute("totale", totale); 
+               		}
      %>
 <!DOCTYPE html>
 <html>
@@ -80,7 +79,7 @@
  <tbody>
  <%
  if (cart_list!= null){
-  	for(Carrello c:cartProduct)
+  	for(Carrello c:cart_list)
   	{
  %>
  			
