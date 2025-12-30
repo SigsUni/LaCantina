@@ -42,13 +42,14 @@ public class AdminInsertNewProductServlet extends HttpServlet {
 			int Stock = Integer.parseInt(request.getParameter("insert-stock"));
 			String immagine = request.getParameter("insert-immagine");
 			float prezzo= Float.parseFloat(request.getParameter("insert-prezzo"));
+			int id_fornitore = Integer.parseInt(request.getParameter("fornitore_id"));
 			
 			
 			try 
 			{
 				ProdottoDao productdao = new ProdottoDao(ConnectToDB.getConnection());
 				
-				boolean x = productdao.insertProduct(name,categoria,descrizione,Stock,prezzo,immagine);
+				boolean x = productdao.insertProduct(name,id_fornitore,categoria,descrizione,Stock,prezzo,immagine);
 				
 				
 				if(x == true)

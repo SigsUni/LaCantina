@@ -21,6 +21,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 	ProdottoDao pd = new ProdottoDao(ConnectToDB.getConnection());
 	List<Prodotto> prodotti = pd.getAllProdotti();
 	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
+	FornitoreDao fdao = new FornitoreDao(ConnectToDB.getConnection());
 	if(cart_list!=null){
 		request.setAttribute("cart_list", cart_list);
 	}
@@ -99,13 +100,14 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 
     					<div class="card w-100" style="width: 18rem;">
         
-       						 <img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>">
+       						 <a href="<%= request.getContextPath() %>/<%= fdao.getNomeById(p.getIdFornitore())%>.jsp"><img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>"></a>
 
         						<div class="card-body">
            							<h5 class="card-title"><%= p.getNome() %></h5>
             						<h6 class="price">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
             						<h6 class="stock">Stock: <%= p.getStock() %></h6>
             						<h6 class="category">Categoria: <%= p.getCategoria() %></h6>
+            						<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
            							 <p class="card-text"><%= p.getDescrizione() %></p>
 
             						<div class="mt-3 d-flex justify-content-between">
@@ -123,13 +125,14 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 
 					<div class="card w-100" style="width: 18rem;">
     
-   						 <img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>">
-
+   						 <a href="<%= request.getContextPath() %>/<%= fdao.getNomeById(p.getIdFornitore())%>.jsp"><img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>"></a>
+   						 
     						<div class="card-body">
        							<h5 class="card-title"><%= p.getNome() %></h5>
         						<h6 class="price">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
         						<h6 class="stock">Stock: <b>Out of Stock</b></h6>
         						<h6 class="category">Categoria: <%= p.getCategoria() %></h6>
+        						<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
        							 <p class="card-text"><%= p.getDescrizione() %></p>
         						
    							 </div>

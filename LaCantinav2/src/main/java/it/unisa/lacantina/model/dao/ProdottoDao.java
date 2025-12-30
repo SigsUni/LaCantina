@@ -34,6 +34,7 @@ public class ProdottoDao {
 				row.setNome(rs.getString("nome"));
 				row.setCategoria(rs.getString("categoria"));
 				row.setPrezzo(rs.getFloat("prezzo"));
+				row.setIdFornitore(rs.getInt("id_fornitore"));
 				row.setImmagine(rs.getString("immagine"));
 				row.setDescrizione(rs.getString("descrizione"));
 				row.setStock(rs.getInt("stock"));
@@ -66,6 +67,7 @@ public class ProdottoDao {
 				prod = new Prodotto();
 				
 				prod.setId(rs.getInt("id"));
+				prod.setIdFornitore(rs.getInt("id_fornitore"));
 				prod.setNome(rs.getString("nome"));
 				prod.setCategoria(rs.getString("categoria"));
 				prod.setPrezzo(rs.getFloat("prezzo"));
@@ -147,22 +149,23 @@ public class ProdottoDao {
 		}
 	}
 	
-	public boolean insertProduct(String nome, String categoria, String descrizione,int stock, float prezzo, String immagine)
+	public boolean insertProduct(String nome, int id_fornitore, String categoria, String descrizione,int stock, float prezzo, String immagine)
 	{
 		boolean result = false;
 		
 		try {
 			
-			query = "insert into prodotti (nome,descrizione,categoria,stock,prezzo,immagine, stato) values(?,?,?,?,?,?,?)";
+			query = "insert into prodotti (nome,id_fornitore,descrizione,categoria,stock,prezzo,immagine, stato) values(?,?,?,?,?,?,?,?)";
 			
 			pst= this.con.prepareStatement(query);
 			pst.setString(1,nome);
-			pst.setString(2,descrizione);
-			pst.setString(3,categoria);
-			pst.setInt(4,stock);
-			pst.setFloat(5,prezzo);
-			pst.setString(6,immagine);
-			pst.setString(7, "attivo");
+			pst.setInt(2,id_fornitore);
+			pst.setString(3,descrizione);
+			pst.setString(4,categoria);
+			pst.setInt(5,stock);
+			pst.setFloat(6,prezzo);
+			pst.setString(7,immagine);
+			pst.setString(8, "attivo");
 			pst.executeUpdate();
 			result = true;
 			

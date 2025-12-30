@@ -4,6 +4,7 @@ package it.unisa.lacantina.model.domain;
 public class Prodotto {
 	
 	private int id;
+	private int id_fornitore;
 	private String nome;
 	private String descrizione;
 	private String categoria;
@@ -16,7 +17,7 @@ public class Prodotto {
 		
 	}
 	
-	public Prodotto(int id, String nome, String descrizione, String categoria, float prezzo, String immagine, int stock, String stato){
+	public Prodotto(int id, int id_fornitore, String nome, String descrizione, String categoria, float prezzo, String immagine, int stock, String stato){
 		
 		this.id = id;
 		this.nome = nome;
@@ -30,6 +31,10 @@ public class Prodotto {
 	
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public void setIdFornitore(int id) {
+		this.id_fornitore = id;
 	}
 	
 	public int getId() {
@@ -107,6 +112,11 @@ public class Prodotto {
 	public void setStato(String stato) {
 		this.stato = stato;
 	}
+	public int getIdFornitore () {
+		return id_fornitore;
+		
+	}
+	
 	
 	public boolean checkActive() {
 		if(this.stato.equals("attivo")) {

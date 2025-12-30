@@ -25,6 +25,7 @@
               	
               	ProdottoDao pd = new ProdottoDao(ConnectToDB.getConnection());
               	List<Prodotto> products = pd.getAllProdotti();
+              	FornitoreDao fdao = new FornitoreDao(ConnectToDB.getConnection());
             %>  
   
 <!DOCTYPE html>
@@ -61,6 +62,7 @@
     				<h5 class="card-title"><%= p.getNome() %></h5>
     				<h6 class = "price">Prezzo €<%= p.getPrezzo() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategoria() %></h6>
+    				<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
     				<div class = "mt-3 justify-content -between ">
     				</div>

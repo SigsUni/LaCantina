@@ -53,11 +53,29 @@ UNLOCK TABLES;
 -- Table structure for table `prodotti`
 --
 
+CREATE TABLE fornitori(
+	id int NOT NULL AUTO_INCREMENT,
+	nome varchar(450) NOT NULL,
+	citta varchar(450) NOT NULL,
+	provincia varchar(450) NOT NULL,
+    indirizzo varchar(450) NOT NULL,
+    anno_nascita int NOT NULL,
+	PRIMARY KEY(id)
+);
+
+INSERT INTO `fornitori` VALUES (1,'LemonGroup','Amalfi','Salerno','via Campagna n.11',1860);
+INSERT INTO `fornitori` VALUES (2,'Antico uliveto','Trentinara','Salerno','via Campagna n.11',1920);
+INSERT INTO `fornitori` VALUES (3,'Antico vinaio','CastelFranco in Miscano','Salerno','via Campagna n.12',1940);
+
+
+
+
 DROP TABLE IF EXISTS `prodotti`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `prodotti` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `id_fornitore` int NOT NULL,
   `nome` varchar(45) NOT NULL,
   `descrizione` longtext NOT NULL,
   `categoria` varchar(200) NOT NULL,
@@ -65,7 +83,8 @@ CREATE TABLE `prodotti` (
   `prezzo` double NOT NULL,
   `immagine` varchar(45) NOT NULL,
   `stato` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (id_fornitore) REFERENCES fornitori(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -75,7 +94,7 @@ CREATE TABLE `prodotti` (
 
 LOCK TABLES `prodotti` WRITE;
 /*!40000 ALTER TABLE `prodotti` DISABLE KEYS */;
-INSERT INTO `prodotti` VALUES (12,'olio extravergine d\'oliva 500ml','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',48,10,'olio_extravergine_oliva_500.jpg','attivo'),(13,'vino rosso 500ml','Bottiglia in vetro di vino rosso del Beneventano da 500ml lavorato presso LaCantina','vino-rosso',44,10,'olio_extravergine_oliva_500.jpg','attivo'),(14,'vino bianco 500ml','Bottiglia in vetro di vino bianco del Beneventano da 500ml lavorato presso LaCantina','vino-bianco',47,10,'olio_extravergine_oliva_500.jpg','attivo'),(15,'Limoncello  500ml','Bottiglia in vetro di limoncello di Amalfi da 500ml lavorato presso LaCantina','limoncello',46,10,'olio_extravergine_oliva_500.jpg','attivo'),(16,'olio extravergine d\'oliva 1L','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',2,10,'olio_extravergine_oliva_500.jpg','attivo');
+INSERT INTO `prodotti` VALUES (12,2,'olio extravergine d\'oliva 500ml','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',48,10,'olio_extravergine_oliva_500.jpg','attivo'),(13,3,'vino rosso 500ml','Bottiglia in vetro di vino rosso del Beneventano da 500ml lavorato presso LaCantina','vino-rosso',44,10,'olio_extravergine_oliva_500.jpg','attivo'),(14,3,'vino bianco 500ml','Bottiglia in vetro di vino bianco del Beneventano da 500ml lavorato presso LaCantina','vino-bianco',47,10,'olio_extravergine_oliva_500.jpg','attivo'),(15,2,'Limoncello  500ml','Bottiglia in vetro di limoncello di Amalfi da 500ml lavorato presso LaCantina','limoncello',46,10,'olio_extravergine_oliva_500.jpg','attivo'),(16,2,'olio extravergine d\'oliva 1L','Bottiglia in vetro di olio extravergine d\'oliva da 500ml lavorato presso il frantoio LaCantina','olio-extravergine-oliva',2,10,'olio_extravergine_oliva_500.jpg','attivo');
 /*!40000 ALTER TABLE `prodotti` ENABLE KEYS */;
 UNLOCK TABLES;
 

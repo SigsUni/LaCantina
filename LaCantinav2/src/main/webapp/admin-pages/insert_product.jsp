@@ -28,6 +28,11 @@
 		  	{	
 		  		request.setAttribute("cart_list",cart_list);
 		  	}
+		  	
+		  	FornitoreDao fdao = new FornitoreDao(ConnectToDB.getConnection());
+		  	List<Fornitore> listaFornitori = fdao.getAllFornitori();
+
+		  	request.setAttribute("fornitori", listaFornitori);
 	%>  
 
 
@@ -102,6 +107,31 @@
 	<input type = "text" class = "form-control" name = "insert-immagine" placeholder = "inserisci img.jpg" required>
 
 </div>
+
+<div class="form-group">
+
+        <label for="fornitore">Seleziona fornitore</label>
+
+        <select name="fornitore_id" id="fornitore" class="form-control" required>
+            <option value="">-- Seleziona un fornitore --</option>
+
+            <%
+                List<Fornitore> fornitori = 
+                        (List<Fornitore>) request.getAttribute("fornitori");
+
+                if(fornitori != null && !fornitori.isEmpty()) {
+                    for(Fornitore f : fornitori) {
+            %>
+                        <option value="<%= f.getId() %>">
+                            <%= f.getNome() %> - <%= f.getCitta() %> (<%= f.getProvincia() %>)
+                        </option>
+            <%
+                    }
+                }
+            %>
+        </select>
+    </div>
+    </div>
 	
 	<button type = "submit" class = "btn btn-primary"> INSERISCI </button>
 	
