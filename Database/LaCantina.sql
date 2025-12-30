@@ -64,8 +64,8 @@ CREATE TABLE fornitori(
 );
 
 INSERT INTO `fornitori` VALUES (1,'LemonGroup','Amalfi','Salerno','via Campagna n.11',1860);
-INSERT INTO `fornitori` VALUES (2,'Antico uliveto','Trentinara','Salerno','via Campagna n.11',1920);
-INSERT INTO `fornitori` VALUES (3,'Antico vinaio','CastelFranco in Miscano','Salerno','via Campagna n.12',1940);
+INSERT INTO `fornitori` VALUES (2,'AnticoUliveto','Trentinara','Salerno','via Campagna n.11',1920);
+INSERT INTO `fornitori` VALUES (3,'AnticoVinaio','CastelFranco in Miscano','Salerno','via Campagna n.12',1940);
 
 
 
