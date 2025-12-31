@@ -1,4 +1,4 @@
-package it.unisa.lacantina.controller;
+package it.unisa.lacantina.controller.UserControl;
 import it.unisa.lacantina.model.dao.UtenteDao;
 import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;

@@ -1,4 +1,4 @@
-package it.unisa.lacantina.controller;
+package it.unisa.lacantina.controller.UserControl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

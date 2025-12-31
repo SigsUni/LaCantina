@@ -1,4 +1,4 @@
-package it.unisa.lacantina.controller;
+package it.unisa.lacantina.controller.CarrelloControl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
