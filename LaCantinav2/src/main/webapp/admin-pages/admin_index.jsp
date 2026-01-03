@@ -60,7 +60,29 @@
   				<img class="card-img-top" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>" alt="Card image cap"></a>
   					<div class="card-body">
     				<h5 class="card-title"><%= p.getNome() %></h5>
-    				<h6 class = "price">Prezzo €<%= p.getPrezzo() %></h6>
+    				<!--  <h6 class = "price">Prezzo €</h6>-->
+    				
+    				<form action="<%=request.getContextPath()%>/modify-price"
+      method="POST"
+      class="form-inline d-flex">
+
+    Prezzo €
+    <input type="number"
+           step="0.01"
+           name="nuovo_prezzo"
+           class="form-control w-100"
+           value="<%= p.getPrezzo() %>"
+           >
+
+    <input type="hidden"
+           name="id"
+           value="<%= p.getId() %>">
+
+    <button type="submit" class="btn btn-danger">
+        Aggiorna
+    </button>
+</form>
+    				
     				<h6 class = "category">Categoria: <%= p.getCategoria() %></h6>
     				<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>

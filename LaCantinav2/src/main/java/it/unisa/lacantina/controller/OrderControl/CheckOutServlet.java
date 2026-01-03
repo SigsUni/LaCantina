@@ -77,6 +77,7 @@ public class CheckOutServlet extends HttpServlet {
 					order.setQuantity(c.getQuantity());
 					order.setData(formatter.format(date));
 					order.setIdRigaOrdine(id_riga_ordine);
+					order.setPrezzoAcquisto(c.getProdotto().getPrezzo()*c.getQuantity());
 					
 					OrdineDao oDao = new OrdineDao(ConnectToDB.getConnection());
 					boolean result = oDao.insertOrder(order);

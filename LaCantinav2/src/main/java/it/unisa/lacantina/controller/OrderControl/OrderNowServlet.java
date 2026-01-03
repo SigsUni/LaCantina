@@ -88,6 +88,7 @@ public class OrderNowServlet extends HttpServlet {
 					orderModel.setQuantity(productQuantity);
 					orderModel.setData(formatter.format(date));
 					orderModel.setIdRigaOrdine(id_riga_ordine);
+					orderModel.setPrezzoAcquisto(prezzo_totale);
 					ProdottoDao productDao = new ProdottoDao(ConnectToDB.getConnection());
 					Prodotto prod = productDao.getSingleProdotto(orderModel.getIdProdotto());
 					orderModel.setProdotto(prod);

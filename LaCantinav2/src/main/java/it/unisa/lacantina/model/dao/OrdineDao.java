@@ -32,13 +32,14 @@ public class OrdineDao
 		Prodotto prod = productDao.getSingleProdotto(model.getIdProdotto());
 		try {
 			
-			query = "insert into ordini(id_prodotto,id_utente, quantity, data_ordine, id_riga_ordine) values(?,?,?,?,?)";
+			query = "insert into ordini(id_prodotto,id_utente, quantity, prezzo_acquisto,data_ordine, id_riga_ordine) values(?,?,?,?,?,?)";
 			pst = this.con.prepareStatement(query);
 			pst.setInt(1, model.getIdProdotto());
 			pst.setInt(2, model.getIdUtente());
 			pst.setInt(3,model.getQuantity());
-			pst.setString(4, model.getData());
-			pst.setInt(5, model.getIdRigaOrdine());
+			pst.setFloat(4, model.getPrezzoAcquisto());
+			pst.setString(5, model.getData());
+			pst.setInt(6, model.getIdRigaOrdine());
 			pst.executeUpdate();
 			model.setProdotto(prod);
 			result = true;
@@ -73,6 +74,7 @@ public class OrdineDao
 				order.setProdotto(prodotto);
 				order.setQuantity(rs.getInt("quantity"));
 				order.setData(rs.getString("data_ordine"));
+				order.setPrezzoAcquisto(rs.getFloat("prezzo_acquisto"));
 			
 				list.add(order);
 				
@@ -118,6 +120,7 @@ public class OrdineDao
 				order.setId_utente(uId);
 				order.setProdotto(product);
 				order.setQuantity(rs.getInt("quantity"));
+				order.setPrezzoAcquisto(rs.getFloat("prezzo_acquisto"));
 				order.setData(rs.getString("data_ordine"));
 				list.add(order);
 				

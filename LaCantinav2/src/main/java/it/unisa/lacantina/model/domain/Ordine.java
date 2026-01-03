@@ -5,6 +5,7 @@ public class Ordine{
 	private int id;
 	private int id_prodotto;
 	private int id_utente;
+	private float prezzo_acquisto;
 	private int quantity;
 	private String data;
 	private int id_riga_ordine;
@@ -15,11 +16,12 @@ public class Ordine{
 		this.prodotto = new Prodotto();
 	}
 	
-	public Ordine(int id,int id_prodotto, int id_utente, int quantity, String data, int id_riga_ordine) {
+	public Ordine(int id,int id_prodotto, int id_utente, float prezzo_acquisto, int quantity, String data, int id_riga_ordine) {
 		super();
 		this.id = id;
 		this.id_prodotto = id_prodotto;
 		this.id_utente = id_utente;
+		this.prezzo_acquisto = prezzo_acquisto;
 		this.quantity = quantity;
 		this.data = data;
 		this.id_riga_ordine = id_riga_ordine;
@@ -40,6 +42,10 @@ public class Ordine{
 	public int getIdUtente() 
 	{
 		return this.id_utente;
+	}
+	
+	public float getPrezzoAcquisto() {
+		return this.prezzo_acquisto;
 	}
 	
 	public int getQuantity() 
@@ -79,6 +85,10 @@ public class Ordine{
 	public void setIdRigaOrdine(int id) {
 
 		this.id_riga_ordine = id;
+	}
+	
+	public void setPrezzoAcquisto(float prezzo) {
+		this.prezzo_acquisto = prezzo;
 	}
 	
 	public void setProdotto(Prodotto prod) {

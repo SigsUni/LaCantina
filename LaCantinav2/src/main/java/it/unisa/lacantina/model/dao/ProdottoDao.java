@@ -182,5 +182,29 @@ public class ProdottoDao {
 		
 	}
 	
+	public boolean ModifyPriceById(int id, float prezzo) 
+	{
+		boolean result = false;
+		
+		try 
+		{
+			
+			query = "UPDATE prodotti SET prezzo =? where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setFloat(1, prezzo);
+			pst.setInt(2, id);
+			
+			pst.execute();
+			
+			result = true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	
 }
 	

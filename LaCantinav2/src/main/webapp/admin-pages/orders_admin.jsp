@@ -85,7 +85,7 @@
 					<td><%=o.getProdotto().getNome() %></td>
 					<td><%=o.getProdotto().getCategoria() %></td>
 					<td><%=o.getQuantity() %></td>
-					<td>€<%=o.getProdotto().getPrezzo() %></td>
+					<td>€<%=o.getPrezzoAcquisto() %></td>
 					
 					<td><a class = "btn btn-sm btn-danger" href="<%= request.getContextPath() %>/admin-pages/gestisci_ordini_admin.jsp?id=<%=o.getIdRigaOrdine()%>"> Gestisci Ordine</a></td>
 					
