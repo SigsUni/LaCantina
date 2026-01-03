@@ -1,0 +1,125 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0" version="29.2.9">
+  <diagram name="Page-1" id="13e1069c-82ec-6db2-03f1-153e76fe0fe0">
+    <mxGraphModel dx="2798" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7baba1c4bc27f4b0-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="OrderNowServlet" vertex="1">
+          <mxGeometry height="580" width="180" x="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-10" parent="7baba1c4bc27f4b0-2" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="410" width="10" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-7" edge="1" parent="7baba1c4bc27f4b0-2" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.12;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=horizontal;entryDx=0;entryDy=0;entryPerimeter=0;" target="7baba1c4bc27f4b0-10" value="isLogin()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-85" y="150" as="sourcePoint" />
+            <mxPoint x="45" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-34" edge="1" parent="7baba1c4bc27f4b0-2" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.271;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=horizontal;entryDx=0;entryDy=0;entryPerimeter=0;" target="7baba1c4bc27f4b0-10" value="campi spedizione">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-85" y="210" as="sourcePoint" />
+            <mxPoint x="45" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="ProdottoDao" vertex="1">
+          <mxGeometry height="580" width="160" x="410" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-13" parent="7baba1c4bc27f4b0-3" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="20" width="10" x="75" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-44" parent="7baba1c4bc27f4b0-3" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NuovaRigaOrdine(dati_spedizione)" vertex="1">
+          <mxGeometry height="30" width="60" x="-40" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-50" parent="7baba1c4bc27f4b0-3" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NuovoOrdine(id_riga,Prodotto)" vertex="1">
+          <mxGeometry height="30" width="60" x="-40" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="acquisto_singolo" vertex="1">
+          <mxGeometry height="580" width="110" x="95" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-9" parent="7baba1c4bc27f4b0-8" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="440" width="10" x="45" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-1" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Utente" vertex="1">
+          <mxGeometry height="60" width="30" x="-10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-4" parent="1" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="520" width="10" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;" value="click()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="229" as="sourcePoint" />
+            <mxPoint x="140" y="229" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-8" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="acquisto_singolo.jsp" vertex="1">
+          <mxGeometry height="45" width="160" x="70" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-21" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0.2;entryY=0.3;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=horizontal;entryDx=0;entryDy=0;entryPerimeter=0;" target="7baba1c4bc27f4b0-13" value="DecrementaStock(1)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="300" y="260" as="sourcePoint" />
+            <mxPoint x="380" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="RimuoviDaCarrello()" vertex="1">
+          <mxGeometry height="30" width="60" x="490" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-37" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="CarrelloService" vertex="1">
+          <mxGeometry height="580" width="100" x="580" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-38" parent="py3HmR-Cq1MNERZeqEu9-37" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="20" width="10" x="45" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-39" edge="1" parent="1" source="7baba1c4bc27f4b0-10" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.65;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=horizontal;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.7;exitY=0.432;exitDx=0;exitDy=0;exitPerimeter=0;" target="py3HmR-Cq1MNERZeqEu9-38" value="">
+          <mxGeometry relative="1" x="-0.475" y="7" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="290" y="369.5" as="sourcePoint" />
+            <mxPoint x="420" y="369.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-40" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="se il prodotto è presente anche nel carrello lo stesso viene rimosso" vertex="1">
+          <mxGeometry height="45" width="160" x="900" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-41" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="RigaOrdineDao" vertex="1">
+          <mxGeometry height="580" width="100" x="700" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-42" parent="py3HmR-Cq1MNERZeqEu9-41" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="20" width="10" x="45" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-43" edge="1" parent="1" source="7baba1c4bc27f4b0-10" style="endArrow=classic;html=1;rounded=0;exitX=1.2;exitY=0.615;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="py3HmR-Cq1MNERZeqEu9-42" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="430" as="sourcePoint" />
+            <mxPoint x="580" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-45" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="Viene creata una nuova istanza riga ordine che conterrà i dati di spedizione" vertex="1">
+          <mxGeometry height="82.5" width="160" x="900" y="367.5" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-46" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="OrdineDao" vertex="1">
+          <mxGeometry height="580" width="100" x="810" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-47" parent="py3HmR-Cq1MNERZeqEu9-46" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="90" width="10" x="45" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-49" edge="1" parent="1" source="7baba1c4bc27f4b0-10" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.895;exitDx=0;exitDy=0;exitPerimeter=0;" target="py3HmR-Cq1MNERZeqEu9-46" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="430" as="sourcePoint" />
+            <mxPoint x="580" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-53" edge="1" parent="1" source="py3HmR-Cq1MNERZeqEu9-47" style="endArrow=classic;html=1;rounded=0;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="360" as="sourcePoint" />
+            <mxPoint x="950" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-54" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ordini.jsp" vertex="1">
+          <mxGeometry height="40" width="90" x="950" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
