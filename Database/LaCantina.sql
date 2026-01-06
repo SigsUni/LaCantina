@@ -19,6 +19,9 @@
 -- Table structure for table `fornitori`
 --
 
+DROP DATABASE IF EXISTS LaCantina;
+CREATE DATABASE LaCantina;
+USE LaCantina;
 DROP TABLE IF EXISTS `fornitori`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -30,7 +33,7 @@ CREATE TABLE `fornitori` (
   `indirizzo` varchar(450) NOT NULL,
   `anno_nascita` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +68,7 @@ CREATE TABLE `ordini` (
   CONSTRAINT `ordini_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`),
   CONSTRAINT `ordini_ibfk_2` FOREIGN KEY (`id_prodotto`) REFERENCES `prodotti` (`id`),
   CONSTRAINT `ordini_ibfk_3` FOREIGN KEY (`id_riga_ordine`) REFERENCES `riga_ordini` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +101,7 @@ CREATE TABLE `prodotti` (
   PRIMARY KEY (`id`),
   KEY `id_fornitore` (`id_fornitore`),
   CONSTRAINT `prodotti_ibfk_1` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitori` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +131,7 @@ CREATE TABLE `riga_ordini` (
   `citta` varchar(450) NOT NULL,
   `provincia` varchar(450) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +158,7 @@ CREATE TABLE `utenti` (
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

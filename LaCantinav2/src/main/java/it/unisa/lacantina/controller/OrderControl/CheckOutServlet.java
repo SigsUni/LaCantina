@@ -45,7 +45,7 @@ public class CheckOutServlet extends HttpServlet {
 			
 			//controlli cart-list e autenticazione
 			
-			float prezzo_totale =0;
+			float prezzo_totale = 0;
 			int num_oggetti = 0;
 			RigaOrdineDao nuovaRiga = new RigaOrdineDao(ConnectToDB.getConnection());
 			int id_riga_ordine = 0;
