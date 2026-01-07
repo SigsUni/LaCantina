@@ -177,12 +177,12 @@ a {
 
     .panel-image {
         width: 100%;
-        padding-left: 0; /* Resetta il padding per dispositivi più piccoli */
+        padding-left: 0; /* Resetta il padding per dispositivi piï¿½ piccoli */
     }
 
     .panel-description {
         width: 100%;
-        align-items: flex-start; /* Allinea tutto a sinistra anche sui dispositivi più piccoli */
+        align-items: flex-start; /* Allinea tutto a sinistra anche sui dispositivi piï¿½ piccoli */
     }
 }
 

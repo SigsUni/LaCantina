@@ -4,25 +4,31 @@
     font-family: "Montserrat", sans-serif;
 }
 
-body{
-    background-color: #fff;
+body {
+    background-color: #fff; /* O il tuo colore di sfondo (es. #c9d6ff) */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    
+    min-height: 100vh; 
+    
+    padding-top: 100px; 
+    
+    padding-bottom: 20px; 
 }
 
-.container{
+.container {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 768px;
+    width: 600px;
     max-width: 100%;
-    min-height: 480px;
-    margin:100px;
+    min-height: 350px;
+    
+    margin: 40px auto 40px auto; 
 }
 
 .container p {
@@ -35,20 +41,20 @@ body{
     color: #fff;
     font-size: 13px;
     text-decoration: none;
-    margin: 15px 0 10px;
+    margin: 5px 0;
 }
 
 .container button {
     background-color: #34688E;
     color: #fff;
     font-size: 12px;
-    padding: 10px 45px;
+    padding: 8px 40px;
     border: 1px solid transparent;
     border-radius: 8px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-top: 5px;
     cursor: pointer;
 }
 
@@ -63,15 +69,15 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0 20px;
     height: 100%;
 }
 
 .container input{
     background-color: #fff;
     border: none;
-    margin: 8px 0;
-    padding: 10px 15px;
+    margin: 5px 0;
+    padding: 8px 12px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;

@@ -103,27 +103,27 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
         <div class="panel">
           <div class="card-grid">
             <a class="card" href="./shop.jsp?categoria=olio-extravergine-oliva">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
+              <div class="card__background" style="background-image: url(./IMG/olive_card.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Olio Extravergine d'oliva</h3>
               </div>
             </a> 
             <a class="card" href="./shop.jsp?categoria=vino-rosso">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
+              <div class="card__background" style="background-image: url(./IMG/uva_rossa_card.png)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Vino Rosso</h3>
               </div>
             </a>
             <a class="card" href="./shop.jsp?categoria=vino-bianco">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
+              <div class="card__background" style="background-image: url(./IMG/uva_bianca_card.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Vino Bianco</h3>
               </div>
             <a class="card" href="./shop.jsp?categoria=limoncello">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
+              <div class="card__background" style="background-image: url(./IMG/limoni_card.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Limoncello</h3>
@@ -147,7 +147,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
       <div class="panel">
       <div class="container">
         <div class="watch fade-in imgBx">
-          <img src="./IMG/immagine_prova2.png" alt="Cuffie">
+          <img src="./IMG/oliva.png">
         </div>
         <div class="watch fade-in details">
             <div class="watch fade-in content">

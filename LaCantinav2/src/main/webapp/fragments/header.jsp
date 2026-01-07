@@ -46,7 +46,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
  
 			<div class="header__icons">
 				<a href="./carrello.jsp" aria-label="Visualizza il carrello"> <img
-					src="./IMG/shoppingbag.png" class="menu-icon" id="carrello"
+					src="./IMG/cart.png" class="menu-icon" id="carrello"
 					alt="Carrello"> <span>${cart_list.size()}</span> <!-- ELEMENTI PRESENTI NEL CARRELLO -->
 				</a> <img src="./IMG/menu2.png" class="menu-icon" id="dropdownIcon"
 					alt="Menu" tabindex="0" aria-expanded="false"
