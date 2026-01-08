@@ -1,0 +1,24 @@
+/* --- CSS PER PAGINA ABOUT US --- */
+
+.story-text {
+    font-size: 1.1rem;
+    line-height: 1.8; 
+    color: #444;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.about-img-style {
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-img-style:hover {
+    transform: scale(1.02); 
+}
+
+.panel-spacer {
+    margin-bottom: 0;
+    padding-bottom: 50px;
+}

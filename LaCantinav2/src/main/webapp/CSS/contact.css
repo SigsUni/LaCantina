@@ -31,9 +31,6 @@
 
 .btn-submit:hover { background-color: #0f4667; }
 
-/* --- NUOVO STILE ORIZZONTALE --- */
-
-/* Una griglia diversa da quella della home: 2 colonne invece di 4 */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Si adatta automaticamente */
@@ -63,7 +60,6 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* La parte colorata a sinistra con l'icona */
 .icon-box {
     background-color: #2a6973;
     width: 100px;
@@ -79,7 +75,6 @@
     color: white;
 }
 
-/* La parte destra con il testo */
 .info-box {
     padding: 0 20px;
     flex-grow: 1;
@@ -100,4 +95,10 @@
     color: #333;
     margin: 0;
     line-height: 1.2;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2a6973;
+    box-shadow: 0 0 5px rgba(42, 105, 115, 0.3);
 }
