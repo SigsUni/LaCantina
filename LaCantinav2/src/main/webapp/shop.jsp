@@ -81,125 +81,109 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 		
     
     <%if(categoriaSelezionata!=null){%>
-    	<div class = "container">
+    	<div class="container my-5">
 	    
-    	<div class = "card-header my-3"> Prodotti Selezionati </div>
-    		<div class = "row">
+    	<div class="card-header my-3 fs-4"> Prodotti Selezionati </div>
+    		<div class="row g-4">
     <%	
     if(!prodotti.isEmpty())
     {
     	for(Prodotto p:prodotti){
-    		%>
-    		<%	
-    if(p.getCategoria().equals(categoriaSelezionata) || categoriaSelezionata.equals("tutto"))
-    {%>
-    
-    <% if(p.checkSingleStock() && (p.checkActive())){%> 
     		
-        			<div class="col-md-3 mb-4">
+            /* Filtro per categoria */
+            if(p.getCategoria().equals(categoriaSelezionata) || categoriaSelezionata.equals("tutto"))
+            {
+                /* Controllo se il prodotto è attivo */
+                if(p.checkActive()){
+                    boolean isInStock = p.checkSingleStock(); 
+    %>
+    		
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
 
-    					<div class="card w-100" style="width: 18rem;">
+    					<div class="card w-100 h-100 shadow-sm">
         
-       						 <a href="<%= request.getContextPath() %>/<%= fdao.getNomeById(p.getIdFornitore())%>.jsp"><img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>"></a>
+       						 <a href="<%= request.getContextPath() %>/<%= fdao.getNomeById(p.getIdFornitore())%>.jsp">
+                                 <img class="card-img-top product-card-image" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>" alt="<%= p.getNome() %>">
+                             </a>
 
-        						<div class="card-body">
+        						<div class="card-body d-flex flex-column">
            							<h5 class="card-title"><%= p.getNome() %></h5>
-            						<h6 class="price">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
-            						<h6 class="stock">Stock: <%= p.getStock() %></h6>
-            						<h6 class="category">Categoria: <%= p.getCategoria() %></h6>
-            						<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
-           							 <p class="card-text"><%= p.getDescrizione() %></p>
+            						<h6 class="price text-muted">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
+            						
+                                    <% if(isInStock) { %>
+                                        <h6 class="stock text-success">Stock: <%= p.getStock() %></h6>
+                                    <% } else { %>
+                                        <h6 class="stock text-danger">Stock: <b>Out of Stock</b></h6>
+                                    <% } %>
+                                    
+            						<h6 class="category small">Categoria: <%= p.getCategoria() %></h6>
+            						<h6 class="category small mb-2">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
+           							 
+                                    <p class="card-text flex-grow-1 small"><%= p.getDescrizione() %></p>
 
-            						<div class="mt-3 d-flex justify-content-between">
-            							<a href="<%= request.getContextPath() %>/acquisto_singolo_prodotto.jsp?quantity=1&id=<%= p.getId() %>&prezzo=<%=p.getPrezzo() %>&nome=<%=p.getNome() %>" class="btn btn-primary btn-sm">Acquista</a>
-              								  <a href="add-to-cart?id=<%=p.getId()%>&prezzo=<%=p.getPrezzo() %>" class="btn btn-primary btn-sm">Add to Cart</a>
+            						<div class="mt-3 d-flex justify-content-between gap-2">
+                                        <% if(isInStock) { %>
+            							    <a href="<%= request.getContextPath() %>/acquisto_singolo_prodotto.jsp?quantity=1&id=<%= p.getId() %>&prezzo=<%=p.getPrezzo() %>&nome=<%=p.getNome() %>" class="btn btn-primary btn-sm flex-fill">Acquista</a>
+              								<a href="add-to-cart?id=<%=p.getId()%>&prezzo=<%=p.getPrezzo() %>" class="btn btn-outline-primary btn-sm flex-fill">Carrello</a>
+                                        <% } else { %>
+                                            <button class="btn btn-secondary btn-sm w-100" disabled>Non disponibile</button>
+                                        <% } %>
             						</div>
             						
        							 </div>
-
     					</div>
 				</div>
-				<%} else if(p.checkActive()){%>
 				
-					<div class="col-md-3 mb-4">
-
-					<div class="card w-100" style="width: 18rem;">
-    
-   						 <a href="<%= request.getContextPath() %>/<%= fdao.getNomeById(p.getIdFornitore())%>.jsp"><img class="card-img-top product-img" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>"></a>
-   						 
-    						<div class="card-body">
-       							<h5 class="card-title"><%= p.getNome() %></h5>
-        						<h6 class="price">Prezzo: <%= p.getPrezzo() %> &euro;</h6>
-        						<h6 class="stock">Stock: <b>Out of Stock</b></h6>
-        						<h6 class="category">Categoria: <%= p.getCategoria() %></h6>
-        						<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>
-       							 <p class="card-text"><%= p.getDescrizione() %></p>
-        						
-   							 </div>
-
-					</div>
-			</div>
-				<%} %>
-
-    	
-    		
     	<%	
-    		
-    	}
-    }
-    }
-    
-    
-    
+                } // fine if active
+    	    } // fine if categoria
+        } // fine for
+    } // fine if empty
     %>
-     </div>
+         </div> </div> <%} %>
+    
+    <hr>
+    
+    <div style="background-color: #ffffff; padding: 40px 0;"> 
+        
+        <div class="hero-section" style="min-height: auto; padding: 20px; background: transparent;">
+            
+            <div class="card-grid">
+
+                <a class="card" href="./shop.jsp?categoria=olio-extravergine-oliva">
+                  <div class="card__background" style="background-image: url(./IMG/olive_card.jpg)"></div>
+                  <div class="card__content">
+                    <p class="card__category">Categoria</p>
+                    <h3 class="card__heading">Olio EVO</h3>
+                  </div>
+                </a> 
+
+                <a class="card" href="./shop.jsp?categoria=vino-rosso">
+                  <div class="card__background" style="background-image: url(./IMG/uva_rossa_card.png)"></div>
+                  <div class="card__content">
+                    <p class="card__category">Categoria</p>
+                    <h3 class="card__heading">Vino Rosso</h3>
+                  </div>
+                </a>
+
+                <a class="card" href="./shop.jsp?categoria=vino-bianco">
+                  <div class="card__background" style="background-image: url(./IMG/uva_bianca_card.jpg)"></div>
+                  <div class="card__content">
+                    <p class="card__category">Categoria</p>
+                    <h3 class="card__heading">Vino Bianco</h3>
+                  </div>
+                </a>
+
+                <a class="card" href="./shop.jsp?categoria=limoncello">
+                  <div class="card__background" style="background-image: url(./IMG/limoni_card.jpg)"></div>
+                  <div class="card__content">
+                    <p class="card__category">Categoria</p>
+                    <h3 class="card__heading">Limoncello</h3>
+                  </div>
+                </a>
+
+            </div> 
         </div>
-    
-    <%} %>
-    
-    <div class="panel">
-        
-        
-        <div class="card-grid">
-            <a class="card" href="./shop.jsp?categoria=tutto">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
-              <div class="card__content">
-                <p class="card__category">Categoria</p>
-                <h3 class="card__heading">Tutti i prodotti</h3>
-              </div>
-            </a> 
-          <div class="card-grid">
-            <a class="card" href="./shop.jsp?categoria=olio-extravergine-oliva">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
-              <div class="card__content">
-                <p class="card__category">Categoria</p>
-                <h3 class="card__heading">Olio Extravergine d'oliva</h3>
-              </div>
-            </a> 
-            <a class="card" href="./shop.jsp?categoria=vino-rosso">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
-              <div class="card__content">
-                <p class="card__category">Categoria</p>
-                <h3 class="card__heading">Vino Rosso</h3>
-              </div>
-            </a>
-            <a class="card" href="./shop.jsp?categoria=vino-bianco">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
-              <div class="card__content">
-                <p class="card__category">Categoria</p>
-                <h3 class="card__heading">Vino Bianco</h3>
-              </div>
-            <a class="card" href="./shop.jsp?categoria=limoncello">
-              <div class="card__background" style="background-image: url(./IMG/immagine_prova.png)"></div>
-              <div class="card__content">
-                <p class="card__category">Categoria</p>
-                <h3 class="card__heading">Limoncello</h3>
-              </div>
-            </a>
-          <div>
-         
-      </div>
-    </div>
     </div>
     
  <jsp:include page="/fragments/footer.jsp"></jsp:include>
