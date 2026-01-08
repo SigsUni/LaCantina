@@ -1,0 +1,103 @@
+/* --- CSS PER PAGINA CONTATTI --- */
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.9);
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-submit {
+    background-color: #2a6973; 
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover { background-color: #0f4667; }
+
+/* --- NUOVO STILE ORIZZONTALE --- */
+
+/* Una griglia diversa da quella della home: 2 colonne invece di 4 */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Si adatta automaticamente */
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+/* Contenitore della singola card orizzontale */
+.horizontal-card {
+    display: flex; /* Mette icona e testo sulla stessa riga */
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Assicura che l'icona non esca dai bordi arrotondati */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Per i link */
+    color: inherit;
+    height: 120px; /* Altezza fissa per uniformità */
+}
+
+.horizontal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* La parte colorata a sinistra con l'icona */
+.icon-box {
+    background-color: #2a6973;
+    width: 100px;
+    height: 100%; /* Occupa tutta l'altezza della card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Impedisce all'icona di schiacciarsi */
+}
+
+.icon-box i {
+    font-size: 3rem;
+    color: white;
+}
+
+/* La parte destra con il testo */
+.info-box {
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.info-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.info-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+}
