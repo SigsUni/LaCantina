@@ -102,7 +102,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 
     					<div class="card w-100 h-100 shadow-sm">
         
-       						 <a href="<%= request.getContextPath() %>/<%= fdao.getNomeById(p.getIdFornitore())%>.jsp">
+       						 <a href="dettaglio_prodotto.jsp"><!-- /* request.getContextPath() %>/ fdao.getNomeById(p.getIdFornitore())%>*/ -->
                                  <img class="card-img-top product-card-image" src="<%= request.getContextPath() %>/IMG/<%= p.getImmagine() %>" alt="<%= p.getNome() %>">
                              </a>
 
