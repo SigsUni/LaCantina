@@ -1,0 +1,203 @@
+/* --- CSS PER PAGINA CARRELLO --- */
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- FIX HEADER (RIMUOVE SFONDO NERO) --- */
+header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+hr { border-color: #eee !important; opacity: 0.5; }
+/* -------------------------------------- */
+
+
+/* WRAPPER PRINCIPALE (Centratura) */
+.page-wrapper {
+    width: 100%;
+    min-height: 80vh;
+    padding-top: 140px; 
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TITOLO PAGINA */
+.page-header-content {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    color: #2a6973;
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+}
+
+/* CARD DEL CARRELLO */
+.cart-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    padding: 30px;
+    width: 90%;
+    max-width: 1200px; /* Un po' più largo per contenere i bottoni */
+}
+
+/* TABELLA */
+.table-responsive { overflow-x: auto; }
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 0;
+}
+
+.custom-table thead th {
+    background-color: #2a6973;
+    color: white;
+    padding: 18px;
+    text-align: center;
+    border: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.custom-table thead th:first-child { border-top-left-radius: 15px; }
+.custom-table thead th:last-child { border-top-right-radius: 15px; }
+
+.custom-table td {
+    padding: 20px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Stile per il nome prodotto */
+.product-name {
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    display: block;
+}
+.product-cat {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/* --- CONTROLLI QUANTITA' E BOTTONI --- */
+
+/* Input numero */
+.qty-input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 40px !important;
+    height: 35px;
+    text-align: center;
+    font-weight: 600;
+    color: #2a6973;
+    margin: 0 5px;
+}
+
+/* Icone + e - */
+.btn-qty {
+    color: #2a6973;
+    font-size: 1.2rem;
+    transition: 0.2s;
+    background: none;
+    border: none;
+}
+.btn-qty:hover { color: #0f4667; transform: scale(1.1); }
+
+/* Bottone Compra Singolo (Buy) */
+.btn-buy-single {
+    background-color: #2a6973;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+.btn-buy-single:hover {
+    background-color: #0f4667;
+    box-shadow: 0 4px 10px rgba(42, 105, 115, 0.3);
+}
+
+/* Bottone Rimuovi */
+.btn-remove {
+    color: #dc3545;
+    background: #fff0f0;
+    border: 1px solid #dc3545;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-remove:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* SEZIONE TOTALE E CHECKOUT (FOOTER DELLA CARD) */
+.cart-footer {
+    background-color: #f8fcfd;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.total-price {
+    font-size: 1.5rem;
+    color: #2a6973;
+    font-weight: 700;
+}
+.total-label {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.btn-checkout {
+    background-color: #2a6973;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 2px solid #2a6973;
+}
+.btn-checkout:hover {
+    background-color: white;
+    color: #2a6973;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 105, 115, 0.4);
+}
+
+.empty-cart-msg {
+    text-align: center;
+    padding: 50px;
+    color: #999;
+}

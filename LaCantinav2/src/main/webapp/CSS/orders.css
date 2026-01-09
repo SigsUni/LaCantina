@@ -1,0 +1,130 @@
+/* --- CSS PER PAGINA ORDINI --- */
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- FIX HEADER (SOLO SFONDO) --- */
+/* Imposta lo sfondo bianco per eliminare la barra nera, ma NON tocca il colore del testo */
+header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important; /* Leggera ombra grigia */
+}
+
+/* Nascondiamo eventuali bordi o separatori scuri */
+hr {
+    border-color: #eee !important;
+    opacity: 0.5;
+}
+/* -------------------------------------------------- */
+
+
+/* WRAPPER PRINCIPALE */
+.page-wrapper {
+    width: 100%;
+    min-height: 80vh; 
+    
+    padding-top: 140px; 
+    padding-bottom: 80px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* CENTRA TUTTO IL CONTENUTO */
+}
+
+/* CARD CENTRALE */
+.orders-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    padding: 40px;
+    border: none;
+    
+    width: 90%;          
+    max-width: 1100px;   
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Titoli */
+.page-header-content {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    color: #2a6973; /* Questo è il titolo della pagina, non dell'header */
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #777;
+    font-size: 1.1rem;
+}
+
+/* --- TABELLA --- */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-table thead th {
+    background-color: #2a6973;
+    color: white;
+    padding: 18px;
+    text-align: center;
+    border: none;
+}
+
+.custom-table thead th:first-child { border-top-left-radius: 15px; }
+.custom-table thead th:last-child { border-top-right-radius: 15px; }
+
+.custom-table td {
+    padding: 20px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+}
+
+.product-name-cell {
+    text-align: left !important;
+    padding-left: 40px !important;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-manage {
+    background-color: white;
+    color: #2a6973;
+    border: 2px solid #2a6973;
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-manage:hover {
+    background-color: #2a6973;
+    color: white;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px;
+}
