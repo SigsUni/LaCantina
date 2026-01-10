@@ -64,13 +64,15 @@
     				
     				<form action="<%=request.getContextPath()%>/modify-price"
       method="POST"
-      class="form-inline d-flex">
+      class="form-inline d-flex"
+      id="Modify-Price-Form">
 
     Prezzo €
     <input type="number"
            step="0.01"
            name="nuovo_prezzo"
            class="form-control w-100"
+           id="nuovo_prezzo"
            value="<%= p.getPrezzo() %>"
            >
 
@@ -82,6 +84,7 @@
         Aggiorna
     </button>
 </form>
+<script src="/JS/NuovoPrezzoValidation.js"></script>
     				
     				<h6 class = "category">Categoria: <%= p.getCategoria() %></h6>
     				<h6 class="category">Fornitore: <%= fdao.getNomeById(p.getIdFornitore())%></h6>

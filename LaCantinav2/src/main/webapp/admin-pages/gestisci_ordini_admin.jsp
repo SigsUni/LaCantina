@@ -76,34 +76,34 @@
 <div class= "form-group">
 
 	<label>Indirizzo</label>
-	<input type = "text" class = "form-control" name = "insert-indirizzo" value ="<%=info_ordine.getIndirizzo() %>"  required>
+	<input type = "text" class = "form-control" name = "insert-indirizzo" id = "insert-indirizzo"  value ="<%=info_ordine.getIndirizzo() %>"  required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>CAP</label>
-	<input type = "text" class = "form-control" name = "insert-cap" value = "<%=info_ordine.getCap() %>" required>
+	<input type = "text" class = "form-control" name = "insert-cap" id = "insert-cap"  value = "<%=info_ordine.getCap() %>" required>
 
 </div>
 
 <div class = "form-group">
 	
   	<label>CITTÀ</label>
-  	<input type ="text" class="form-control" name = "insert-citta" value="<%=info_ordine.getCitta() %>" required>
+  	<input type ="text" class="form-control" name = "insert-citta" id = "insert-citta"  value="<%=info_ordine.getCitta() %>" required>
 </div>
 
 <div class= "form-group">
 
 	<label>Provincia</label>
-	<input type = "text" class = "form-control" name = "insert-provincia" value = "<%=info_ordine.getProvincia() %>" required>
+	<input type = "text" class = "form-control" name = "insert-provincia" id = "insert-provincia"  value = "<%=info_ordine.getProvincia() %>" required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>Prezzo totale ordine</label>
-	<input type = "text" class = "form-control" name = "insert-prezzo" placeholder = "<%=info_ordine.getPrezzoTotale() %>" readonly required>
+	<input type = "text" class = "form-control" name = "insert-prezzo" id = "insert-prezzo"  placeholder = "<%=info_ordine.getPrezzoTotale() %>" readonly required>
 
 </div>
 
@@ -128,6 +128,7 @@
 </div></div></div>
 
 </form>
+<script src="JS/GestisciOrdiniAdminValidation.js"></script>
 
 <%@include file = "admin_includes/footer.jsp" %>
 </body>

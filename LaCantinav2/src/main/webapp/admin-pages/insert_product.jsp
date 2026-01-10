@@ -64,7 +64,7 @@
 	<!-- card body --> 
 	
 
-<form action ="<%= request.getContextPath() %>/insert-product" method = "GET" >
+<form id="formNuovoProdotto" action ="<%= request.getContextPath() %>/insert-product" method = "GET" >
 
 <div class= "form-group">
 
@@ -75,36 +75,42 @@
 
 <div class= "form-group">
 
-	<label>Categoria</label>
-	<input type = "text" class = "form-control" name = "insert-categoria" placeholder = "Inserisci categoria" required>
-
+	<div class="form-group">
+    <label for="insert-categoria">Seleziona una categoria:</label>
+    <select id="insert-categoria" name="insert-categoria" class="form-control" required>
+        <option value="" disabled selected>-- Seleziona un prodotto --</option>
+        <option value="olio-extravergine-oliva">Olio extravergine d'oliva</option>
+        <option value="vino-rosso">Vino rosso</option>
+        <option value="vino-bianco">Vino bianco</option>
+        <option value="limoncello">Limoncello</option>
+    </select>
 </div>
 
 <div class = "form-group">
 	
 	<div class="mb-3">
   	<label>Descrizione</label>
-  	<textarea class="form-control" name="insert-descrizione" rows="3" placeholder="Inserisci la descrizione" required></textarea>
+  	<textarea class="form-control" name="insert-descrizione" id="insert-descrizione" rows="3" placeholder="Inserisci la descrizione" required></textarea>
 </div>
 
 <div class= "form-group">
 
 	<label>Stock</label>
-	<input type = "number" class = "form-control" name = "insert-stock" placeholder = "quanti prodotti ci sono?" required>
+	<input type = "number" class = "form-control" name = "insert-stock" id="insert-stock" placeholder = "stock" required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>Prezzo</label>
-	<input type = "number" class = "form-control" name = "insert-prezzo" placeholder = "Inserisci prezzo" required>
+	<input type = "number" class = "form-control" name = "insert-prezzo" id="insert-prezzo" placeholder = "Inserisci prezzo" required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>Immagine</label>
-	<input type = "text" class = "form-control" name = "insert-immagine" placeholder = "inserisci img.jpg" required>
+	<input type = "text" class = "form-control" name = "insert-immagine" id="insert-immagine" placeholder = "inserisci img.jpg" required>
 
 </div>
 
@@ -137,7 +143,7 @@
 	
 	</div>
 </form>
-
+<script src="JS/NuovoProdottoValidation.js"></script>
 </div>
 </div>
 </div>
