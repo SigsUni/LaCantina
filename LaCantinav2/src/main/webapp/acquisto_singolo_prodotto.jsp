@@ -68,7 +68,7 @@
 <div class = "card-header text-center">
 	Riepilogo del tuo acquisto
 	<div class= "form-group">
-			<label>ID Prodotto</label>
+			
 			<input type = "hidden" class = "form-control" name = "insert-id" value ="<%=request.getParameter("id") %>"  required readonly>
 			
 			<label>Prodotto</label>
@@ -93,16 +93,16 @@
 	</div>
 
 	<label>Numero carta</label>
-	<input type = "text" class = "form-control" name = "insert-indirizzo" placeholder= "" required>
+	<input type = "text" class = "form-control" name = "insert-indirizzo" id = "insert-indirizzo-carta" placeholder= "" required>
 	
 	<label>Intestatario</label>
-	<input type = "text" class = "form-control" name = "insert-intestatario" placeholder= "ROSSI Mario" required>
+	<input type = "text" class = "form-control" name = "insert-intestatario" id = "insert-intestatario" placeholder= "ROSSI Mario" required>
 	
 	<label>Scadenza</label>
-  	<input type ="text" class="form-control" name = "insert-scadenza" placeholder = "01/01/2028" required>
+  	<input type ="text" class="form-control" name = "insert-scadenza" id = "insert-scadenza" placeholder = "mm/aa" required>
   	
   	<label>CVV</label>
-	<input type = "password" class = "form-control" name = "insert-cvv" placeholder= "***" required>
+	<input type = "password" class = "form-control" name = "insert-cvv" id = "insert-cvv" placeholder= "***" required>
 
 </div>
 
@@ -113,16 +113,16 @@
 	</div>
 
 	<label>Indirizzo</label>
-	<input type = "text" class = "form-control" name = "insert-indirizzo" placeholder= "via Giacomo Matteotti n.1" required>
+	<input type = "text" class = "form-control" name = "insert-indirizzo" id = "insert-indirizzo" placeholder= "via Giacomo Matteotti n.1" required>
 	
 	<label>CAP</label>
-	<input type = "text" class = "form-control" name = "insert-cap" placeholder= "84015" required>
+	<input type = "text" class = "form-control" name = "insert-cap" id = "insert-cap" placeholder= "84015" required>
 	
 	<label>CITTÀ</label>
-  	<input type ="text" class="form-control" name = "insert-citta" placeholder = "Nocera Superiore" required>
+  	<input type ="text" class="form-control" name = "insert-citta" name = "insert-citta" placeholder = "Nocera Superiore" required>
   	
   	<label>Provincia</label>
-	<input type = "text" class = "form-control" name = "insert-provincia" placeholder= "Salerno" required>
+	<input type = "text" class = "form-control" name = "insert-provincia" name = "insert-provincia" placeholder= "Salerno" required>
 	
 	<br>
 	<center>
@@ -137,6 +137,8 @@
 	
 
 </form>
+<script src="<%= request.getContextPath() %>/JS/AcquistoProdottoValidation.js"></script>
+
 
 </div>
 </div>

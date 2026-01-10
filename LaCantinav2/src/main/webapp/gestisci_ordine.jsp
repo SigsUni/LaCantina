@@ -63,17 +63,21 @@
 <%if(info_ordine.getStatoOrdine().equals("attesa di conferma") || info_ordine.getStatoOrdine().equals("preso in carico")){ %>
 <form action ="<%= request.getContextPath() %>/modifica-dati" method = "GET" >
 
+<label>ID Ordine</label>
+	<input type = "text" class = "form-control" name = "insert-id" value = "<%=info_ordine.getId() %>" required readonly>
+	
+
 <div class= "form-group">
 
 	<label>Indirizzo</label>
-	<input type = "text" class = "form-control" name = "insert-indirizzo" value ="<%=info_ordine.getIndirizzo() %>"  required>
+	<input type = "text" class = "form-control" name = "insert-indirizzo" id = "insert-indirizzo" value ="<%=info_ordine.getIndirizzo() %>"  required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>CAP</label>
-	<input type = "text" class = "form-control" name = "insert-cap" value = "<%=info_ordine.getCap() %>" required>
+	<input type = "text" class = "form-control" name = "insert-cap" id = "insert-cap" value = "<%=info_ordine.getCap() %>" required>
 
 </div>
 
@@ -81,20 +85,20 @@
 	
 	<div class="mb-3">
   	<label>CITTÀ</label>
-  	<input type ="text" class="form-control" name = "insert-citta" value="<%=info_ordine.getCitta() %>" required>
+  	<input type ="text" class="form-control" name = "insert-citta" id= "insert-citta" value="<%=info_ordine.getCitta() %>" required>
 </div>
 
 <div class= "form-group">
 
 	<label>Provincia</label>
-	<input type = "text" class = "form-control" name = "insert-provincia" value = "<%=info_ordine.getProvincia() %>" required>
+	<input type = "text" class = "form-control" name = "insert-provincia" id = "insert-provincia" value = "<%=info_ordine.getProvincia() %>" required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>Prezzo totale ordine</label>
-	<input type = "text" class = "form-control" name = "insert-prezzo" placeholder = "<%=info_ordine.getPrezzoTotale() %>" readonly required>
+	<input type = "text" class = "form-control" name = "insert-prezzo" id = "insert-prezzo" placeholder = "<%=info_ordine.getPrezzoTotale() %>" readonly required>
 
 </div>
 
@@ -106,15 +110,12 @@
     <option value="annullato">Annullato</option>
   </select>
 
+<button type = "submit" class = "btn btn-primary"> CONFERMA MODIFICHE </button>
 
 </div>
-<label>ID</label>
-	<input type = "text" class = "form-control" name = "insert-id" value = "<%=info_ordine.getId() %>" required readonly>
-	
-	<button type = "submit" class = "btn btn-primary"> CONFERMA MODIFICHE </button>
-	
 	</div>
 </form>
+<script src="<%= request.getContextPath() %>/JS/GestisciOrdineValidation.js"></script>
 <%} else{%>
 <form action ="" method = "GET" >
 
