@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unisa.lacantina.model.domain.Fornitore;
+import it.unisa.lacantina.model.domain.Prodotto;
 
 public class FornitoreDao {
 
@@ -47,6 +48,34 @@ public class FornitoreDao {
 
         return fornitori;
     }
+    
+    public Fornitore getSingleFornitore(int id) {
+		Fornitore forn = null;
+		
+		try {
+			query = "select * from fornitori where id=?;";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				forn = new Fornitore();
+				
+				forn.setId(rs.getInt("id"));
+                forn.setNome(rs.getString("nome"));
+                forn.setCitta(rs.getString("citta"));
+                forn.setProvincia(rs.getString("provincia"));
+                forn.setIndirizzo(rs.getString("indirizzo"));
+                forn.setAnnoNascita(rs.getInt("anno_nascita"));
+
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return forn;
+	}
     
     
     

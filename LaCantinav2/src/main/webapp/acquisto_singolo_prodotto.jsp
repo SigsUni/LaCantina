@@ -69,7 +69,7 @@
 	Riepilogo del tuo acquisto
 	<div class= "form-group">
 			<label>ID Prodotto</label>
-			<input type = "text" class = "form-control" name = "insert-id" value ="<%=request.getParameter("id") %>"  required readonly>
+			<input type = "hidden" class = "form-control" name = "insert-id" value ="<%=request.getParameter("id") %>"  required readonly>
 			
 			<label>Prodotto</label>
 			<input type = "text" class = "form-control" name = "insert-id" value ="<%=request.getParameter("nome") %>"  required readonly>

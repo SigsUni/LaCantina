@@ -53,7 +53,7 @@ public class ProdottoDao {
 	}
 	
 	
-	////////METODI IMPLEMENTATIVI DELLE FUNZIONI DEL CARRELLO
+	
 	
 	public Prodotto getSingleProdotto(int id) {
 		Prodotto prod = null;
