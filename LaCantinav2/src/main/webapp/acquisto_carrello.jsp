@@ -105,7 +105,7 @@
 	</div>
 
 	<label>Numero carta</label>
-	<input type = "text" class = "form-control" name = "insert-indirizzo" id = "insert-indirizzo-carta" placeholder= "" required>
+	<input type = "text" class = "form-control" name = "insert-indirizzo-carta" id = "insert-indirizzo-carta" placeholder= "" required>
 	
 	<label>Intestatario</label>
 	<input type = "text" class = "form-control" name = "insert-intestatario" id = "insert-intestatario"  placeholder= "ROSSI Mario" required>
