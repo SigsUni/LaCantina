@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import it.unisa.lacantina.model.domain.Prodotto;
 import it.unisa.lacantina.model.domain.Utente;
 
 public class UtenteDao {
@@ -157,5 +158,30 @@ public class UtenteDao {
 		
 		return nome;
 	}
-
+	
+	public Utente getSingleUtente(String email) {
+		Utente user = null;
+		
+		try {
+			query = "select * from utenti where email=?;";
+			pst = this.con.prepareStatement(query);
+			pst.setString(1, email);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				user = new Utente();
+				
+				user.setID(rs.getInt("id"));
+				user.setName(rs.getString("nome"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
 }
+
