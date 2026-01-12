@@ -48,31 +48,22 @@ public class LoginServlet extends HttpServlet {
 			{
 				request.getSession().setAttribute("auth", user);
 				
-				out.println("<html><head>");
+				
 				if(user.getID()!=2) {
-			    out.println("<meta http-equiv='refresh' content='2;url=" 
-			                + request.getContextPath() + "/index.jsp'>");
-			    out.println("</head><body>");
-			    out.println("<h2>Login effettuato!</h2>");
-			    out.println("</body></html>");
+					 request.setAttribute("successMessage", "Login Effettuato con successo");
+					 request.getRequestDispatcher("/success_generico.jsp").forward(request, response);
 			    }
 				else 
 				{
-					response.sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
+					 request.setAttribute("successMessage", "Benvenuto Admin");
+					  request.getRequestDispatcher("/success_generico.jsp").forward(request, response);
 				}
-			    out.println("</head><body>");
-			    out.println("<h2>Login effettuato!</h2>");
-			    out.println("</body></html>");
+			    
 			}
 			else
 			{
-				out.println("<html><head>");
-			    out.println("<meta http-equiv='refresh' content='3;url=" 
-			                + request.getContextPath() + "/LoginAndRegistration.jsp'>");
-			    out.println("</head><body>");
-			    out.println("<h2>Login errato!</h2>");
-			    out.println("<p>Verrai reindirizzato alla pagina precedente tra 3 secondi... ritenta</p>");
-			    out.println("</body></html>");
+				 request.setAttribute("errorMessage", "Credenziali Errate, riprova");
+				  request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
 			}
 			
 		} catch (SQLException e) {

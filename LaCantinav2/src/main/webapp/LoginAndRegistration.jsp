@@ -36,7 +36,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 					
 					<div id="errorBox" style="color:red; margin-top:10px;"></div>
 					
-				<button>Registrati</button>
+				<button type="submit">Registrati</button>
 				
 			</form>
 			
@@ -50,7 +50,7 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 				<input type="text" id="email" name="email" placeholder="Email" required> <input
 					type="password" name="password" placeholder="Password" required> <a
 					href="#">Password Dimenticata?</a>
-				<button>Accedi</button>
+				<button type = "submit">Accedi</button>
 				</form>
 				
 				<script src="<%= request.getContextPath() %>/JS/LoginValidation.js"></script>

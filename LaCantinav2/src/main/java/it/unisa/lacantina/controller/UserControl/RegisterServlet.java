@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 
 
 import it.unisa.lacantina.model.dao.UtenteDao;
+import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.util.ConnectToDB;
 
 
@@ -57,12 +58,9 @@ response.setContentType("text/html; charset= UTF-8");
 				
 				if(x)
 				{
-					out.println("<html><head>");
-				    out.println("<meta http-equiv='refresh' content='2;url=" 
-				                + request.getContextPath() + "/LoginAndRegistration.jsp'>");
-				    out.println("</head><body>");
-				    out.println("<h2>Registrazione fallita Email già presente</h2>");
-				    out.println("</body></html>");
+
+				    request.setAttribute("errorMessage", "Registrazione fallita, Email già presente");
+				    request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
 				}
 				else
 				{
@@ -70,21 +68,18 @@ response.setContentType("text/html; charset= UTF-8");
 					
 					if(y)
 					{
-						out.println("<html><head>");
-					    out.println("<meta http-equiv='refresh' content='2;url=" 
-					                + request.getContextPath() + "/LoginAndRegistration.jsp'>");
-					    out.println("</head><body>");
-					    out.println("<h2>Registrazione effettuata, effettua il login</h2>");
-					    out.println("</body></html>");
+						Utente user = udao.getSingleUtente(email);
+						
+						request.getSession().setAttribute("auth", user);
+						
+						 request.setAttribute("successMessage", "Registrazione e Login Effettuato con successo");
+						  request.getRequestDispatcher("/success_generico.jsp").forward(request, response);
 					}
 					else
 					{
-						out.println("<html><head>");
-					    out.println("<meta http-equiv='refresh' content='2;url=" 
-					                + request.getContextPath() + "/LoginAndRegistration.jsp'>");
-					    out.println("</head><body>");
-					    out.println("<h2>Registrazione fallita, riprova</h2>");
-					    out.println("</body></html>");
+					    
+					    request.setAttribute("errorMessage", "Registrazione fallita, riprova");
+					    request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
 					}
 				}
 			

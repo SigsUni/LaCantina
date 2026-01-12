@@ -7,6 +7,10 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
 	if(auth != null)
 	{
 		request.setAttribute("auth",auth);
+		
+		if(auth.getID()==2){
+			response.sendRedirect(request.getContextPath()+"/admin-pages/admin_index.jsp");
+		}
 	} 
 	ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
 	if(cart_list!=null){
