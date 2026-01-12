@@ -58,8 +58,10 @@ hr { border-color: #eee !important; opacity: 0.5; }
 
 .product-img-index {
     width: 100%;
-    height: 220px; /* Altezza fissa identica all'index */
-    object-fit: cover;
+    height: 220px; /* Mantiene l'altezza fissa per allineare le card */
+    object-fit: contain; /* <--- MOSTRA TUTTA L'IMMAGINE ridimensionandola */
+    background-color: #ffffff; /* Assicura sfondo bianco se l'immagine è stretta */
+    padding: 10px; /* (Opzionale) Dà un po' di respiro all'immagine dai bordi */
     border-bottom: 1px solid #f0f0f0;
     transition: transform 0.5s ease;
 }
