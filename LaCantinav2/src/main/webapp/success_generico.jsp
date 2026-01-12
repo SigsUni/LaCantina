@@ -62,6 +62,13 @@
     </div>
 </div>
 
+<script>
+    
+    setTimeout(function() {
+        window.location.href = "<%= request.getContextPath() %>/index.jsp";
+    }, 2000);
+</script>
+
   <jsp:include page="/fragments/footer.jsp"></jsp:include>
     <script type="text/javascript" src="./JS/index.js"></script>
 
