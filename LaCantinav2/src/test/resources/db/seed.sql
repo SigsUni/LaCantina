@@ -81,8 +81,12 @@ INSERT INTO fornitori(id,nome,citta,provincia,indirizzo,anno_nascita) VALUES
 (3,'AnticoVinaio','CastelFranco in Miscano','Salerno','via Campagna 12',1940);
 
 
--- dopo CREATE TABLE utenti ...
+-- Dati minimi per test OrdineDao (FK ordini -> riga_ordini)
+INSERT INTO riga_ordini (id, numero_ordini, prezzo_totale, stato_ordine, indirizzo, cap, citta, provincia) VALUES
+(1, 1, 11, 'attesa di conferma', 'via test 1', '84016', 'Nocera', 'SA');
 
+INSERT INTO ordini (id, id_utente, id_prodotto, id_riga_ordine, quantity, prezzo_acquisto, data_ordine) VALUES
+(1, 1, 12, 1, 1, 11, '01/01/2026');
 
 -- Inserimento deterministico (ID fissi)
 INSERT INTO utenti (id, nome, email, password) VALUES

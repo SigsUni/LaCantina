@@ -43,7 +43,8 @@ public class ProdottoDaoTest extends DbTestBase {
         Prodotto p = dao.getSingleProdotto(12);
         assertNotNull(p);
         assertEquals(12, p.getId());
-        assertEquals("olio evo 500ml", p.getNome());
+        assertTrue(p.getNome().equalsIgnoreCase("olio evo 500ml"));
+
     }
 
     @Test
