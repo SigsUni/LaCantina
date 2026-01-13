@@ -1,0 +1,155 @@
+/* --- CSS PER GESTIONE ORDINE (manage-order.css) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 1. LAYOUT & SFONDO (Fix Footer) --- */
+html {
+    background-color: #f9f9f9;
+    height: 100%;
+}
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- 2. HEADER FIX --- */
+header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+hr { border-color: #eee !important; opacity: 0.5; }
+
+/* --- 3. WRAPPER --- */
+.page-wrapper {
+    width: 100%;
+    flex: 1; /* Spinge il footer in basso */
+    padding-top: 140px; 
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- 4. TITOLI PAGINA --- */
+.page-header-content {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    color: #2a6973;
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+/* --- 5. CARD PERSONALIZZATA --- */
+.card-manage {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    width: 90%;
+    max-width: 800px; /* Larghezza controllata */
+    overflow: hidden;
+}
+
+.card-header-custom {
+    background-color: #2a6973;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.card-header-custom h6 {
+    font-weight: 300;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.card-body-custom {
+    padding: 40px;
+}
+
+/* --- 6. FORM & INPUT --- */
+.form-group {
+    margin-bottom: 20px; /* Spazio tra i campi */
+}
+
+label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    background-color: #fcfcfc;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: #2a6973;
+    box-shadow: 0 0 0 4px rgba(42, 105, 115, 0.1);
+    background-color: #fff;
+}
+
+/* Stile per i campi sola lettura */
+.form-control[readonly] {
+    background-color: #f0f2f5;
+    color: #777;
+    border-color: #e0e0e0;
+}
+
+/* Select Box */
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    cursor: pointer;
+}
+select:focus {
+    outline: none;
+    border-color: #2a6973;
+}
+
+/* --- 7. BOTTONE CONFERMA --- */
+.btn-confirm {
+    background-color: #2a6973;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    margin-top: 20px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-confirm:hover {
+    background-color: #0f4667;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 105, 115, 0.3);
+}

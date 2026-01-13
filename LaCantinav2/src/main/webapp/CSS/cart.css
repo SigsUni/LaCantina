@@ -1,13 +1,27 @@
-/* --- CSS PER PAGINA CARRELLO --- */
+/* --- CSS PER PAGINA CARRELLO--- */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 1. SETUP GENERALE E FIX SFONDO NERO --- */
+html {
+    /* Questo assicura che lo sfondo sia grigio anche oltre i bordi della pagina (overscroll) */
+    background-color: #f9f9f9;
+    height: 100%;
+}
 
 body {
     background-color: #f9f9f9;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    
+    /* Configurazione Flexbox per spingere il footer in basso */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
 }
 
-/* --- FIX HEADER (RIMUOVE SFONDO NERO) --- */
+/* --- 2. FIX HEADER (Override Bootstrap) --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -15,13 +29,13 @@ header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
 hr { border-color: #eee !important; opacity: 0.5; }
-/* -------------------------------------- */
 
-
-/* WRAPPER PRINCIPALE (Centratura) */
+/* --- 3. LAYOUT PAGINA (Wrapper) --- */
 .page-wrapper {
     width: 100%;
-    min-height: 80vh;
+    /* flex: 1 fa occupare al contenuto tutto lo spazio disponibile, spingendo giù il footer */
+    flex: 1; 
+    
     padding-top: 140px; 
     padding-bottom: 80px;
     display: flex;
@@ -29,7 +43,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     align-items: center;
 }
 
-/* TITOLO PAGINA */
+/* --- 4. TITOLI --- */
 .page-header-content {
     text-align: center;
     margin-bottom: 30px;
@@ -41,18 +55,37 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 5px;
 }
 
-/* CARD DEL CARRELLO */
+/* --- 5. CARD DEL CARRELLO --- */
 .cart-card {
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     padding: 30px;
     width: 90%;
-    max-width: 1200px; /* Un po' più largo per contenere i bottoni */
+    max-width: 1200px;
+    overflow: hidden; /* Mantiene gli angoli arrotondati */
 }
 
-/* TABELLA */
-.table-responsive { overflow-x: auto; }
+/* --- 6. TABELLA SCROLLABILE (Gestione liste lunghe) --- */
+.table-responsive { 
+    width: 100%;
+    overflow-x: auto; /* Scroll orizzontale su mobile */
+    
+    /* Altezza massima: dopo 500px appare la barra di scorrimento verticale */
+    max-height: 500px; 
+    overflow-y: auto; 
+    
+    border-radius: 15px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+}
+
+/* Personalizzazione Scrollbar (Opzionale per Chrome/Safari/Edge) */
+.table-responsive::-webkit-scrollbar { width: 8px; }
+.table-responsive::-webkit-scrollbar-track { background: #f1f1f1; }
+.table-responsive::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.table-responsive::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
 
 .custom-table {
     width: 100%;
@@ -61,8 +94,9 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 0;
 }
 
+/* Intestazione Tabella (Sticky Header) */
 .custom-table thead th {
-    background-color: #2a6973;
+    background-color: #2a6973; /* Petrolio */
     color: white;
     padding: 18px;
     text-align: center;
@@ -70,10 +104,12 @@ hr { border-color: #eee !important; opacity: 0.5; }
     font-weight: 500;
     text-transform: uppercase;
     font-size: 0.9rem;
+    
+    /* Mantiene l'intestazione fissa in alto mentre scorri */
+    position: sticky; 
+    top: 0;
+    z-index: 10;
 }
-
-.custom-table thead th:first-child { border-top-left-radius: 15px; }
-.custom-table thead th:last-child { border-top-right-radius: 15px; }
 
 .custom-table td {
     padding: 20px;
@@ -82,9 +118,10 @@ hr { border-color: #eee !important; opacity: 0.5; }
     text-align: center;
     color: #555;
     font-size: 1rem;
+    background-color: #fff; /* Necessario per coprire il contenuto sotto lo sticky header */
 }
 
-/* Stile per il nome prodotto */
+/* Stile Testo Prodotto */
 .product-name {
     font-weight: 600;
     color: #333;
@@ -98,9 +135,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     text-align: left;
 }
 
-/* --- CONTROLLI QUANTITA' E BOTTONI --- */
-
-/* Input numero */
+/* --- 7. CONTROLLI QUANTITA' E BOTTONI --- */
 .qty-input {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -112,7 +147,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin: 0 5px;
 }
 
-/* Icone + e - */
 .btn-qty {
     color: #2a6973;
     font-size: 1.2rem;
@@ -122,7 +156,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
 }
 .btn-qty:hover { color: #0f4667; transform: scale(1.1); }
 
-/* Bottone Compra Singolo (Buy) */
+/* Bottone Acquista Singolo */
 .btn-buy-single {
     background-color: #2a6973;
     color: white;
@@ -138,7 +172,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     box-shadow: 0 4px 10px rgba(42, 105, 115, 0.3);
 }
 
-/* Bottone Rimuovi */
+/* Bottone Rimuovi (Cestino) */
 .btn-remove {
     color: #dc3545;
     background: #fff0f0;
@@ -154,17 +188,18 @@ hr { border-color: #eee !important; opacity: 0.5; }
     color: white;
 }
 
-/* SEZIONE TOTALE E CHECKOUT (FOOTER DELLA CARD) */
+/* --- 8. FOOTER DEL CARRELLO (Totale e Checkout) --- */
 .cart-footer {
     background-color: #f8fcfd;
     border-radius: 15px;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 0; /* Attaccato alla tabella se necessario */
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+    border: 1px solid #eef;
 }
 
 .total-price {
@@ -178,6 +213,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     font-weight: 400;
 }
 
+/* Bottone Checkout Principale */
 .btn-checkout {
     background-color: #2a6973;
     color: white;
@@ -196,6 +232,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     box-shadow: 0 5px 15px rgba(42, 105, 115, 0.4);
 }
 
+/* Messaggio Carrello Vuoto */
 .empty-cart-msg {
     text-align: center;
     padding: 50px;

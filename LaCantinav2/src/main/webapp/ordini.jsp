@@ -5,17 +5,24 @@
 <%@page import="java.util.*" %>
 
 <%
+    // Verifica Utente
     Utente auth = (Utente)request.getSession().getAttribute("auth"); 
     List<Ordine> ordini = null;
     
     if(auth != null) {
         request.setAttribute("auth",auth);
-        ordini = new OrdineDao(ConnectToDB.getConnection()).userOrders(auth.getID());
+        // Recupero Ordini dal DB
+        try {
+            ordini = new OrdineDao(ConnectToDB.getConnection()).userOrders(auth.getID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     } else {
         response.sendRedirect("LoginAndRegistration.jsp");
         return; 
     }
     
+    // Recupero Carrello per icona header (opzionale)
     ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("cart-list");
     if(cart_list != null){
         request.setAttribute("cart_list", cart_list);
@@ -23,7 +30,7 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,7 +86,11 @@
                                     € <%= String.format("%.2f", o.getProdotto().getPrezzo()) %>
                                 </td>
                                 
-                                <td><span class="badge bg-secondary rounded-pill" style="font-size: 0.9rem; padding: 8px 12px;"><%= o.getQuantity() %></span></td>
+                                <td>
+                                    <span class="badge bg-secondary rounded-pill" style="font-size: 0.9rem; padding: 8px 12px;">
+                                        <%= o.getQuantity() %>
+                                    </span>
+                                </td>
                                 
                                 <td>
                                     <a class="btn-manage" href="<%= request.getContextPath() %>/gestisci_ordine.jsp?id=<%= o.getIdRigaOrdine() %>">
@@ -92,12 +103,16 @@
                     </table>
                 </div>
             <% } else { %>
+                
                 <div class="empty-state">
                     <i class='bx bx-shopping-bag' style="font-size: 5rem; color: #eee;"></i>
                     <h3 style="margin-top: 20px; color: #555;">Nessun ordine trovato</h3>
                     <p style="color: #999;">Non hai ancora acquistato nulla.</p>
-                    <a href="index.jsp" class="btn-manage" style="background: #2a6973; color: white; margin-top: 15px;">Vai allo Shopping</a>
+                    <a href="index.jsp" class="btn-manage" style="background: #2a6973; color: white; margin-top: 15px;">
+                        Vai allo Shopping
+                    </a>
                 </div>
+                
             <% } %>
             
         </div>

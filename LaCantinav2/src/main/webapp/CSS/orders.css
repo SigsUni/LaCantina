@@ -1,41 +1,52 @@
-/* --- CSS PER PAGINA ORDINI --- */
+/* --- CSS PER PAGINA ORDINI (orders.css) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 1. FIX GENERALE SFONDO E LAYOUT (Stile Carrello) --- */
+html {
+    /* Elimina lo sfondo nero sotto il footer */
+    background-color: #f9f9f9;
+    height: 100%;
+}
 
 body {
     background-color: #f9f9f9;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    
+    /* Flexbox per spingere il footer in basso */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* --- FIX HEADER (SOLO SFONDO) --- */
-/* Imposta lo sfondo bianco per eliminare la barra nera*/
+/* --- 2. FIX HEADER --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
     border: none !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important; /* Leggera ombra grigia */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
 
-hr {
-    border-color: #eee !important;
-    opacity: 0.5;
-}
+hr { border-color: #eee !important; opacity: 0.5; }
 
 
-/* WRAPPER PRINCIPALE */
+/* --- 3. WRAPPER PRINCIPALE --- */
 .page-wrapper {
     width: 100%;
-    min-height: 80vh; 
+    /* Occupa tutto lo spazio disponibile per spingere giù il footer */
+    flex: 1; 
     
     padding-top: 140px; 
     padding-bottom: 80px;
     
     display: flex;
     flex-direction: column;
-    align-items: center;    /* CENTRA TUTTO IL CONTENUTO */
+    align-items: center;
 }
 
-/* CARD CENTRALE */
+/* --- 4. CARD CENTRALE --- */
 .orders-card {
     background-color: #ffffff;
     border-radius: 20px;
@@ -47,6 +58,7 @@ hr {
     max-width: 1100px;   
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden; /* Mantiene bordi arrotondati */
 }
 
 /* Titoli */
@@ -67,27 +79,46 @@ hr {
     font-size: 1.1rem;
 }
 
-/* --- TABELLA --- */
+/* --- 5. TABELLA SCROLLABILE (Come nel carrello) --- */
 .table-responsive {
+    width: 100%;
     overflow-x: auto;
+    
+    /* Altezza massima fissa per evitare pagine infinite */
+    max-height: 500px;
+    overflow-y: auto;
+    
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    margin-bottom: 10px;
 }
+
+/* Scrollbar personalizzata (Opzionale) */
+.table-responsive::-webkit-scrollbar { width: 8px; }
+.table-responsive::-webkit-scrollbar-track { background: #f1f1f1; }
+.table-responsive::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
 
 .custom-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+    margin-bottom: 0;
 }
 
+/* Intestazione Fissa (Sticky) */
 .custom-table thead th {
     background-color: #2a6973;
     color: white;
     padding: 18px;
     text-align: center;
     border: none;
+    
+    /* Fissa l'intestazione in alto */
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
-
-.custom-table thead th:first-child { border-top-left-radius: 15px; }
-.custom-table thead th:last-child { border-top-right-radius: 15px; }
 
 .custom-table td {
     padding: 20px;
@@ -96,6 +127,7 @@ hr {
     text-align: center;
     color: #555;
     font-size: 1rem;
+    background-color: #fff; /* Copre il contenuto durante lo scroll */
 }
 
 .product-name-cell {
@@ -105,6 +137,7 @@ hr {
     color: #333;
 }
 
+/* Bottoni */
 .btn-manage {
     background-color: white;
     color: #2a6973;
@@ -125,4 +158,13 @@ hr {
 .empty-state {
     text-align: center;
     padding: 50px;
+}
+
+/* Animazione entrata */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
