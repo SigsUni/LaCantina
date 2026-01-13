@@ -61,7 +61,7 @@
 	
 	<!-- card body --> 
 	
-<form action ="<%= request.getContextPath() %>/order-now" method = "GET" >
+<form action ="<%= request.getContextPath() %>/order-now" method = "POST" >
 
 <div class= "form-group">
 

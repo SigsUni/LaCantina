@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const cardRegex = /^\d{13,19}$/; // numero carta
         const cvvRegex = /^\d{3,4}$/;     // CVV
         const capRegex = /^\d{5}$/;       // CAP
-        const scadenzaRegex = /^(0[1-9]|1[0-2])\/\d{4}$/; // MM/YYYY
+        const scadenzaRegex = /^(0[1-9]|1[0-12])\/\d{2}$/; // MM/YY
 
         // Controlliamo i campi della carta
         const numeroCarta = document.getElementById("insert-indirizzo-carta");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const scadenza = document.getElementById("insert-scadenza");
         if (!scadenzaRegex.test(scadenza.value.trim())) {
-            showError(scadenza, "La scadenza deve essere nel formato MM/YYYY.");
+            showError(scadenza, "La scadenza deve essere nel formato MM/YY.");
             valid = false;
         }
 

@@ -64,7 +64,7 @@
 	
 	<!-- card body --> 
 	
-<form action ="<%=request.getContextPath()%>/check-out" method = "GET" >
+<form action ="<%=request.getContextPath()%>/check-out" method = "POST" >
 
 <div class= "form-group">
 

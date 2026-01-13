@@ -61,7 +61,7 @@
 	<!-- card body --> 
 	
 <%if(info_ordine.getStatoOrdine().equals("attesa di conferma") || info_ordine.getStatoOrdine().equals("preso in carico")){ %>
-<form action ="<%= request.getContextPath() %>/modifica-dati" method = "GET" >
+<form action ="<%= request.getContextPath() %>/modifica-dati" method = "POST" >
 
 <label>ID Ordine</label>
 	<input type = "text" class = "form-control" name = "insert-id" value = "<%=info_ordine.getId() %>" required readonly>
@@ -106,7 +106,7 @@
 
 <label for="stato">Imposta uno stato ordine:</label>
   <select id="stato_ordine" name="stato_ordine">
-    <option value="stato_attuale"><%=info_ordine.getStatoOrdine() %></option>
+    <option value="<%=info_ordine.getStatoOrdine() %>"><%=info_ordine.getStatoOrdine() %></option>
     <option value="annullato">Annullato</option>
   </select>
 

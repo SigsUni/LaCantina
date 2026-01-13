@@ -71,7 +71,7 @@
 	
 	<!-- card body --> 
 
-<form action ="<%= request.getContextPath() %>/modifica-dati" method = "GET" >
+<form action ="<%= request.getContextPath() %>/modifica-dati" method = "POST" >
 
 <div class= "form-group">
 
@@ -111,7 +111,7 @@
 
 <label for="stato">Imposta uno stato ordine:</label>
   <select id="stato_ordine" name="stato_ordine">
-    <option value="stato_attuale"><%=info_ordine.getStatoOrdine() %></option>
+    <option value="<%=info_ordine.getStatoOrdine() %>"><%=info_ordine.getStatoOrdine() %></option>
     <option value="attesa di conferma">attesa di conferma</option>
     <option value="preso in carico">preso in carico</option>
     <option value="spedito">spedito</option>

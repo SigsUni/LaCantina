@@ -5,8 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,120 +31,132 @@ import it.unisa.lacantina.util.ConnectToDB;
 @WebServlet("/order-now")
 public class OrderNowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
+    
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try(PrintWriter out = response.getWriter())
-		{
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			Date date = new Date();
-			
-			Utente auth = (Utente)request.getSession().getAttribute("auth");
-			ProdottoDao prodotto = null;
-			if(auth!=null) 
-			{
-				
-				String prodottoId = request.getParameter("insert-id");
-				int productQuantity = Integer.parseInt(request.getParameter("insert-quantity"));
-				String indirizzo = request.getParameter("insert-indirizzo");
-				String provincia = request.getParameter("insert-provincia");
-				String cap = request.getParameter("insert-cap");
-				String citta = request.getParameter("insert-citta");
-				
-				
-				
-				ArrayList<Carrello> cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
-				float prezzo_totale = 0;
-				prezzo_totale = Float.parseFloat(request.getParameter("insert-prezzo"));
-				
-				if(prezzo_totale!=0) {
-				if(cart_list!= null)
-				{
-					for(Carrello c:cart_list) {
-						if(c.getProdotto().getId() == Integer.parseInt(prodottoId)) 
-						{
-							System.out.println("PREZO CARRELLO = " + c.getProdotto().getPrezzo());
-							System.out.println("QUANTITY CARRELLO ="+ c.getQuantity());
-							
-							prezzo_totale = prezzo_totale + (c.getProdotto().getPrezzo() * c.getQuantity());
-							break;
-						}
-					}
-				}}
-				
-				
-				if(productQuantity<=0) {
-					response.sendRedirect("index.jsp");
-				}else 
-				{
-					
-					Ordine orderModel = new Ordine();
-					//CREZIONE NUOVA RIGAORDINE
-					RigaOrdineDao nuovaRiga = new RigaOrdineDao(ConnectToDB.getConnection());
-					int id_riga_ordine = nuovaRiga.nuovaRigaOrdine(indirizzo, cap, citta,provincia,prezzo_totale, 1);
-					//FINE CREAZIONE NUOVA RIGAORDINE
-					orderModel.setId_prodotto(Integer.parseInt(prodottoId));
-					orderModel.setId_utente(auth.getID());
-					orderModel.setQuantity(productQuantity);
-					orderModel.setData(formatter.format(date));
-					orderModel.setIdRigaOrdine(id_riga_ordine);
-					orderModel.setPrezzoAcquisto(prezzo_totale);
-					ProdottoDao productDao = new ProdottoDao(ConnectToDB.getConnection());
-					Prodotto prod = productDao.getSingleProdotto(orderModel.getIdProdotto());
-					orderModel.setProdotto(prod);
-					OrdineDao orderDao = new OrdineDao(ConnectToDB.getConnection());
-					boolean result = orderDao.insertOrder(orderModel);
-					//OPERAZIONI DI DECREMENTO STOCK
-					prodotto = new ProdottoDao(ConnectToDB.getConnection());
-					int nuovo_stock = prodotto.getStockFromId(orderModel.getIdProdotto()) - 1;
-					boolean result_update_stock = prodotto.setNewStock(orderModel.getIdProdotto(),nuovo_stock);
-					//FINE OPERAZIONI DECREMENTO STOCK
-					if(result || result_update_stock) 
-					{
-						//RIMOZIONE ELEMENTO DA CARRELLO SE PRESENTE
-						cart_list = (ArrayList<Carrello>) request.getSession().getAttribute("cart-list");
-						if(cart_list!= null) {
-							for(Carrello c:cart_list) {
-								if(c.getProdotto().getId() == Integer.parseInt(prodottoId)) 
-								{
-									cart_list.remove(cart_list.indexOf(c));
-									break;
-								}
-							}
-						}
-						response.sendRedirect("ordini.jsp");
-					}
-					else 
-					{
-						response.sendRedirect("LoginAndRegistration.jsp");
-					}
-				}
-				
-				
-				
-				
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    	
+
+        Connection con = null;
+
+        try {
+            HttpSession session = request.getSession(false);
+            if (session == null) {
+                response.sendRedirect("LoginAndRegistration.jsp");
+                return;
+            }
+
+            Utente auth = (Utente) session.getAttribute("auth");
+            if (auth == null) {
+                response.sendRedirect("LoginAndRegistration.jsp");
+                return;
+            }
+
+            // PARAMETRI
+            int prodottoId = Integer.parseInt(request.getParameter("insert-id"));
+            int quantity = Integer.parseInt(request.getParameter("insert-quantity"));
+            String indirizzo = request.getParameter("insert-indirizzo");
+            String cap = request.getParameter("insert-cap");
+            String citta = request.getParameter("insert-citta");
+            String provincia = request.getParameter("insert-provincia");
+
+            if (quantity <= 0 || indirizzo == null || cap == null || citta == null || provincia == null) {
+                throw new Exception("Dati ordine non validi");
+            }
+
+            con = ConnectToDB.getConnection();
+            if (con == null) {
+                throw new Exception("Connessione al database non disponibile");
+            }
+
+            con.setAutoCommit(false);
+
+            ProdottoDao prodottoDao = new ProdottoDao(con);
+            OrdineDao ordineDao = new OrdineDao(con);
+            RigaOrdineDao rigaDao = new RigaOrdineDao(con);
+
+            int stockAttuale = prodottoDao.getStockFromId(prodottoId);
+            if (stockAttuale < quantity) {
+                throw new Exception("Stock insufficiente");
+            }
+
+            float prezzoProdotto = prodottoDao.getSingleProdotto(prodottoId).getPrezzo();
+            float prezzoTotale = prezzoProdotto * quantity;
+
+            // CREAZIONE RIGA ORDINE
+            int idRigaOrdine = rigaDao.nuovaRigaOrdine(
+                    indirizzo, cap, citta, provincia, prezzoTotale, quantity
+            );
+
+            if (idRigaOrdine <= 0) {
+                throw new Exception("Errore creazione riga ordine");
+            }
+
+            // CREAZIONE ORDINE
+            Ordine ordine = new Ordine();
+            ordine.setId_prodotto(prodottoId);
+            ordine.setId_utente(auth.getID());
+            ordine.setQuantity(quantity);
+            ordine.setPrezzoAcquisto(prezzoTotale);
+            ordine.setIdRigaOrdine(idRigaOrdine);
+            ordine.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+
+            if (!ordineDao.insertOrder(ordine)) {
+                throw new Exception("Errore inserimento ordine");
+            }
+
+            // AGGIORNAMENTO STOCK
+            if (!prodottoDao.setNewStock(prodottoId, stockAttuale - quantity)) {
+                throw new Exception("Errore aggiornamento stock");
+            }
+
+            con.commit();
+
+            // RIMOZIONE DAL CARRELLO (DOPO COMMIT)
+            ArrayList<Carrello> cart =
+                    (ArrayList<Carrello>) session.getAttribute("cart-list");
+
+            if (cart != null) {
+                cart.removeIf(c -> c.getProdotto().getId() == prodottoId);
+            }
+
+            response.sendRedirect("ordini.jsp");
+
+        } catch (Exception e) {
+
+            if (con != null) {
+                try {
+                    con.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            e.printStackTrace();
+            request.setAttribute("errorMessage","Errore durante l'ordine: " + e.getMessage());
+            try {
+				request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
+			} catch (ServletException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-			else {
-				response.sendRedirect("LoginAndRegistration.jsp");
-			}
-			
-			
-		}
-		catch(Exception e ) {
-			e.printStackTrace();
-		}
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        } finally {
+            if (con != null) {
+                try {
+                    con.setAutoCommit(true);
+                    con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
+    }
 }
