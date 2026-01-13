@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import it.unisa.lacantina.controller.UserControl.LoginServlet;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+@Tag("integration")
 public class LoginServletIntegrationTest extends SeededIntegrationBase {
 
     static class TestableLoginServlet extends LoginServlet {
@@ -43,7 +45,6 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
         when(req.getParameter("email")).thenReturn("gabriele.cicalese2004@gmail.com");
         when(req.getParameter("password")).thenReturn("1234");
 
-        // dispatcher success
         RequestDispatcher rdSuccess = mock(RequestDispatcher.class);
         when(req.getRequestDispatcher("/success_generico.jsp")).thenReturn(rdSuccess);
         doNothing().when(rdSuccess).forward(req, resp);
@@ -52,7 +53,6 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
 
         assertTrue(store.get("auth") instanceof Utente, "auth deve essere settato");
         verify(req).setAttribute("successMessage", "Login Effettuato con successo");
-        verify(req).getRequestDispatcher("/success_generico.jsp");
         verify(rdSuccess).forward(req, resp);
     }
 
@@ -80,7 +80,6 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
         assertEquals(2, u.getID(), "admin deve avere id=2 nel seed");
 
         verify(req).setAttribute("successMessage", "Benvenuto Admin");
-        verify(req).getRequestDispatcher("/success_generico.jsp");
         verify(rdSuccess).forward(req, resp);
     }
 
@@ -105,7 +104,62 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
 
         assertNull(store.get("auth"), "auth NON deve essere settato");
         verify(req).setAttribute("errorMessage", "Credenziali Errate, riprova");
-        verify(req).getRequestDispatcher("/errore_generico.jsp");
+        verify(rdErr).forward(req, resp);
+    }
+
+    // ---- TC_UM_01 (email vuota/formato) + TF-UM-12 (email inesistente) ----
+
+    @Test
+    void TF_UM_01_loginEmailVuota_forwardErroreCampoObbligatorio() throws Exception {
+        HttpServletRequest req = mock(HttpServletRequest.class);
+        HttpServletResponse resp = mock(HttpServletResponse.class);
+
+        when(req.getParameter("email")).thenReturn("");
+        when(req.getParameter("password")).thenReturn("1234");
+
+        RequestDispatcher rdErr = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
+        doNothing().when(rdErr).forward(req, resp);
+
+        new TestableLoginServlet().doPostPublic(req, resp);
+
+        verify(req).setAttribute(eq("errorMessage"), contains("Campo obbligatorio"));
+        verify(rdErr).forward(req, resp);
+    }
+
+    @Test
+    void TF_UM_02_loginEmailFormatoNonValido_forwardErroreFormato() throws Exception {
+        HttpServletRequest req = mock(HttpServletRequest.class);
+        HttpServletResponse resp = mock(HttpServletResponse.class);
+
+        when(req.getParameter("email")).thenReturn("emailNonValida.it");
+        when(req.getParameter("password")).thenReturn("1234");
+
+        RequestDispatcher rdErr = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
+        doNothing().when(rdErr).forward(req, resp);
+
+        new TestableLoginServlet().doPostPublic(req, resp);
+
+        verify(req).setAttribute(eq("errorMessage"), contains("Formato non valido"));
+        verify(rdErr).forward(req, resp);
+    }
+
+    @Test
+    void TF_UM_12_loginEmailInesistente_forwardErroreCredenziali() throws Exception {
+        HttpServletRequest req = mock(HttpServletRequest.class);
+        HttpServletResponse resp = mock(HttpServletResponse.class);
+
+        when(req.getParameter("email")).thenReturn("inesistente@test.it");
+        when(req.getParameter("password")).thenReturn("1234");
+
+        RequestDispatcher rdErr = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
+        doNothing().when(rdErr).forward(req, resp);
+
+        new TestableLoginServlet().doPostPublic(req, resp);
+
+        verify(req).setAttribute("errorMessage", "Credenziali Errate, riprova");
         verify(rdErr).forward(req, resp);
     }
 }

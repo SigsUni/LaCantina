@@ -15,7 +15,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import it.unisa.lacantina.controller.OrderControl.CheckOutServlet;
+import it.unisa.lacantina.controller.OrderControl.OrderNowServlet;
 import it.unisa.lacantina.model.domain.Carrello;
 import it.unisa.lacantina.model.domain.Utente;
 import it.unisa.lacantina.test.util.SeededIntegrationBase;
@@ -25,9 +25,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Tag("integration")
-public class CheckoutServletIntegrationTest extends SeededIntegrationBase {
+public class OrderNowServletIntegrationTest extends SeededIntegrationBase {
 
-    static class TestableCheckOutServlet extends CheckOutServlet {
+    static class TestableOrderNowServlet extends OrderNowServlet {
         public void doPostPublic(HttpServletRequest req, HttpServletResponse resp) throws Exception {
             super.doPost(req, resp);
         }
@@ -62,40 +62,27 @@ public class CheckoutServletIntegrationTest extends SeededIntegrationBase {
     }
 
     @Test
-    void TF_OM_08_nonAutenticato_redirectLogin_carrelloPreservato() throws Exception {
+    void TF_OM_05_nonAutenticato_redirectLogin_noInsert() throws Exception {
         int beforeOrdini = countRows("ordini");
         int beforeRighe = countRows("riga_ordini");
 
         HttpServletRequest req = mock(HttpServletRequest.class);
         HttpServletResponse resp = mock(HttpServletResponse.class);
-        HttpSession session = mock(HttpSession.class);
 
-        Map<String,Object> store = sessionStore(session);
-
-        ArrayList<Carrello> cart = new ArrayList<>();
-        Carrello item = new Carrello();
-        item.getProdotto().setId(12);
-        item.getProdotto().setPrezzo(11f);
-        item.setQuantity(1);
-        cart.add(item);
-        store.put("cart-list", cart);
-
-        when(req.getSession(false)).thenReturn(session);
+        when(req.getSession(false)).thenReturn(null);
         doNothing().when(resp).sendRedirect(anyString());
 
-        new TestableCheckOutServlet().doPostPublic(req, resp);
+        new TestableOrderNowServlet().doPostPublic(req, resp);
 
         verify(resp).sendRedirect("LoginAndRegistration.jsp");
-        assertEquals(1, cart.size(), "carrello preservato");
         assertEquals(beforeOrdini, countRows("ordini"));
         assertEquals(beforeRighe, countRows("riga_ordini"));
     }
 
     @Test
-    void TF_OM_09_auth_formNonValido_forwardErrore_noInsert_carrelloPreservato() throws Exception {
+    void TF_OM_06_auth_formNonValido_forwardErrore_noInsert() throws Exception {
         int beforeOrdini = countRows("ordini");
         int beforeRighe = countRows("riga_ordini");
-        int beforeStock = stockOf(12);
 
         HttpServletRequest req = mock(HttpServletRequest.class);
         HttpServletResponse resp = mock(HttpServletResponse.class);
@@ -104,37 +91,27 @@ public class CheckoutServletIntegrationTest extends SeededIntegrationBase {
         Map<String,Object> store = sessionStore(session);
         store.put("auth", new Utente(1, "user", "gabriele.cicalese2004@gmail.com", "1234"));
 
-        ArrayList<Carrello> cart = new ArrayList<>();
-        Carrello item = new Carrello();
-        item.getProdotto().setId(12);
-        item.getProdotto().setPrezzo(11f);
-        item.setQuantity(1);
-        cart.add(item);
-        store.put("cart-list", cart);
-
         when(req.getSession(false)).thenReturn(session);
-
-        // manca CAP -> trigger exception
+        when(req.getParameter("insert-id")).thenReturn("12");
+        when(req.getParameter("insert-quantity")).thenReturn("0"); // NON valido
         when(req.getParameter("insert-indirizzo")).thenReturn("via test");
-        when(req.getParameter("insert-provincia")).thenReturn("SA");
-        when(req.getParameter("insert-cap")).thenReturn(null);
+        when(req.getParameter("insert-cap")).thenReturn("84016");
         when(req.getParameter("insert-citta")).thenReturn("Nocera");
+        when(req.getParameter("insert-provincia")).thenReturn("SA");
 
         RequestDispatcher rdErr = mock(RequestDispatcher.class);
         when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
         doNothing().when(rdErr).forward(req, resp);
 
-        new TestableCheckOutServlet().doPostPublic(req, resp);
+        new TestableOrderNowServlet().doPostPublic(req, resp);
 
         verify(rdErr).forward(req, resp);
         assertEquals(beforeOrdini, countRows("ordini"));
         assertEquals(beforeRighe, countRows("riga_ordini"));
-        assertEquals(beforeStock, stockOf(12));
-        assertEquals(1, cart.size(), "carrello NON va svuotato se checkout fallisce");
     }
 
     @Test
-    void TF_OM_10_auth_formValido_creaOrdine_decrementaStock_svuotaCarrello_redirectOrdini() throws Exception {
+    void TF_OM_07_auth_formValido_creaOrdine_decrementaStock_redirectOrdini_rimuoveDalCarrello() throws Exception {
         int beforeOrdini = countRows("ordini");
         int beforeRighe = countRows("riga_ordini");
         int beforeStock = stockOf(12);
@@ -147,27 +124,29 @@ public class CheckoutServletIntegrationTest extends SeededIntegrationBase {
         store.put("auth", new Utente(1, "user", "gabriele.cicalese2004@gmail.com", "1234"));
 
         ArrayList<Carrello> cart = new ArrayList<>();
-        Carrello item = new Carrello();
-        item.getProdotto().setId(12);
-        item.getProdotto().setPrezzo(11f);
-        item.setQuantity(2);
-        cart.add(item);
+        Carrello c = new Carrello();
+        c.getProdotto().setId(12);
+        c.setQuantity(1);
+        cart.add(c);
         store.put("cart-list", cart);
 
         when(req.getSession(false)).thenReturn(session);
+        when(req.getParameter("insert-id")).thenReturn("12");
+        when(req.getParameter("insert-quantity")).thenReturn("1");
         when(req.getParameter("insert-indirizzo")).thenReturn("via test");
-        when(req.getParameter("insert-provincia")).thenReturn("SA");
         when(req.getParameter("insert-cap")).thenReturn("84016");
         when(req.getParameter("insert-citta")).thenReturn("Nocera");
+        when(req.getParameter("insert-provincia")).thenReturn("SA");
+
         doNothing().when(resp).sendRedirect(anyString());
 
-        new TestableCheckOutServlet().doPostPublic(req, resp);
+        new TestableOrderNowServlet().doPostPublic(req, resp);
 
         verify(resp).sendRedirect("ordini.jsp");
-        assertEquals(0, cart.size(), "carrello svuotato dopo successo");
-
-        assertTrue(countRows("riga_ordini") > beforeRighe);
         assertTrue(countRows("ordini") > beforeOrdini);
-        assertEquals(beforeStock - 2, stockOf(12));
+        assertTrue(countRows("riga_ordini") > beforeRighe);
+        assertEquals(beforeStock - 1, stockOf(12));
+
+        assertTrue(cart.isEmpty(), "dopo ordine diretto il prodotto va rimosso dal carrello");
     }
 }

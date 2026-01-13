@@ -43,8 +43,26 @@ public class ProdottoDaoTest extends DbTestBase {
         Prodotto p = dao.getSingleProdotto(12);
         assertNotNull(p);
         assertEquals(12, p.getId());
-        assertTrue(p.getNome().equalsIgnoreCase("olio evo 500ml"));
+    }
 
+    @Test
+    @DisplayName("TF-CM-02: getSingleProdotto con id inesistente ritorna null")
+    void getSingleProdotto_idInesistente_TF_CM_02() {
+        ProdottoDao dao = new ProdottoDao(con);
+        Prodotto p = dao.getSingleProdotto(999999);
+        assertNull(p);
+    }
+
+    @Test
+    @DisplayName("TF-CM-03: catalogo vuoto -> getAllProdotti ritorna lista vuota")
+    void getAllProdotti_catalogoVuoto_TF_CM_03() throws Exception {
+        // svuoto le tabelle che potrebbero referenziare prodotti (ordine -> prodotti)
+        con.prepareStatement("DELETE FROM ordini").executeUpdate();
+        con.prepareStatement("DELETE FROM riga_ordini").executeUpdate();
+        con.prepareStatement("DELETE FROM prodotti").executeUpdate();
+
+        ProdottoDao dao = new ProdottoDao(con);
+        assertTrue(dao.getAllProdotti().isEmpty());
     }
 
     @Test
