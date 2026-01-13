@@ -33,44 +33,41 @@ public class LoginServlet extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html;charset=UTF-8");
-		try(PrintWriter out = response.getWriter()){
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-			
-			out.print(email+password);
-			UtenteDao udao = new UtenteDao(ConnectToDB.getConnection());
-			Utente user = udao.userLogin(email, password);
-			
-			if(user!=null)
-			{
-				request.getSession().setAttribute("auth", user);
-				
-				
-				if(user.getID()!=2) {
-					 request.setAttribute("successMessage", "Login Effettuato con successo");
-					 request.getRequestDispatcher("/success_generico.jsp").forward(request, response);
-			    }
-				else 
-				{
-					 request.setAttribute("successMessage", "Benvenuto Admin");
-					  request.getRequestDispatcher("/success_generico.jsp").forward(request, response);
-				}
-			    
-			}
-			else
-			{
-				 request.setAttribute("errorMessage", "Credenziali Errate, riprova");
-				  request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    response.setContentType("text/html;charset=UTF-8");
+
+	    String email = request.getParameter("email");
+	    String password = request.getParameter("password");
+
+	    try {
+	        UtenteDao udao = new UtenteDao(ConnectToDB.getConnection());
+	        Utente user = udao.userLogin(email, password);
+
+	        if (user != null) {
+	            request.getSession().setAttribute("auth", user);
+
+	            if (user.getID() != 2) {
+	                request.setAttribute("successMessage", "Login Effettuato con successo");
+	            } else {
+	                request.setAttribute("successMessage", "Benvenuto Admin");
+	            }
+
+	            request.getRequestDispatcher("/success_generico.jsp").forward(request, response);
+	            return;
+	        }
+
+	        request.setAttribute("errorMessage", "Credenziali Errate, riprova");
+	        request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        request.setAttribute("errorMessage", "Errore interno, riprova più tardi");
+	        request.getRequestDispatcher("/errore_generico.jsp").forward(request, response);
+	    }
 	}
+
 
 }

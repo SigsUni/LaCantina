@@ -3,8 +3,6 @@ package it.unisa.lacantina.test.integration;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,36 +18,20 @@ import jakarta.servlet.http.HttpSession;
 
 public class LoginServletIntegrationTest extends SeededIntegrationBase {
 
-    // wrapper per esporre doPost (protected) come public nel test
     static class TestableLoginServlet extends LoginServlet {
         public void doPostPublic(HttpServletRequest req, HttpServletResponse resp) throws Exception {
             super.doPost(req, resp);
         }
     }
 
-    private static class Capture {
-        final StringWriter sw = new StringWriter();
-        final PrintWriter pw = new PrintWriter(sw, true);
-        String text() { return sw.toString(); }
-    }
-
     private static void wireSessionStore(HttpSession session, Map<String,Object> store) {
         when(session.getAttribute(anyString())).thenAnswer(inv -> store.get(inv.getArgument(0)));
         doAnswer(inv -> { store.put(inv.getArgument(0), inv.getArgument(1)); return null; })
                 .when(session).setAttribute(anyString(), any());
-        doAnswer(inv -> { store.remove(inv.getArgument(0)); return null; })
-                .when(session).removeAttribute(anyString());
-    }
-
-    /** ✅ FIX: mock del RequestDispatcher per evitare NPE su forward(...) */
-    private static void wireDispatcher(HttpServletRequest req) throws Exception {
-        RequestDispatcher rd = mock(RequestDispatcher.class);
-        when(req.getRequestDispatcher(anyString())).thenReturn(rd);
-        doNothing().when(rd).forward(any(), any());
     }
 
     @Test
-    void TF_UM_09_userOk_passwordOk() throws Exception {
+    void TF_UM_09_userOk_passwordOk_forwardSuccessMessageUser() throws Exception {
         HttpServletRequest req = mock(HttpServletRequest.class);
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
@@ -57,26 +39,25 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
         Map<String,Object> store = new HashMap<>();
         wireSessionStore(session, store);
 
-        Capture cap = new Capture();
-
         when(req.getSession()).thenReturn(session);
-        when(req.getContextPath()).thenReturn("/LaCantinav2");
         when(req.getParameter("email")).thenReturn("gabriele.cicalese2004@gmail.com");
         when(req.getParameter("password")).thenReturn("1234");
-        when(resp.getWriter()).thenReturn(cap.pw);
 
-        // ✅ aggiunto
-        wireDispatcher(req);
+        // dispatcher success
+        RequestDispatcher rdSuccess = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/success_generico.jsp")).thenReturn(rdSuccess);
+        doNothing().when(rdSuccess).forward(req, resp);
 
         new TestableLoginServlet().doPostPublic(req, resp);
 
-        assertTrue(store.get("auth") instanceof Utente);
-        assertTrue(cap.text().contains("Login effettuato"));
-        assertTrue(cap.text().contains("/index.jsp")); // meta refresh per user normale
+        assertTrue(store.get("auth") instanceof Utente, "auth deve essere settato");
+        verify(req).setAttribute("successMessage", "Login Effettuato con successo");
+        verify(req).getRequestDispatcher("/success_generico.jsp");
+        verify(rdSuccess).forward(req, resp);
     }
 
     @Test
-    void TF_UM_11_adminOk_redirectAdmin() throws Exception {
+    void TF_UM_11_adminOk_forwardSuccessMessageAdmin() throws Exception {
         HttpServletRequest req = mock(HttpServletRequest.class);
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
@@ -84,25 +65,27 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
         Map<String,Object> store = new HashMap<>();
         wireSessionStore(session, store);
 
-        Capture cap = new Capture();
-
         when(req.getSession()).thenReturn(session);
-        when(req.getContextPath()).thenReturn("/LaCantinav2");
         when(req.getParameter("email")).thenReturn("admin@lacantina.it");
         when(req.getParameter("password")).thenReturn("1234");
-        when(resp.getWriter()).thenReturn(cap.pw);
 
-        // ✅ aggiunto (non dovrebbe servire nel ramo admin, ma previene NPE se il codice cambia)
-        wireDispatcher(req);
+        RequestDispatcher rdSuccess = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/success_generico.jsp")).thenReturn(rdSuccess);
+        doNothing().when(rdSuccess).forward(req, resp);
 
         new TestableLoginServlet().doPostPublic(req, resp);
 
-        assertTrue(store.get("auth") instanceof Utente);
-        verify(resp).sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
+        assertTrue(store.get("auth") instanceof Utente, "auth deve essere settato");
+        Utente u = (Utente) store.get("auth");
+        assertEquals(2, u.getID(), "admin deve avere id=2 nel seed");
+
+        verify(req).setAttribute("successMessage", "Benvenuto Admin");
+        verify(req).getRequestDispatcher("/success_generico.jsp");
+        verify(rdSuccess).forward(req, resp);
     }
 
     @Test
-    void TF_UM_10_passwordErrata() throws Exception {
+    void TF_UM_10_passwordErrata_forwardErrore() throws Exception {
         HttpServletRequest req = mock(HttpServletRequest.class);
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
@@ -110,21 +93,19 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
         Map<String,Object> store = new HashMap<>();
         wireSessionStore(session, store);
 
-        Capture cap = new Capture();
-
         when(req.getSession()).thenReturn(session);
-        when(req.getContextPath()).thenReturn("/LaCantinav2");
-        when(req.getParameter("email")).thenReturn("gabriele.cicalese2004@gmail.com");
+        when(req.getParameter("email")).thenReturn("admin@lacantina.it");
         when(req.getParameter("password")).thenReturn("WRONG");
-        when(resp.getWriter()).thenReturn(cap.pw);
 
-        // ✅ aggiunto
-        wireDispatcher(req);
+        RequestDispatcher rdErr = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
+        doNothing().when(rdErr).forward(req, resp);
 
         new TestableLoginServlet().doPostPublic(req, resp);
 
-        assertNull(store.get("auth"));
-        assertTrue(cap.text().contains("Login errato"));
-        assertTrue(cap.text().contains("LoginAndRegistration.jsp"));
+        assertNull(store.get("auth"), "auth NON deve essere settato");
+        verify(req).setAttribute("errorMessage", "Credenziali Errate, riprova");
+        verify(req).getRequestDispatcher("/errore_generico.jsp");
+        verify(rdErr).forward(req, resp);
     }
 }

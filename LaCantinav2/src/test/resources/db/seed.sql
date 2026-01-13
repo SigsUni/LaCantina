@@ -16,6 +16,8 @@ CREATE TABLE fornitori (
   PRIMARY KEY (id)
 );
 
+ALTER TABLE fornitori AUTO_INCREMENT = 1;
+
 CREATE TABLE utenti (
   id int NOT NULL AUTO_INCREMENT,
   nome varchar(45) NOT NULL,
@@ -24,6 +26,8 @@ CREATE TABLE utenti (
   PRIMARY KEY (id),
   UNIQUE KEY email_UNIQUE (email)
 );
+
+ALTER TABLE utenti AUTO_INCREMENT = 1;
 
 CREATE TABLE prodotti (
   id int NOT NULL AUTO_INCREMENT,
@@ -39,6 +43,8 @@ CREATE TABLE prodotti (
   KEY id_fornitore (id_fornitore),
   CONSTRAINT prodotti_ibfk_1 FOREIGN KEY (id_fornitore) REFERENCES fornitori (id)
 );
+
+ALTER TABLE prodotti  AUTO_INCREMENT = 12;
 
 CREATE TABLE riga_ordini (
   id int NOT NULL AUTO_INCREMENT,
@@ -74,9 +80,15 @@ INSERT INTO fornitori(id,nome,citta,provincia,indirizzo,anno_nascita) VALUES
 (2,'AnticoUliveto','Trentinara','Salerno','via Campagna 11',1920),
 (3,'AnticoVinaio','CastelFranco in Miscano','Salerno','via Campagna 12',1940);
 
-INSERT INTO utenti(id,nome,email,password) VALUES
-(1,'utente','user@lacantina.it','1234'),
+
+-- dopo CREATE TABLE utenti ...
+
+
+-- Inserimento deterministico (ID fissi)
+INSERT INTO utenti (id, nome, email, password) VALUES
+(1,'gabriele','gabriele.cicalese2004@gmail.com','1234'),
 (2,'admin','admin@lacantina.it','1234');
+
 
 INSERT INTO prodotti(id,id_fornitore,nome,descrizione,categoria,stock,prezzo,immagine,stato) VALUES
 (12,2,'olio EVO 500ml','desc','olio-extravergine-oliva',50,11,'olio.png','attivo'),
