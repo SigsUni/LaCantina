@@ -1,0 +1,151 @@
+/* --- CSS CHECKOUT UNIFICATO (Singolo & Carrello) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* --- FIX HEADER BIANCO --- */
+header, nav, .navbar, .navbar-collapse, .container-fluid {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+/* --- CARD PRINCIPALE --- */
+.card-checkout {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    background: #fff;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+/* Intestazione (Colore Petrolio) */
+.card-checkout .main-header {
+    background-color: #2a6973; 
+    color: #ffffff;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card-checkout .main-header h6 {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+/* --- TITOLI SEZIONI --- */
+.section-title {
+    color: #2a6973;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- CAMPI DI INPUT GENERALI --- */
+.form-group { margin-bottom: 25px; }
+
+label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    background-color: #fdfdfd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #2a6973;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(42, 105, 115, 0.1);
+}
+
+/* --- RIEPILOGO CARRELLO (Stile Lista Pulita) --- */
+.cart-summary-container {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.cart-item-row {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.cart-item-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Input Trasparenti (Sembrano testo ma inviano dati) */
+.input-transparent {
+    background-color: transparent !important;
+    border: none !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    height: auto !important;
+    box-shadow: none !important;
+    color: #333;
+    font-weight: 600;
+}
+
+.input-price {
+    color: #2a6973 !important;
+    font-weight: 700 !important;
+    text-align: right;
+}
+
+/* --- BOTTONE CONFERMA --- */
+.btn-confirm {
+    background-color: #2a6973;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(42, 105, 115, 0.2);
+}
+
+.btn-confirm:hover {
+    background-color: #1d4e56;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(42, 105, 115, 0.3);
+}

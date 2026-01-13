@@ -8,7 +8,7 @@ body {
 }
 
 /* --- FIX HEADER (SOLO SFONDO) --- */
-/* Imposta lo sfondo bianco per eliminare la barra nera, ma NON tocca il colore del testo */
+/* Imposta lo sfondo bianco per eliminare la barra nera*/
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -16,12 +16,10 @@ header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important; /* Leggera ombra grigia */
 }
 
-/* Nascondiamo eventuali bordi o separatori scuri */
 hr {
     border-color: #eee !important;
     opacity: 0.5;
 }
-/* -------------------------------------------------- */
 
 
 /* WRAPPER PRINCIPALE */
@@ -59,7 +57,7 @@ hr {
 
 .page-title {
     font-family: 'Dancing Script', cursive;
-    color: #2a6973; /* Questo è il titolo della pagina, non dell'header */
+    color: #2a6973;
     font-size: 3.5rem;
     margin-bottom: 5px;
 }
