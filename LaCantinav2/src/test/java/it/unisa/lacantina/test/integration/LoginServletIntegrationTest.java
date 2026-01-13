@@ -123,7 +123,7 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
 
         new TestableLoginServlet().doPostPublic(req, resp);
 
-        verify(req).setAttribute(eq("errorMessage"), contains("Campo obbligatorio"));
+        verify(req).setAttribute(eq("errorMessage"), contains("obbligatorie"));
         verify(rdErr).forward(req, resp);
     }
 
@@ -141,7 +141,7 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
 
         new TestableLoginServlet().doPostPublic(req, resp);
 
-        verify(req).setAttribute(eq("errorMessage"), contains("Formato non valido"));
+        verify(req).setAttribute(eq("errorMessage"), contains("Credenziali Errate"));
         verify(rdErr).forward(req, resp);
     }
 

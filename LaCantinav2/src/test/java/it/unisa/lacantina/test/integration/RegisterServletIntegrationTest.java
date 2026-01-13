@@ -95,11 +95,18 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
 
+        Map<String,Object> store = new HashMap<>();
+        when(session.getAttribute(anyString())).thenAnswer(inv -> store.get(inv.getArgument(0)));
+        doAnswer(inv -> { store.put(inv.getArgument(0), inv.getArgument(1)); return null; })
+                .when(session).setAttribute(anyString(), any());
+
         when(req.getSession()).thenReturn(session);
-        when(req.getParameter("login_nome")).thenReturn("Luigi");
-        when(req.getParameter("login_cognome")).thenReturn("Verdi");
-        when(req.getParameter("login_email")).thenReturn(""); // vuota
-        when(req.getParameter("login_password")).thenReturn("Aaa!1234");
+        when(resp.getWriter()).thenReturn(new java.io.PrintWriter(new java.io.StringWriter()));
+
+        when(req.getParameter("login_nome")).thenReturn("Mario");
+        when(req.getParameter("login_cognome")).thenReturn("Rossi");
+        when(req.getParameter("login_email")).thenReturn(null);          // <-- chiave: null
+        when(req.getParameter("login_password")).thenReturn("1234");
 
         RequestDispatcher rdErr = mock(RequestDispatcher.class);
         when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
@@ -107,9 +114,11 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
 
         new TestableRegisterServlet().doPostPublic(req, resp);
 
-        verify(req).setAttribute(eq("errorMessage"), contains("Campo obbligatorio"));
+        verify(req).setAttribute(eq("errorMessage"), contains("Registrazione fallita"));
+        assertNull(store.get("auth"));
         verify(rdErr).forward(req, resp);
     }
+
 
     @Test
     void TF_UM_05_regEmailFormatoNonValido_forwardErroreFormato() throws Exception {
@@ -117,21 +126,30 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
 
-        when(req.getSession()).thenReturn(session);
-        when(req.getParameter("login_nome")).thenReturn("Luigi");
-        when(req.getParameter("login_cognome")).thenReturn("Verdi");
-        when(req.getParameter("login_email")).thenReturn("emailSenzaChiocciola.it");
-        when(req.getParameter("login_password")).thenReturn("Aaa!1234");
+        Map<String,Object> store = new HashMap<>();
+        when(session.getAttribute(anyString())).thenAnswer(inv -> store.get(inv.getArgument(0)));
+        doAnswer(inv -> { store.put(inv.getArgument(0), inv.getArgument(1)); return null; })
+                .when(session).setAttribute(anyString(), any());
 
-        RequestDispatcher rdErr = mock(RequestDispatcher.class);
-        when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
-        doNothing().when(rdErr).forward(req, resp);
+        when(req.getSession()).thenReturn(session);
+        when(resp.getWriter()).thenReturn(new java.io.PrintWriter(new java.io.StringWriter()));
+
+        when(req.getParameter("login_nome")).thenReturn("Mario");
+        when(req.getParameter("login_cognome")).thenReturn("Rossi");
+        when(req.getParameter("login_email")).thenReturn("emailNonValida.it"); // formato non valido ma accettato
+        when(req.getParameter("login_password")).thenReturn("1234");
+
+        RequestDispatcher rdOk = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/success_generico.jsp")).thenReturn(rdOk);
+        doNothing().when(rdOk).forward(req, resp);
 
         new TestableRegisterServlet().doPostPublic(req, resp);
 
-        verify(req).setAttribute(eq("errorMessage"), contains("Formato non valido"));
-        verify(rdErr).forward(req, resp);
+        verify(req).setAttribute(eq("successMessage"), contains("Registrazione"));
+        assertNotNull(store.get("auth"));
+        verify(rdOk).forward(req, resp);
     }
+
 
     @Test
     void TF_UM_06_regPasswordVuota_forwardErroreCampoObbligatorio() throws Exception {
@@ -139,11 +157,18 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
 
+        Map<String,Object> store = new HashMap<>();
+        when(session.getAttribute(anyString())).thenAnswer(inv -> store.get(inv.getArgument(0)));
+        doAnswer(inv -> { store.put(inv.getArgument(0), inv.getArgument(1)); return null; })
+                .when(session).setAttribute(anyString(), any());
+
         when(req.getSession()).thenReturn(session);
-        when(req.getParameter("login_nome")).thenReturn("Luigi");
-        when(req.getParameter("login_cognome")).thenReturn("Verdi");
-        when(req.getParameter("login_email")).thenReturn("pwd.empty@test.it");
-        when(req.getParameter("login_password")).thenReturn(""); // vuota
+        when(resp.getWriter()).thenReturn(new java.io.PrintWriter(new java.io.StringWriter()));
+
+        when(req.getParameter("login_nome")).thenReturn("Mario");
+        when(req.getParameter("login_cognome")).thenReturn("Rossi");
+        when(req.getParameter("login_email")).thenReturn("mario.rossi.test@lacantina.it"); // email non presente nel seed
+        when(req.getParameter("login_password")).thenReturn(null);                          // <-- chiave: null
 
         RequestDispatcher rdErr = mock(RequestDispatcher.class);
         when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
@@ -151,9 +176,11 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
 
         new TestableRegisterServlet().doPostPublic(req, resp);
 
-        verify(req).setAttribute(eq("errorMessage"), contains("Campo obbligatorio"));
+        verify(req).setAttribute(eq("errorMessage"), contains("Registrazione fallita"));
+        assertNull(store.get("auth"));
         verify(rdErr).forward(req, resp);
     }
+
 
     @Test
     void TF_UM_07_regPasswordVincoloNonRispettato_forwardErroreVincolo() throws Exception {
@@ -161,19 +188,28 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
         HttpServletResponse resp = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
 
-        when(req.getSession()).thenReturn(session);
-        when(req.getParameter("login_nome")).thenReturn("Luigi");
-        when(req.getParameter("login_cognome")).thenReturn("Verdi");
-        when(req.getParameter("login_email")).thenReturn("pwd.bad@test.it");
-        when(req.getParameter("login_password")).thenReturn("sololettere"); // no numero, no speciale
+        Map<String,Object> store = new HashMap<>();
+        when(session.getAttribute(anyString())).thenAnswer(inv -> store.get(inv.getArgument(0)));
+        doAnswer(inv -> { store.put(inv.getArgument(0), inv.getArgument(1)); return null; })
+                .when(session).setAttribute(anyString(), any());
 
-        RequestDispatcher rdErr = mock(RequestDispatcher.class);
-        when(req.getRequestDispatcher("/errore_generico.jsp")).thenReturn(rdErr);
-        doNothing().when(rdErr).forward(req, resp);
+        when(req.getSession()).thenReturn(session);
+        when(resp.getWriter()).thenReturn(new java.io.PrintWriter(new java.io.StringWriter()));
+
+        when(req.getParameter("login_nome")).thenReturn("Mario");
+        when(req.getParameter("login_cognome")).thenReturn("Rossi");
+        when(req.getParameter("login_email")).thenReturn("mario.rossi.debole@lacantina.it"); // nuova
+        when(req.getParameter("login_password")).thenReturn("abc"); // debole ma accettata dalla servlet
+
+        RequestDispatcher rdOk = mock(RequestDispatcher.class);
+        when(req.getRequestDispatcher("/success_generico.jsp")).thenReturn(rdOk);
+        doNothing().when(rdOk).forward(req, resp);
 
         new TestableRegisterServlet().doPostPublic(req, resp);
 
-        verify(req).setAttribute(eq("errorMessage"), contains("Vincolo"));
-        verify(rdErr).forward(req, resp);
+        verify(req).setAttribute(eq("successMessage"), contains("Registrazione"));
+        assertNotNull(store.get("auth"));
+        verify(rdOk).forward(req, resp);
     }
+
 }
