@@ -136,36 +136,6 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
       </div>
     </div>
     </div>
-      
-      <!--separatore-->
-      <div class="panel2">
-        <div class="contenitore">
-          <h2 class="watch fade-in titolo">
-            Nuovi Arrivi
-          </h2>
-        </div>
-        </div>
-
-      <!--NUOVI-->
-      <div class="panel">
-      <div class="container">
-        <div class="watch fade-in imgBx">
-          <img src="./IMG/oliva.png">
-        </div>
-        <div class="watch fade-in details">
-            <div class="watch fade-in content">
-                <h2>E poi?<br>
-                    <span>Novit&agrave; in arrivo</span>
-                </h2>
-                <p>
-                 	Tra i nostri principali obiettivi c'è quello di fornire una qualità genuina ed elevata ai nostri prodotti e per questo motivo LaCantina
-                 	attualmente non fornisce altri prodotti lavorati dal territorio campano, ma si riserva di portarne in futuro, continuate a seguirci e presto
-                 	ci saranno novità in arrivo
-                 </p>
-          </div>
-        </div>
-    </div>
-  </div>
 
  <jsp:include page="/fragments/footer.jsp"></jsp:include>
 

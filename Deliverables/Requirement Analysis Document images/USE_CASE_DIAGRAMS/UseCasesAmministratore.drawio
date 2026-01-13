@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0" version="29.2.9">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.3.1">
   <diagram name="Page-1" id="58cdce13-f638-feb5-8d6f-7d28b1aa9fa0">
-    <mxGraphModel dx="1698" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="946" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,17 +10,8 @@
         <mxCell id="oVf-rl64t3Jd7XOnJbmn-43" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" value="" vertex="1">
           <mxGeometry height="400" width="600" x="270" y="70" as="geometry" />
         </mxCell>
-        <mxCell id="oVf-rl64t3Jd7XOnJbmn-45" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Compilazione errata Form" vertex="1">
-          <mxGeometry height="60" width="100" x="550" y="190" as="geometry" />
-        </mxCell>
         <mxCell id="oVf-rl64t3Jd7XOnJbmn-46" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Quantità stock non consentita" vertex="1">
           <mxGeometry height="60" width="110" x="640" y="110" as="geometry" />
-        </mxCell>
-        <mxCell id="oVf-rl64t3Jd7XOnJbmn-47" edge="1" parent="1" source="oVf-rl64t3Jd7XOnJbmn-45" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="">
-          <mxGeometry relative="1" width="160" as="geometry">
-            <mxPoint x="470" y="340" as="sourcePoint" />
-            <mxPoint x="396.81980515339455" y="152.67766952966372" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="oVf-rl64t3Jd7XOnJbmn-48" edge="1" parent="1" source="oVf-rl64t3Jd7XOnJbmn-46" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" width="160" as="geometry">
@@ -30,9 +21,6 @@
         </mxCell>
         <mxCell id="oVf-rl64t3Jd7XOnJbmn-49" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="&lt;b&gt;&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&lt;/b&gt;" vertex="1">
           <mxGeometry height="26" width="80" x="510" y="100" as="geometry" />
-        </mxCell>
-        <mxCell id="oVf-rl64t3Jd7XOnJbmn-50" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="&lt;b&gt;&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&lt;/b&gt;" vertex="1">
-          <mxGeometry height="26" width="80" x="470" y="164" as="geometry" />
         </mxCell>
         <mxCell id="oVf-rl64t3Jd7XOnJbmn-69" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="oVf-rl64t3Jd7XOnJbmn-37" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">

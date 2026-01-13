@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.3.1">
+  <diagram name="Page-1" id="13e1069c-82ec-6db2-03f1-153e76fe0fe0">
+    <mxGraphModel dx="2046" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7baba1c4bc27f4b0-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="RegisterServlet" vertex="1">
+          <mxGeometry height="580" width="100" x="240" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-10" parent="7baba1c4bc27f4b0-2" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="320" width="10" x="45" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-7" edge="1" parent="7baba1c4bc27f4b0-2" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=horizontal;" value="invia campi">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-85" y="150" as="sourcePoint" />
+            <mxPoint x="45" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="UtenteDao" vertex="1">
+          <mxGeometry height="350" width="100" x="400" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-13" parent="7baba1c4bc27f4b0-3" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="200" width="10" x="45" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-22" edge="1" parent="7baba1c4bc27f4b0-3" style="html=1;verticalAlign=bottom;endArrow=block;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;" target="7baba1c4bc27f4b0-3" value="userRegistration()">
+          <mxGeometry relative="1" x="0.0033" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-98" y="260" />
+            </Array>
+            <mxPoint x="-100" y="260" as="sourcePoint" />
+            <mxPoint x="29" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="RegistrationForm" vertex="1">
+          <mxGeometry height="580" width="110" x="95" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7baba1c4bc27f4b0-9" parent="7baba1c4bc27f4b0-8" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="210" width="10" x="45" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-1" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Utente/Amministratore" vertex="1">
+          <mxGeometry height="60" width="30" x="-10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-4" parent="1" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="520" width="10" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;" value="compila campi">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="229" as="sourcePoint" />
+            <mxPoint x="140" y="229" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-8" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;LoginAndRegistation.jsp&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="160" x="70" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-21" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0.2;entryY=0.3;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=horizontal;entryDx=0;entryDy=0;entryPerimeter=0;" target="7baba1c4bc27f4b0-13" value="userCheck()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="300" y="260" as="sourcePoint" />
+            <mxPoint x="380" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="py3HmR-Cq1MNERZeqEu9-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="home.jsp" vertex="1">
+          <mxGeometry height="40" width="90" x="580" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="0kYxfJN7LOZwYTOCAQlv-1" edge="1" parent="1" source="7baba1c4bc27f4b0-13" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.15;exitY=0.98;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="190" y="330" as="sourcePoint" />
+            <mxPoint x="295" y="392" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0kYxfJN7LOZwYTOCAQlv-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="success" vertex="1">
+          <mxGeometry height="30" width="70" x="340" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="0kYxfJN7LOZwYTOCAQlv-3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="py3HmR-Cq1MNERZeqEu9-24" value="">
+          <mxGeometry relative="1" x="0.0033" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="450" y="470" />
+            </Array>
+            <mxPoint x="296" y="470" as="sourcePoint" />
+            <mxPoint x="490" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
