@@ -44,7 +44,6 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
         when(req.getSession()).thenReturn(session);
         when(req.getParameter("login_nome")).thenReturn("Mario");
         when(req.getParameter("login_cognome")).thenReturn("Rossi");
-        // email presente nel seed (usata anche nei tuoi test login)
         when(req.getParameter("login_email")).thenReturn("gabriele.cicalese2004@gmail.com");
         when(req.getParameter("login_password")).thenReturn("Aaa!1234");
 
