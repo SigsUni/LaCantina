@@ -32,7 +32,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
 .page-wrapper {
     width: 100%;
     flex: 1; /* Spinge il footer in basso */
-    padding-top: 140px; 
+    padding-top: 150px; 
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;

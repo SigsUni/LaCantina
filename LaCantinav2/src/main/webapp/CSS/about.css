@@ -1,5 +1,48 @@
-/* --- CSS PER PAGINA ABOUT US --- */
+/* --- CSS ABOUT US (SEMPLIFICATO E CORRETTO) --- */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* 1. FORZATURA SFONDO BIANCO (Elimina sbarre nere) */
+html, body {
+    background-color: #ffffff !important; /* Forza il bianco su tutta la pagina */
+    background: #ffffff !important;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Assicura che la pagina arrivi fino in fondo */
+}
+
+/* 2. FIX HEADER (Lo rende bianco sicuro) */
+header, nav, .navbar, .navbar-collapse, .container-fluid {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* 3. SPAZIO PER NON ANDARE SOTTO L'HEADER */
+.about-page-container {
+    background-color: #ffffff;
+    padding-top: 150px; /* Spinge giù il contenuto manualmente */
+    padding-bottom: 80px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra il contenitore */
+}
+
+/* --- 4. STILI CONTENUTO --- */
+
+/* Titolo principale */
+.main-title {
+    color: #2a6973;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Testo descrittivo */
 .story-text {
     font-size: 1.1rem;
     line-height: 1.8; 
@@ -8,17 +51,24 @@
     margin-bottom: 1.5rem;
 }
 
+/* Sottotitolo */
+.story-subtitle {
+    color: #2a6973;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Immagine */
 .about-img-style {
+    width: 100%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
 .about-img-style:hover {
     transform: scale(1.02); 
-}
-
-.panel-spacer {
-    margin-bottom: 0;
-    padding-bottom: 50px;
 }

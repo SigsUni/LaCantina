@@ -2,27 +2,62 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+/* --- 1. SETUP GENERALE (Fix Sfondo e Footer) --- */
+html {
+    background-color: #f9f9f9;
+    height: 100%;
+}
+
 body {
     background-color: #f9f9f9;
     font-family: 'Poppins', sans-serif;
     color: #333;
+    margin: 0;
+    padding: 0;
+    
+    /* Flexbox: Spinge il footer in basso e copre l'intera altezza */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* --- FIX HEADER BIANCO --- */
+/* --- 2. FIX HEADER BIANCO --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid {
     background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: none !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
 
-/* --- CARD PRINCIPALE --- */
+/* --- 3. WRAPPER PRINCIPALE (GESTISCE LO SPAZIO DALL'HEADER) --- */
+.page-wrapper {
+    width: 100%;
+    flex: 1; /* Occupa tutto lo spazio disponibile */
+    
+    /* QUI C'È LO SPAZIO CHE EVITA LA SOVRAPPOSIZIONE */
+    padding-top: 140px; 
+    
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center; /* Centra la card orizzontalmente */
+    align-items: flex-start; /* Allinea in alto */
+}
+
+/* --- 4. CARD PRINCIPALE --- */
 .card-checkout {
     border: none;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     background: #fff;
     overflow: hidden;
-    margin-top: 40px;
-    margin-bottom: 60px;
+    
+    /* Dimensioni card */
+    width: 90%;
+    max-width: 900px;
+    
+    /* Rimuoviamo i margini vecchi perché ora ci pensa il wrapper */
+    margin-top: 0; 
+    margin-bottom: 0;
 }
 
 /* Intestazione (Colore Petrolio) */

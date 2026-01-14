@@ -8,7 +8,7 @@ public class ConnectToDB {
 
     private static final String DEFAULT_URL  = "jdbc:mysql://localhost:3306/LaCantina";
     private static final String DEFAULT_USER = "root";
-    private static final String DEFAULT_PASS = "Gb162004";
+    private static final String DEFAULT_PASS = "";
 
     public static Connection getConnection() throws SQLException {
         try {

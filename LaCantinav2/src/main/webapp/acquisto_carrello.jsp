@@ -38,8 +38,9 @@
 <body>
     <jsp:include page="/fragments/header.jsp"></jsp:include>
     
-    <div class="container">
-        <div class="card card-checkout w-75 mx-auto">
+    <div class="page-wrapper">
+        
+        <div class="card-checkout">
         
             <div class="main-header">
                 Conferma Ordine Carrello
@@ -145,8 +146,6 @@
                 </form>
                 <script src="<%= request.getContextPath() %>/JS/AcquistoMultiploProdottoValidation.js"></script>
             </div>
-        </div>
-    </div>
-    <jsp:include page="/fragments/footer.jsp"></jsp:include>
+        </div> </div> <jsp:include page="/fragments/footer.jsp"></jsp:include>
 </body>
 </html>

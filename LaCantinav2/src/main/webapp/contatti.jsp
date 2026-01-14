@@ -12,11 +12,13 @@
     }
 %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatti - La Cantina</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link href="./CSS/index.css" rel="stylesheet" type="text/css">
     <link href="./CSS/contact.css" rel="stylesheet" type="text/css">
@@ -27,43 +29,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #ffffff !important;">
+    
     <jsp:include page="/fragments/header.jsp"></jsp:include>
 
-    <div class="panel2" style="margin-top: 100px;">
-        <div class="contenitore">
-            <h2 class="watch fade-in titolo">Scrivici</h2>
-        </div>
-    </div>
+    <div class="main-contact-wrapper">
 
-    <div class="panel">
-        <div class="panel-description" style="width: 100%; text-align: center;">
-            <p style="margin-bottom: 30px;">Hai domande sui nostri prodotti o vuoi collaborare? Compila il form sottostante.</p>
+        <h2 class="page-title watch fade-in">Scrivici</h2>
+        <p class="page-subtitle watch fade-in">Hai domande sui nostri prodotti o vuoi collaborare? Compila il form sottostante.</p>
             
-            <div class="form-container watch fade-in">
-                <form id="contactForm"> 
-                    <div class="form-group">
-                        <input type="text" id="nome" name="nome" class="form-input" placeholder="Il tuo Nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" class="form-input" placeholder="La tua Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="messaggio" name="messaggio" class="form-input" rows="5" placeholder="Il tuo Messaggio" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">INVIA MESSAGGIO</button>
-                </form>
-            </div>
+        <div class="form-container watch fade-in">
+            <form id="contactForm"> 
+                <div class="form-group">
+                    <input type="text" id="nome" name="nome" class="form-input" placeholder="Il tuo Nome" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" class="form-input" placeholder="La tua Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="messaggio" name="messaggio" class="form-input" rows="5" placeholder="Il tuo Messaggio" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">INVIA MESSAGGIO</button>
+            </form>
         </div>
-    </div>
 
-    <div class="panel2">
-        <div class="contenitore">
-            <h2 class="watch fade-in titolo">Dove Siamo & Recapiti</h2>
-        </div>
-    </div>
+        <h2 class="page-title watch fade-in" style="margin-top: 80px;">Dove Siamo & Recapiti</h2>
+        <div style="width: 50px; height: 3px; background: #2a6973; margin: 10px auto 50px auto;"></div>
 
-    <div class="panel">
         <div class="contact-grid">
             
             <a class="horizontal-card watch fade-in" href="https://goo.gl/maps/unisa_fisciano" target="_blank">
@@ -129,9 +121,8 @@
             </a>
 
         </div>
-    </div>
 
-    <jsp:include page="/fragments/footer.jsp"></jsp:include>
+    </div> <jsp:include page="/fragments/footer.jsp"></jsp:include>
     <script type="text/javascript" src="./JS/index.js"></script>
 
     <script>
@@ -139,14 +130,10 @@
             var form = document.getElementById('contactForm');
             if (form) {
                 form.addEventListener('submit', function(event) {
-                    event.preventDefault(); // Blocca il ricaricamento della pagina
-                    
-                    var nomeInput = document.getElementById('nome');
-                    var nome = nomeInput ? nomeInput.value : "Utente";
-
-                    alert("Grazie " + nome + "! Il tuo messaggio è stato inviato correttamente.\n(Simulazione: nessuna email inviata)");
-                    
-                    form.reset(); // Svuota i campi
+                    event.preventDefault(); 
+                    var nome = document.getElementById('nome').value;
+                    alert("Grazie " + nome + "! Il tuo messaggio è stato inviato correttamente.");
+                    form.reset(); 
                 });
             }
         });

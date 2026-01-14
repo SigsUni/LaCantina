@@ -1,4 +1,4 @@
-/* --- CSS SHOP - STILE CLEAN & ELEGANT --- */
+/* --- CSS SHOP ---*/
 
 body {
     background-color: #f9f9f9;
@@ -37,7 +37,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 10px;
 }
 
-/* --- CARD STYLE (ESATTAMENTE COME INDEX) --- */
+/* --- CARD STYLE --- */
 
 .card-index-style {
     background: #fff;
@@ -58,16 +58,16 @@ hr { border-color: #eee !important; opacity: 0.5; }
 
 .product-img-index {
     width: 100%;
-    height: 220px; /* Mantiene l'altezza fissa per allineare le card */
-    object-fit: contain; /* <--- MOSTRA TUTTA L'IMMAGINE ridimensionandola */
-    background-color: #ffffff; /* Assicura sfondo bianco se l'immagine è stretta */
-    padding: 10px; /* (Opzionale) Dà un po' di respiro all'immagine dai bordi */
+    height: 220px; 
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 10px;
     border-bottom: 1px solid #f0f0f0;
     transition: transform 0.5s ease;
 }
 
 .card-index-style:hover .product-img-index {
-    transform: scale(1.05); /* Leggero zoom all'hover */
+    transform: scale(1.05); 
 }
 
 /* Corpo della Card */
@@ -139,7 +139,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     color: white !important;
 }
 
-/* Bottone Disabilitato */
 .btn-disabled {
     background-color: #e9ecef;
     color: #6c757d;
@@ -149,7 +148,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     cursor: not-allowed;
 }
 
-/* --- SEZIONE CATEGORIE (Hero Section Footer) --- */
+/* --- SEZIONE CATEGORIE --- */
 .hero-section {
     padding: 40px 20px;
 }

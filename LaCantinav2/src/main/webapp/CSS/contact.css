@@ -1,4 +1,43 @@
-/* --- CSS PER PAGINA CONTATTI --- */
+/* --- 1. FIX SFONDO E HEADER (Questi risolvono il problema grafico) --- */
+html, body {
+    background-color: #ffffff !important; /* Forza il bianco ovunque */
+    background: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* Rende l'header bianco e rimuove bordi scuri */
+header, nav, .navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Contenitore principale che spinge giù il contenuto sotto l'header */
+.main-contact-wrapper {
+    padding-top: 150px; /* Spazio per l'header */
+    padding-bottom: 50px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* Titoli */
+.page-title {
+    text-align: center;
+    color: #2a6973;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* --- 2. IL TUO CSS ORIGINALE (INVARIATO) --- */
 
 .form-container {
     width: 100%;
@@ -27,32 +66,33 @@
     font-size: 1.1rem;
     border-radius: 25px;
     transition: 0.3s;
+    width: 100%; /* Unica piccola aggiunta: centra il bottone o lo riempie */
 }
 
 .btn-submit:hover { background-color: #0f4667; }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Si adatta automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
     gap: 30px;
     max-width: 1200px;
-    width: 100%;
+    width: 90%; /* Adattato per non toccare i bordi schermo */
     margin: 0 auto;
     margin-bottom: 100px;
 }
 
-/* Contenitore della singola card orizzontale */
 .horizontal-card {
-    display: flex; /* Mette icona e testo sulla stessa riga */
+    display: flex; 
     align-items: center;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    overflow: hidden; /* Assicura che l'icona non esca dai bordi arrotondati */
+    overflow: hidden; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Per i link */
+    text-decoration: none; 
     color: inherit;
-    height: 120px; /* Altezza fissa per uniformità */
+    height: 120px; 
+    border: 1px solid #f0f0f0; /* Aggiunto bordino leggero per risaltare sul bianco */
 }
 
 .horizontal-card:hover {
@@ -63,11 +103,11 @@
 .icon-box {
     background-color: #2a6973;
     width: 100px;
-    height: 100%; /* Occupa tutta l'altezza della card */
+    height: 100%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* Impedisce all'icona di schiacciarsi */
+    flex-shrink: 0; 
 }
 
 .icon-box i {
