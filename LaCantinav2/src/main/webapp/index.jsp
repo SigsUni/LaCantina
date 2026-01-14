@@ -68,30 +68,6 @@ Utente auth = (Utente)request.getSession().getAttribute("auth");
                 
         </div>
     </div>
-		<!--vecchio  
-        <div class="panel">
-        <div class="div-separato">
-          
-        <section class="about" id="about">
-            <div class="about-img">
-                <img class="watch fade-in" src="./IMG/aboutus.png" alt="" height="500px" width="700px">
-            </div>
-            <div class="watch fade-in about-text">
-                <p class="watch fade-in">
-                  Augusto, Antonio, Federica e Francesco si incontrarono per la prima volta durante il loro secondo anno di universit&agrave;.
-                  L'incontro avvenne durante una lezione di progettazione di tecnologie e software per il web. La professoressa assegn&ograve; loro un progetto di gruppo: 
-                  sviluppare un sito web innovativo. La passione comune per la musica elettrica li spinse a lavorare insieme, dando inizio a una collaborazione che avrebbe cambiato le loro vite...
-                </p>
-                
-                <div class="button-container ">
-                  <button style="margin-left: auto;">Scopri di pi&ugrave;</button>
-              </div>
-            </div>
-            
-        </section>
-        </div>
-        </div>
-        -->
         
         <!--separatore-->
         <div class="panel2">

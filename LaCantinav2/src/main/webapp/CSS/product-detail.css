@@ -2,13 +2,13 @@
 
 .product-container {
     max-width: 1200px;
-    margin: 120px auto 80px auto; /* Spazio sopra e sotto */
+    margin: 120px auto 80px auto;
     
     /* MODIFICHE PER LO SFONDO BIANCO */
-    background-color: #ffffff;  /* Sfondo Bianco */
-    padding: 40px;              /* Più spazio interno */
-    border-radius: 20px;        /* Angoli arrotondati */
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Ombra morbida */
+    background-color: #ffffff;  
+    padding: 40px;             
+    border-radius: 20px;       
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     
     display: flex;
     flex-wrap: wrap;
@@ -16,21 +16,19 @@
     align-items: flex-start;
 }
 
-/* COLONNA SINISTRA: IMMAGINE */
 .product-image-col {
     flex: 1 1 400px;
     position: relative;
-    display: flex;           /* Per centrare l'immagine se piccola */
+    display: flex;           
     justify-content: center;
     align-items: center;
 }
 
 .product-image-col img {
     width: 100%;
-    max-width: 450px; /* Limite larghezza per non diventare gigante */
+    max-width: 450px; 
     height: auto;
     border-radius: 15px;
-    /* L'ombra qui è opzionale se c'è già nel contenitore, ma sta bene */
     box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -40,7 +38,6 @@
     transform: scale(1.02);
 }
 
-/* COLONNA DESTRA: INFORMAZIONI */
 .product-info-col {
     flex: 1 1 400px;
 }
@@ -63,7 +60,7 @@
 }
 
 .product-price {
-    font-size: 2rem; /* Leggermente più grande */
+    font-size: 2rem;
     font-weight: bold;
     color: #2a6973;
     margin-bottom: 30px;
@@ -72,7 +69,7 @@
 .product-description {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #555; /* Grigio scuro per leggibilità su bianco */
+    color: #555;
     margin-bottom: 40px;
     text-align: justify;
 }
@@ -118,7 +115,6 @@
     box-shadow: 0 5px 15px rgba(42, 105, 115, 0.4);
 }
 
-/* RESPONSIVE: SU CELLULARE RIDUCIAMO IL PADDING */
 @media (max-width: 768px) {
     .product-container {
         padding: 20px;
@@ -131,7 +127,7 @@
     
     .cart-action {
         flex-direction: column;
-        align-items: stretch; /* Bottoni a tutta larghezza */
+        align-items: stretch; 
     }
     
     .btn-add-cart {

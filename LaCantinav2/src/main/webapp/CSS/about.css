@@ -22,12 +22,12 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
     background-color: #ffffff;
     padding-top: 150px; 
     padding-bottom: 80px;
-    width: 90%; /* Lascia un margine laterale su mobile */
-    max-width: 1200px; /* Blocca la larghezza massima su PC per centrare */
-    margin: 0 auto; /* FONDAMENTALE: Centra il blocco orizzontalmente */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra gli elementi interni */
+    align-items: center;
 }
 
 .main-title {
@@ -49,14 +49,14 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
 }
 
 .image-col {
-    flex: 1 1 400px; /* Larghezza minima 400px, altrimenti va a capo */
+    flex: 1 1 400px;
     max-width: 600px;
     display: flex;
     justify-content: center;
 }
 
 .text-col {
-    flex: 1 1 400px; /* Larghezza minima 400px, altrimenti va a capo */
+    flex: 1 1 400px; 
     max-width: 600px;
 }
 

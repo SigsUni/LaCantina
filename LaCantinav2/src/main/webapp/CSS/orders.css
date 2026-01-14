@@ -2,9 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
 
-/* --- 1. FIX GENERALE SFONDO E LAYOUT (Stile Carrello) --- */
 html {
-    /* Elimina lo sfondo nero sotto il footer */
     background-color: #f9f9f9;
     height: 100%;
 }
@@ -14,14 +12,11 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    
-    /* Flexbox per spingere il footer in basso */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* --- 2. FIX HEADER --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -31,22 +26,16 @@ header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark
 
 hr { border-color: #eee !important; opacity: 0.5; }
 
-
-/* --- 3. WRAPPER PRINCIPALE --- */
 .page-wrapper {
     width: 100%;
-    /* Occupa tutto lo spazio disponibile per spingere giù il footer */
     flex: 1; 
-    
     padding-top: 140px; 
     padding-bottom: 80px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* --- 4. CARD CENTRALE --- */
 .orders-card {
     background-color: #ffffff;
     border-radius: 20px;
@@ -58,10 +47,9 @@ hr { border-color: #eee !important; opacity: 0.5; }
     max-width: 1100px;   
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden; /* Mantiene bordi arrotondati */
+    overflow: hidden;
 }
 
-/* Titoli */
 .page-header-content {
     text-align: center;
     margin-bottom: 30px;
@@ -93,7 +81,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 10px;
 }
 
-/* Scrollbar personalizzata (Opzionale) */
 .table-responsive::-webkit-scrollbar { width: 8px; }
 .table-responsive::-webkit-scrollbar-track { background: #f1f1f1; }
 .table-responsive::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
@@ -106,15 +93,12 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 0;
 }
 
-/* Intestazione Fissa (Sticky) */
 .custom-table thead th {
     background-color: #2a6973;
     color: white;
     padding: 18px;
     text-align: center;
     border: none;
-    
-    /* Fissa l'intestazione in alto */
     position: sticky;
     top: 0;
     z-index: 10;
@@ -127,7 +111,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     text-align: center;
     color: #555;
     font-size: 1rem;
-    background-color: #fff; /* Copre il contenuto durante lo scroll */
+    background-color: #fff; 
 }
 
 .product-name-cell {
@@ -160,7 +144,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     padding: 50px;
 }
 
-/* Animazione entrata */
 .fade-in {
     animation: fadeIn 0.8s ease-in-out;
 }

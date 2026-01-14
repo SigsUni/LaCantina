@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* --- 1. SETUP GENERALE (Fix Sfondo e Footer) --- */
+/* --- SETUP GENERALE (Fix Sfondo e Footer) --- */
 html {
     background-color: #f9f9f9;
     height: 100%;
@@ -14,14 +14,11 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    
-    /* Flexbox: Spinge il footer in basso e copre l'intera altezza */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* --- 2. FIX HEADER BIANCO --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -29,21 +26,18 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
 
-/* --- 3. WRAPPER PRINCIPALE (GESTISCE LO SPAZIO DALL'HEADER) --- */
+/* --- WRAPPER PRINCIPALE (GESTISCE LO SPAZIO DALL'HEADER) --- */
 .page-wrapper {
     width: 100%;
-    flex: 1; /* Occupa tutto lo spazio disponibile */
-    
-    /* QUI C'È LO SPAZIO CHE EVITA LA SOVRAPPOSIZIONE */
+    flex: 1;
     padding-top: 140px; 
-    
     padding-bottom: 80px;
     display: flex;
-    justify-content: center; /* Centra la card orizzontalmente */
-    align-items: flex-start; /* Allinea in alto */
+    justify-content: center;
+    align-items: flex-start;
 }
 
-/* --- 4. CARD PRINCIPALE --- */
+/* --- CARD PRINCIPALE --- */
 .card-checkout {
     border: none;
     border-radius: 20px;
@@ -54,13 +48,10 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
     /* Dimensioni card */
     width: 90%;
     max-width: 900px;
-    
-    /* Rimuoviamo i margini vecchi perché ora ci pensa il wrapper */
     margin-top: 0; 
     margin-bottom: 0;
 }
 
-/* Intestazione (Colore Petrolio) */
 .card-checkout .main-header {
     background-color: #2a6973; 
     color: #ffffff;
@@ -124,7 +115,7 @@ label {
     box-shadow: 0 0 0 4px rgba(42, 105, 115, 0.1);
 }
 
-/* --- RIEPILOGO CARRELLO (Stile Lista Pulita) --- */
+/* --- RIEPILOGO CARRELLO  --- */
 .cart-summary-container {
     background-color: #f8f9fa;
     border-radius: 15px;
@@ -144,7 +135,7 @@ label {
     padding-bottom: 0;
 }
 
-/* Input Trasparenti (Sembrano testo ma inviano dati) */
+/* Input Trasparenti */
 .input-transparent {
     background-color: transparent !important;
     border: none !important;

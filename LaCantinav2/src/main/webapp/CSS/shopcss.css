@@ -7,7 +7,6 @@ body {
     padding: 0;
 }
 
-/* --- FIX HEADER BIANCO --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -88,7 +87,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
 .price {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #2a6973; /* Colore Petrolio */
+    color: #2a6973;
     margin-bottom: 10px;
 }
 

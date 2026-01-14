@@ -124,10 +124,7 @@ if(cart_list != null){
                 
                 </p>
             </div>
-            
-            <!-- AGGIUNGERE DETTAGLI FORNITORE f.getNome() f.getProvincia() f.getAnno() COME ESEMPIO SOPRA-->
 
-            
                 <a href="add-to-cart?id=<%=p.getId()%>&prezzo=<%=p.getPrezzo() %>" 
                                            class="btn-cantina-outline flex-fill" title="Aggiungi al Carrello">
                 <button type="submit" class="btn-add-cart">

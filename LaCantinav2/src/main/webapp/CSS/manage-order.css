@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
 
-/* --- 1. LAYOUT & SFONDO (Fix Footer) --- */
+/* --- LAYOUT & SFONDO --- */
 html {
     background-color: #f9f9f9;
     height: 100%;
@@ -18,7 +18,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- 2. HEADER FIX --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -28,10 +27,9 @@ header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark
 
 hr { border-color: #eee !important; opacity: 0.5; }
 
-/* --- 3. WRAPPER --- */
 .page-wrapper {
     width: 100%;
-    flex: 1; /* Spinge il footer in basso */
+    flex: 1; 
     padding-top: 150px; 
     padding-bottom: 80px;
     display: flex;
@@ -39,7 +37,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     align-items: center;
 }
 
-/* --- 4. TITOLI PAGINA --- */
+/* --- TITOLI PAGINA --- */
 .page-header-content {
     text-align: center;
     margin-bottom: 30px;
@@ -51,7 +49,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 5px;
 }
 
-/* --- 5. CARD PERSONALIZZATA --- */
 .card-manage {
     background-color: #ffffff;
     border: none;
@@ -83,9 +80,9 @@ hr { border-color: #eee !important; opacity: 0.5; }
     padding: 40px;
 }
 
-/* --- 6. FORM & INPUT --- */
+/* --- FORM & INPUT --- */
 .form-group {
-    margin-bottom: 20px; /* Spazio tra i campi */
+    margin-bottom: 20px;
 }
 
 label {
@@ -111,14 +108,12 @@ label {
     background-color: #fff;
 }
 
-/* Stile per i campi sola lettura */
 .form-control[readonly] {
     background-color: #f0f2f5;
     color: #777;
     border-color: #e0e0e0;
 }
 
-/* Select Box */
 select {
     width: 100%;
     padding: 12px;
@@ -132,7 +127,7 @@ select:focus {
     border-color: #2a6973;
 }
 
-/* --- 7. BOTTONE CONFERMA --- */
+/* --- BOTTONE CONFERMA --- */
 .btn-confirm {
     background-color: #2a6973;
     color: white;

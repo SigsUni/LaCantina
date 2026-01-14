@@ -2,9 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
 
-/* --- 1. SETUP GENERALE E FIX SFONDO NERO --- */
 html {
-    /* Questo assicura che lo sfondo sia grigio anche oltre i bordi della pagina (overscroll) */
     background-color: #f9f9f9;
     height: 100%;
 }
@@ -14,14 +12,11 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    
-    /* Configurazione Flexbox per spingere il footer in basso */
     display: flex;
     flex-direction: column;
     min-height: 100vh; 
 }
 
-/* --- 2. FIX HEADER (Override Bootstrap) --- */
 header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -30,10 +25,8 @@ header, nav, .navbar, .navbar-collapse, .container-fluid, .bg-dark, .navbar-dark
 }
 hr { border-color: #eee !important; opacity: 0.5; }
 
-/* --- 3. LAYOUT PAGINA (Wrapper) --- */
 .page-wrapper {
     width: 100%;
-    /* flex: 1 fa occupare al contenuto tutto lo spazio disponibile, spingendo giù il footer */
     flex: 1; 
     
     padding-top: 140px; 
@@ -43,7 +36,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     align-items: center;
 }
 
-/* --- 4. TITOLI --- */
+/* --- TITOLI --- */
 .page-header-content {
     text-align: center;
     margin-bottom: 30px;
@@ -55,7 +48,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 5px;
 }
 
-/* --- 5. CARD DEL CARRELLO --- */
+/* --- CARD DEL CARRELLO --- */
 .cart-card {
     background-color: #ffffff;
     border-radius: 20px;
@@ -63,15 +56,13 @@ hr { border-color: #eee !important; opacity: 0.5; }
     padding: 30px;
     width: 90%;
     max-width: 1200px;
-    overflow: hidden; /* Mantiene gli angoli arrotondati */
+    overflow: hidden;
 }
 
-/* --- 6. TABELLA SCROLLABILE (Gestione liste lunghe) --- */
+/* --- 6. TABELLA SCROLLABILE --- */
 .table-responsive { 
     width: 100%;
-    overflow-x: auto; /* Scroll orizzontale su mobile */
-    
-    /* Altezza massima: dopo 500px appare la barra di scorrimento verticale */
+    overflow-x: auto;
     max-height: 500px; 
     overflow-y: auto; 
     
@@ -80,7 +71,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 20px;
 }
 
-/* Personalizzazione Scrollbar (Opzionale per Chrome/Safari/Edge) */
 .table-responsive::-webkit-scrollbar { width: 8px; }
 .table-responsive::-webkit-scrollbar-track { background: #f1f1f1; }
 .table-responsive::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
@@ -94,9 +84,9 @@ hr { border-color: #eee !important; opacity: 0.5; }
     margin-bottom: 0;
 }
 
-/* Intestazione Tabella (Sticky Header) */
+/* Intestazione Tabella */
 .custom-table thead th {
-    background-color: #2a6973; /* Petrolio */
+    background-color: #2a6973;
     color: white;
     padding: 18px;
     text-align: center;
@@ -104,8 +94,6 @@ hr { border-color: #eee !important; opacity: 0.5; }
     font-weight: 500;
     text-transform: uppercase;
     font-size: 0.9rem;
-    
-    /* Mantiene l'intestazione fissa in alto mentre scorri */
     position: sticky; 
     top: 0;
     z-index: 10;
@@ -118,10 +106,9 @@ hr { border-color: #eee !important; opacity: 0.5; }
     text-align: center;
     color: #555;
     font-size: 1rem;
-    background-color: #fff; /* Necessario per coprire il contenuto sotto lo sticky header */
+    background-color: #fff;
 }
 
-/* Stile Testo Prodotto */
 .product-name {
     font-weight: 600;
     color: #333;
@@ -135,7 +122,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     text-align: left;
 }
 
-/* --- 7. CONTROLLI QUANTITA' E BOTTONI --- */
+/* ---  CONTROLLI QUANTITA' E BOTTONI --- */
 .qty-input {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -172,7 +159,7 @@ hr { border-color: #eee !important; opacity: 0.5; }
     box-shadow: 0 4px 10px rgba(42, 105, 115, 0.3);
 }
 
-/* Bottone Rimuovi (Cestino) */
+/* Bottone Rimuovi */
 .btn-remove {
     color: #dc3545;
     background: #fff0f0;
@@ -188,12 +175,12 @@ hr { border-color: #eee !important; opacity: 0.5; }
     color: white;
 }
 
-/* --- 8. FOOTER DEL CARRELLO (Totale e Checkout) --- */
+/* --- FOOTER DEL CARRELLO --- */
 .cart-footer {
     background-color: #f8fcfd;
     border-radius: 15px;
     padding: 20px;
-    margin-top: 0; /* Attaccato alla tabella se necessario */
+    margin-top: 0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
