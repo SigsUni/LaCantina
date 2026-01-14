@@ -1,28 +1,27 @@
-/* --- 1. FIX SFONDO E HEADER (Questi risolvono il problema grafico) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 html, body {
-    background-color: #ffffff !important; /* Forza il bianco ovunque */
+    background-color: #ffffff !important;
     background: #ffffff !important;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     color: #333;
+    overflow-x: hidden;
 }
 
-/* Rende l'header bianco e rimuove bordi scuri */
 header, nav, .navbar {
     background-color: #ffffff !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* Contenitore principale che spinge giù il contenuto sotto l'header */
 .main-contact-wrapper {
-    padding-top: 150px; /* Spazio per l'header */
+    padding-top: 150px; 
     padding-bottom: 50px;
     width: 100%;
     background-color: #ffffff;
 }
 
-/* Titoli */
 .page-title {
     text-align: center;
     color: #2a6973;
@@ -35,26 +34,29 @@ header, nav, .navbar {
     text-align: center;
     color: #666;
     margin-bottom: 40px;
+    padding: 0 15px;
 }
-
-/* --- 2. IL TUO CSS ORIGINALE (INVARIATO) --- */
 
 .form-container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-.form-group { margin-bottom: 20px; }
+.form-group { 
+    margin-bottom: 20px; 
+}
 
 .form-input {
     width: 100%;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background: rgba(255,255,255,0.9);
+    background: #fdfdfd;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 .btn-submit {
@@ -66,19 +68,23 @@ header, nav, .navbar {
     font-size: 1.1rem;
     border-radius: 25px;
     transition: 0.3s;
-    width: 100%; /* Unica piccola aggiunta: centra il bottone o lo riempie */
+    width: 100%;
 }
 
-.btn-submit:hover { background-color: #0f4667; }
+.btn-submit:hover { 
+    background-color: #0f4667; 
+}
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
     max-width: 1200px;
-    width: 90%; /* Adattato per non toccare i bordi schermo */
+    width: 100%;
     margin: 0 auto;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 .horizontal-card {
@@ -91,8 +97,8 @@ header, nav, .navbar {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none; 
     color: inherit;
-    height: 120px; 
-    border: 1px solid #f0f0f0; /* Aggiunto bordino leggero per risaltare sul bianco */
+    height: 110px; 
+    border: 1px solid #f0f0f0;
 }
 
 .horizontal-card:hover {
@@ -102,7 +108,7 @@ header, nav, .navbar {
 
 .icon-box {
     background-color: #2a6973;
-    width: 100px;
+    width: 90px;
     height: 100%; 
     display: flex;
     align-items: center;
@@ -110,18 +116,19 @@ header, nav, .navbar {
     flex-shrink: 0; 
 }
 
-.icon-box i {
-    font-size: 3rem;
+.icon-box i, .icon-box svg {
+    font-size: 2.5rem;
     color: white;
 }
 
 .info-box {
-    padding: 0 20px;
+    padding: 0 15px;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .info-category {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     color: #999;
     margin-bottom: 5px;
@@ -130,15 +137,37 @@ header, nav, .navbar {
 }
 
 .info-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #333;
     margin: 0;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .form-input:focus {
     outline: none;
     border-color: #2a6973;
     box-shadow: 0 0 5px rgba(42, 105, 115, 0.3);
+}
+
+@media (max-width: 768px) {
+    .main-contact-wrapper {
+        padding-top: 110px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .horizontal-card {
+        max-width: 100%;
+    }
 }

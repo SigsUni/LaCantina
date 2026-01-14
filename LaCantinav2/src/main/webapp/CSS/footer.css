@@ -8,8 +8,7 @@
   text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center; /* OK su desktop */
-  /* rimuovo height fissa: lascia che il contenuto determini l'altezza */
+  align-items: center;
 }
 
 .footer-container {
@@ -17,9 +16,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px;      /* per evitare allargamenti eccessivi */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 20px;     /* padding laterale così su mobile non tocca i bordi */
+  padding: 24px 20px;
   box-sizing: border-box;
 }
 
@@ -35,7 +34,7 @@
   padding: 10px;
   min-width: 150px;
   box-sizing: border-box;
-  min-width: 0;           /* evita overflow di contenuto lungo */
+  min-width: 0;
 }
 
 .footer-section h4 {
@@ -70,8 +69,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;              /* sostituisce margin-right puntuale */
-  flex-wrap: wrap;        /* evita overflow orizzontale */
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .social-icon {
@@ -86,44 +85,42 @@
   border-top: 1px solid #444;
 }
 
-/* Stili aggiuntivi per evitare sovrapposizioni */
 .container {
-  min-height: calc(100vh - 100px); /* Altezza minima: 100% viewport meno footer */
-  padding-bottom: 50px;            /* Spazio per evitare che il footer copra il contenuto */
+  min-height: calc(100vh - 100px); 
+  padding-bottom: 50px;            
   position: relative;
 }
 
 #testimonials {
-  margin-bottom: 100px; /* Margine inferiore sufficiente */
+  margin-bottom: 100px;
 }
 
 /* Mobile (smartphone) */
 @media (max-width: 768px) {
 
   .footer {
-    /* NON fissare l'altezza, lascia auto */
-    align-items: stretch;    /* evitiamo compressioni verticali */
+    align-items: stretch;    
   }
 
   .footer-container {
-    flex-direction: column;  /* colonne impilate */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    padding: 16px 14px;      /* più compatto su mobile */
-    gap: 12px;               /* spaziatura costante fra blocchi */
+    padding: 16px 14px;      
+    gap: 12px;               
   }
 
   .footer-logo img {
-    margin-top: 0;           /* rimuove l'offset eccessivo */
-    max-width: 120px;        /* dimensione più equilibrata su mobile */
+    margin-top: 0;          
+    max-width: 120px;        
     width: 100%;
     height: auto;
   }
 
   .footer-section {
-    flex: 0 1 auto;          /* blocchi naturali senza espandersi troppo */
+    flex: 0 1 auto;          
     text-align: center;
-    margin-bottom: 0;        /* rimuove il -15px che causava sovrapposizioni */
+    margin-bottom: 0;        
     width: 100%;
   }
 
@@ -131,16 +128,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 14px;           /* link in riga, avvolgibili */
+    gap: 8px 14px;          
     padding: 0;
   }
 
   .footer-section p,
   .footer-section a,
   .footer-section li {
-    font-size: 14px;         /* testo più leggibile in poco spazio */
+    font-size: 14px;        
     line-height: 1.4;
-    word-break: break-word;  /* niente overflow per parole lunghe */
+    word-break: break-word;  
   }
 
   .social-icons {
@@ -152,7 +149,6 @@
   }
 }
 
-/* Salvaguardia generale contro overflow nel footer */
 .footer * {
   box-sizing: border-box;
   max-width: 100%;

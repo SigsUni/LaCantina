@@ -122,7 +122,9 @@
 
         </div>
 
-    </div> <jsp:include page="/fragments/footer.jsp"></jsp:include>
+    </div>
+
+    <jsp:include page="/fragments/footer.jsp"></jsp:include>
     <script type="text/javascript" src="./JS/index.js"></script>
 
     <script>

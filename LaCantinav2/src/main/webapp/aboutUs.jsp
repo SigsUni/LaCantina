@@ -35,14 +35,14 @@
     <div class="about-page-container">
         
         <h2 class="main-title watch fade-in">Chi Siamo</h2>
-        
-        <div class="row align-items-center">
+
+        <div class="content-row">
             
-            <div class="col-md-6 mb-4 mb-md-0 watch fade-in">
+            <div class="image-col watch fade-in">
                 <img src="./IMG/aboutus_lacantina.png" alt="Il Team La Cantina" class="about-img-style">
             </div>
             
-            <div class="col-md-6 watch fade-in">
+            <div class="text-col watch fade-in">
                 <h3 class="story-subtitle">Tradizione e Innovazione</h3>
                 
                 <p class="story-text">

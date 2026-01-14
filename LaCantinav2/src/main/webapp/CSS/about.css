@@ -1,19 +1,16 @@
-/* --- CSS ABOUT US (SEMPLIFICATO E CORRETTO) --- */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* 1. FORZATURA SFONDO BIANCO (Elimina sbarre nere) */
 html, body {
-    background-color: #ffffff !important; /* Forza il bianco su tutta la pagina */
+    background-color: #ffffff !important;
     background: #ffffff !important;
     font-family: 'Poppins', sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Assicura che la pagina arrivi fino in fondo */
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* 2. FIX HEADER (Lo rende bianco sicuro) */
 header, nav, .navbar, .navbar-collapse, .container-fluid {
     background-color: #ffffff !important;
     background: #ffffff !important;
@@ -21,28 +18,48 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* 3. SPAZIO PER NON ANDARE SOTTO L'HEADER */
 .about-page-container {
     background-color: #ffffff;
-    padding-top: 150px; /* Spinge giù il contenuto manualmente */
+    padding-top: 150px; 
     padding-bottom: 80px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto; /* Centra il contenitore */
+    width: 90%; /* Lascia un margine laterale su mobile */
+    max-width: 1200px; /* Blocca la larghezza massima su PC per centrare */
+    margin: 0 auto; /* FONDAMENTALE: Centra il blocco orizzontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra gli elementi interni */
 }
 
-/* --- 4. STILI CONTENUTO --- */
-
-/* Titolo principale */
 .main-title {
     color: #2a6973;
     font-size: 2.5rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
-/* Testo descrittivo */
+.content-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 40px; /* Spazio tra immagine e testo */
+}
+
+.image-col {
+    flex: 1 1 400px; /* Larghezza minima 400px, altrimenti va a capo */
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-col {
+    flex: 1 1 400px; /* Larghezza minima 400px, altrimenti va a capo */
+    max-width: 600px;
+}
+
 .story-text {
     font-size: 1.1rem;
     line-height: 1.8; 
@@ -51,7 +68,6 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
     margin-bottom: 1.5rem;
 }
 
-/* Sottotitolo */
 .story-subtitle {
     color: #2a6973;
     font-weight: 600;
@@ -59,7 +75,6 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
     margin-bottom: 20px;
 }
 
-/* Immagine */
 .about-img-style {
     width: 100%;
     height: auto;
@@ -71,4 +86,32 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
 
 .about-img-style:hover {
     transform: scale(1.02); 
+}
+
+@media (max-width: 991px) {
+    .about-page-container {
+        padding-top: 130px;
+    }
+    
+    .content-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .image-col, .text-col {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+    
+    .story-subtitle {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
 }
