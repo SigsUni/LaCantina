@@ -59,5 +59,4 @@ public class AdminInsertNewProductServletIntegrationTest extends SeededIntegrati
         verify(resp).sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
     }
 
-    // TF_ADM_10/11/12 richiedono validazione parametri (null, prezzo<=0, stock<0) nella servlet.
 }

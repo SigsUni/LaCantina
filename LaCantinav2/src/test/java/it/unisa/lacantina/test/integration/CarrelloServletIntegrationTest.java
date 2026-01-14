@@ -20,7 +20,6 @@ import it.unisa.lacantina.test.util.*;
 
 public class CarrelloServletIntegrationTest extends SeededIntegrationBase {
 
-    // ✅ wrapper per esporre doGet protected
     static class TestableAddToCartServlet extends AddToCartServlet {
         public void doGetPublic(HttpServletRequest req, HttpServletResponse resp) throws Exception {
             super.doGet(req, resp);
@@ -63,7 +62,7 @@ public class CarrelloServletIntegrationTest extends SeededIntegrationBase {
         Map<String, Object> store = sessionStore(session);
 
         when(req.getSession()).thenReturn(session);
-        when(req.getParameter("id")).thenReturn("12"); // esiste nel seed
+        when(req.getParameter("id")).thenReturn("12"); 
         doNothing().when(resp).sendRedirect(anyString());
 
         new TestableAddToCartServlet().doGetPublic(req, resp);
@@ -90,8 +89,8 @@ public class CarrelloServletIntegrationTest extends SeededIntegrationBase {
         doNothing().when(resp).sendRedirect(anyString());
 
         TestableAddToCartServlet servlet = new TestableAddToCartServlet();
-        servlet.doGetPublic(req, resp); // qty 1
-        servlet.doGetPublic(req, resp); // qty 2
+        servlet.doGetPublic(req, resp); 
+        servlet.doGetPublic(req, resp); 
 
         ArrayList<Carrello> list = cartList(store);
         assertNotNull(list);
@@ -134,7 +133,6 @@ public class CarrelloServletIntegrationTest extends SeededIntegrationBase {
 
         Map<String, Object> store = sessionStore(session);
 
-        // pre-carico carrello con qty=1
         ArrayList<Carrello> list = new ArrayList<>();
         Carrello c = new Carrello();
         c.getProdotto().setId(12);
@@ -146,7 +144,6 @@ public class CarrelloServletIntegrationTest extends SeededIntegrationBase {
         when(req.getParameter("id")).thenReturn("12");
         doNothing().when(resp).sendRedirect(anyString());
 
-        // ✅ Fix per evitare NPE su response.getWriter().append(...)
         when(req.getContextPath()).thenReturn("/LaCantinav2");
         when(resp.getWriter()).thenReturn(new java.io.PrintWriter(new java.io.StringWriter()));
 

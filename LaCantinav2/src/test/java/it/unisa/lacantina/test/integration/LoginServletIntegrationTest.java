@@ -107,7 +107,6 @@ public class LoginServletIntegrationTest extends SeededIntegrationBase {
         verify(rdErr).forward(req, resp);
     }
 
-    // ---- TC_UM_01 (email vuota/formato) + TF-UM-12 (email inesistente) ----
 
     @Test
     void TF_UM_01_loginEmailVuota_forwardErroreCampoObbligatorio() throws Exception {

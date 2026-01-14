@@ -87,8 +87,6 @@ public class RegisterServletIntegrationTest extends SeededIntegrationBase {
         verify(rdOk).forward(req, resp);
     }
 
-    // ---- TC_UM_01 / TC_UM_02 negative frames (richiedono validazioni in RegisterServlet) ----
-
     @Test
     void TF_UM_03_regEmailVuota_forwardErroreCampoObbligatorio() throws Exception {
         HttpServletRequest req = mock(HttpServletRequest.class);

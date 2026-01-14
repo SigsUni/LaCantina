@@ -13,13 +13,11 @@ public abstract class DbTestBase {
 
     @BeforeEach
     void resetDbAndOpenTx() throws Exception {
-        // 1) Reset DB (autocommit)
         try (Connection seedCon = DriverManager.getConnection(URL, USER, PASSWORD)) {
             seedCon.setAutoCommit(true);
             SqlScriptRunner.runClasspathScript(seedCon, "db/seed.sql");
         }
 
-        // 2) Connessione del test in transazione (rollback a fine test se vuoi)
         con = DriverManager.getConnection(URL, USER, PASSWORD);
         con.setAutoCommit(false);
     }

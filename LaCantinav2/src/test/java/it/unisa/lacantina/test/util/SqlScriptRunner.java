@@ -18,7 +18,6 @@ public final class SqlScriptRunner {
             if (br == null) throw new IllegalArgumentException("Resource non trovata: " + resourcePath);
 
             String sql = br.lines().collect(Collectors.joining("\n"));
-            // rimuove commenti "-- ..."
             sql = sql.replaceAll("(?m)^\\s*--.*$", "");
 
             String[] statements = sql.split(";");

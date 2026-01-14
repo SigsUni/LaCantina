@@ -50,6 +50,4 @@ public class AdminModifyPriceServletIntegrationTest extends SeededIntegrationBas
         verify(resp).sendRedirect("/LaCantinav2/admin-pages/admin_index.jsp");
     }
 
-    // TF_ADM_06 (<=0) e controlli ruolo richiedono validazione nella servlet:
-    // se vuoi renderli automatici, vedi sezione "Cosa aggiungere nelle servlet" in fondo.
 }
