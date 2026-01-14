@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-html, body {
+html {
+    height: 100%;
+	background-color: #ffffff;
+}
+
+body {
     background-color: #ffffff !important;
     background: #ffffff !important;
     font-family: 'Poppins', sans-serif;
@@ -8,6 +13,8 @@ html, body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
 }
 
@@ -21,43 +28,43 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
 .about-page-container {
     background-color: #ffffff;
     padding-top: 150px; 
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1; 
 }
 
 .main-title {
     color: #2a6973;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem); /* Si rimpicciolisce con lo zoom */
     font-weight: 600;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     width: 100%;
 }
 
 .content-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Fondamentale per lo zoom */
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 40px; /* Spazio tra immagine e testo */
+    gap: 40px;
+}
+
+.image-col, .text-col {
+    flex: 1 1 300px; /* Si adatta fino a che lo spazio è di 300px, poi va a capo */
+    max-width: 100%;
+    width: 100%;
 }
 
 .image-col {
-    flex: 1 1 400px;
-    max-width: 600px;
     display: flex;
     justify-content: center;
-}
-
-.text-col {
-    flex: 1 1 400px; 
-    max-width: 600px;
 }
 
 .story-text {
@@ -77,6 +84,7 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
 
 .about-img-style {
     width: 100%;
+    max-width: 600px; /* Limite massimo per estetica */
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -93,25 +101,23 @@ header, nav, .navbar, .navbar-collapse, .container-fluid {
         padding-top: 130px;
     }
     
-    .content-row {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .image-col, .text-col {
-        max-width: 100%;
-        flex: 1 1 100%;
-    }
-    
     .story-subtitle {
         text-align: center;
-        margin-top: 10px;
+        margin-top: 20px;
+    }
+    
+    .story-text {
+        text-align: left; /* Migliore leggibilità su zoom alto */
     }
 }
 
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
+    .about-page-container {
+        width: 95%;
+        padding-top: 120px;
+    }
+    
+    .content-row {
+        gap: 20px;
     }
 }
